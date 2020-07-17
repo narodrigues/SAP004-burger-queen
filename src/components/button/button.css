@@ -1,0 +1,21 @@
+button {
+	background: #950021;
+	border: none;
+	border-radius: 35px;
+	color: #FFF;
+	cursor: pointer;
+	font-weight: bold;
+	height: 55px;
+	letter-spacing: 1px;
+	margin: 15px;
+	opacity: 0.8;
+	text-transform: uppercase;
+	transition: all 0.3s;
+	width: 145px;
+} 
+
+button:hover {
+	background: #950021;
+	color: #FFF;
+	opacity: initial;
+} 

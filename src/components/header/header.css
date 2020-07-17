@@ -1,0 +1,35 @@
+header {
+	align-items: center;
+	background: #950021;
+	display: flex;
+	height: 45vh;
+	justify-content: center;
+	padding: 5px 0;
+	width: 100%;
+}
+
+.logo-login {
+	width: 300px;
+}
+
+@media screen and (min-width: 700px){
+	header {
+		height: 40vh;
+	}
+
+	.logo-login {
+		width: 415px;
+	}
+}
+
+@media screen and (min-width: 850x){
+	.logo-login {
+		width: 500px;
+	}
+}
+
+@media screen and (min-width: 1300px){
+	.logo-login {
+		width: 615px;
+	}
+}
