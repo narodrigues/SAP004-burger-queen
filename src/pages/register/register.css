@@ -1,0 +1,15 @@
+.form-register {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+  
