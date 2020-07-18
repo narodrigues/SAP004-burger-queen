@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import './register.css';
 import Button from '../../components/button/Button';
-// import Overlay from '../../components/overlay/overlay';
 import Input from '../../components/input/Input';
 
 export default class Register extends Component {
