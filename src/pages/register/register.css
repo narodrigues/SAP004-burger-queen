@@ -1,8 +1,43 @@
 .form-register {
+  align-items: center;
   background: white;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  box-shadow: 15px 15px 20px 0px #dfb48f9a;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  justify-content: center;
+  margin: 0 auto;
+  min-width: 500px;
+  min-height: 450px;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -250px;
+  padding: 20px 0px;
+  position: absolute;
+  top: 50%; 
+  width: 300px;
+}
+
+.form-register .inputs-text input {
+  background: #d0d0d033;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 15px 15px 21px 0px #e7c8ad78;
+  height: 55px;
+  letter-spacing: 1px;
+  margin: 10px;
+  padding-left: 10px;
+  width: 300px;
+}
+
+.btn-confirms {
+  display: flex;
+  justify-content: center;
+}
+
+.select-role input {
+  background: none;
 }
 
 .display-block {
@@ -12,4 +47,24 @@
 .display-none {
   display: none;
 }
-  
+
+.select-role:nth-child(odd) {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0!important;
+}
+
+input[type=radio] {
+  margin: 20px 40px 20px 5px;
+}
+
+
+@media screen and (min-width: 700px){
+	.form-register .inputs-text input  {
+    font-size: 15px;
+    margin: 15px;
+    padding-left: 15px;
+    width: 360px;
+  }
+}
