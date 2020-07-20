@@ -2,9 +2,31 @@ import React, { Component } from "react";
 import './register.css';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
-import * as firebase from 'firebase';
+import firebase from '../../configure-firebase';
 
 export default class Register extends Component {
+  creatUser = (e) => {
+    e.preventDefault();
+    const username = this.state.username;
+    const email = this.state.email;
+    const password = this.state.password;
+    const jobTitle = this.state.jobTitle;
+
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        firebase
+          .firestore()
+          .collection('users').add({
+            username,
+            email,
+            jobTitle,
+            userUid: firebase.auth().currentUser.uid,
+          });
+      })
+  }
+
   creatUser = (e) => {
     e.preventDefault();
     const username = this.state.username;
