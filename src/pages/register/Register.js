@@ -31,11 +31,11 @@ export default class Register extends Component {
           <Input type='email' name='email' placeholder='email@exemple.com' id='email-register' onChange={this.handleChange} />
           <Input type='password' name='password' placeholder='senha' id='password-register' onChange={this.handleChange} />
         </div>
-        <div className='select-role'>
+        <div className='select-role' onChange={this.handleChange}>
           <label htmlFor='kitchen'>COZINHA</label>
-          <Input type='radio' onChange={this.handleChange}  className='radio-button' name='position' id='kitchen' />
+          <Input type='radio' className='radio-button' name='job-title' id='kitchen' value='kitchen'/>
           <label htmlFor='hall'>SALÃO</label>
-          <Input type='radio' onChange={this.handleChange}  className='radio-button' name='position' id='hall' />
+          <Input type='radio' className='radio-button' name='job-title' id='hall' value='hall'/>
         </div>
         <div className='btn-confirms'>
           <Button id='btn-cancel' className='button' name='Cancelar' />
