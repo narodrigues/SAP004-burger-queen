@@ -9,18 +9,17 @@ export default class Register extends Component {
     username: '',
     email: '',
     password: '',
-    position: '',
+    jobTitle: '',
   };
 
   handleChange = (event) => {
     let nam = event.target.name;
     let val = event.target.value;
-    this.setState({[nam]: val});
+    this.setState({ [nam]: val });
   }
 
-  confirmar = (e) => {
+  sendForm = (e) => {
     e.preventDefault();
-    console.log(this.state)
   };
 
   render() {
@@ -33,13 +32,13 @@ export default class Register extends Component {
         </div>
         <div className='select-role' onChange={this.handleChange}>
           <label htmlFor='kitchen'>COZINHA</label>
-          <Input type='radio' className='radio-button' name='job-title' id='kitchen' value='kitchen'/>
+          <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='kitchen' />
           <label htmlFor='hall'>SALÃO</label>
-          <Input type='radio' className='radio-button' name='job-title' id='hall' value='hall'/>
+          <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='hall' />
         </div>
         <div className='btn-confirms'>
           <Button id='btn-cancel' className='button' name='Cancelar' />
-          <Button id='btn-confirm' className='button' name='Confirmar' handleClick={this.confirmar}/>
+          <Button id='btn-confirm' className='button' name='Confirmar' handleClick={this.sendForm} />
         </div>
       </form>
 
