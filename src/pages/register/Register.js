@@ -2,25 +2,47 @@ import React, { Component } from "react";
 import './register.css';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
+import * as firebase from 'firebase';
 
 export default class Register extends Component {
+  creatUser = (e) => {
+    e.preventDefault();
+    const username = this.state.username;
+    const email = this.state.email;
+    const password = this.state.password;
+    const jobTitle = this.state.jobTitle;
+
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        firebase
+          .firestore()
+          .collection('users').add({
+            username,
+            email,
+            jobTitle,
+            userUid: firebase.auth().currentUser.uid,
+          });
+      })
+  }
 
   state = {
     username: '',
     email: '',
     password: '',
-    position: '',
+    jobTitle: '',
   };
 
   handleChange = (event) => {
     let nam = event.target.name;
     let val = event.target.value;
-    this.setState({[nam]: val});
+    this.setState({ [nam]: val });
   }
 
-  confirmar = (e) => {
-    e.preventDefault();
+  sendForm = (e) => {
     console.log(this.state)
+    e.preventDefault();
   };
 
   render() {
@@ -33,13 +55,13 @@ export default class Register extends Component {
         </div>
         <div className='select-role' onChange={this.handleChange}>
           <label htmlFor='kitchen'>COZINHA</label>
-          <Input type='radio' className='radio-button' name='job-title' id='kitchen' value='kitchen'/>
+          <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='kitchen' />
           <label htmlFor='hall'>SALÃO</label>
-          <Input type='radio' className='radio-button' name='job-title' id='hall' value='hall'/>
+          <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='hall' />
         </div>
         <div className='btn-confirms'>
           <Button id='btn-cancel' className='button' name='Cancelar' />
-          <Button id='btn-confirm' className='button' name='Confirmar' handleClick={this.confirmar}/>
+          <Button id='btn-confirm' className='button' name='Confirmar' handleClick={this.creatUser} />
         </div>
       </form>
 
