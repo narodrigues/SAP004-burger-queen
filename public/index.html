@@ -21,27 +21,11 @@
 <body>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
-
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyA0zQpowGuqLpRl657XZedbxvMynArMc78",
-      authDomain: "projeto-burger-queen.firebaseapp.com",
-      databaseURL: "https://projeto-burger-queen.firebaseio.com",
-      projectId: "projeto-burger-queen",
-      storageBucket: "projeto-burger-queen.appspot.com",
-      messagingSenderId: "41467177785",
-      appId: "1:41467177785:web:a66f855d35e4d78e4056e8",
-      measurementId: "G-3Y15YZ5EQG"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
+  <script src='./configure-firebase.js'></script>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
 
