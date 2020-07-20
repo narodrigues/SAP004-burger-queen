@@ -1,9 +1,11 @@
+
 button {
 	background: #950021;
 	border: none;
 	border-radius: 35px;
 	color: #FFF;
 	cursor: pointer;
+	font-family: 'Comfortaa', cursive;
 	font-weight: bold;
 	height: 55px;
 	letter-spacing: 1px;
