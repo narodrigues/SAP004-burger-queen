@@ -15,11 +15,6 @@ export default class Login extends Component {
     this.setState({ show: true });
   };
 
-  hideModal = (e) => {
-    e.preventDefault()
-    this.setState({ show: false });
-  };
-
   render() {
     return (
       <section className='flex-row-desk'>
@@ -35,7 +30,7 @@ export default class Login extends Component {
             </div>
           </form>
         </div>
-        <Modal show={this.state.show} handleClose={this.hideModal}>
+        <Modal show={this.state.show}>
           <Register />
         </Modal>
       </section>
