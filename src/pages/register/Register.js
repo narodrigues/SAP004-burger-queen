@@ -34,15 +34,12 @@ export default function Register() {
           });
       }).catch((err) => {
         if (email === '' || username === '' || jobTitle === '' || password === '') {
-          showErroEmptyFields = ''
           setErrorEmptyFields(!showErroEmptyFields)
         } else if (username === '') {
           setErrorNameEmpty(!showErroNameEmpty)
         } else if (err.code === 'auth/invalid-email') {
-          showErroEmailInvalid = '';
           setErrorEmailInvalid(!showErroEmailInvalid)
         } else if (err.code === 'auth/weak-password') {
-          showErroPassword = '';
           setErrorPassword(!showErroPassword)
         }
       })
