@@ -4,7 +4,6 @@ import Register from '../register/Register';
 import Button from '../../components/button/Button';
 import Modal from '../../components/modal/Modal';
 import Input from '../../components/input/Input';
-// import { firebase } from "../../../public/configure-firebase";
 import './login.css';
 
 export default class Login extends Component {
