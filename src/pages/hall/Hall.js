@@ -1,7 +1,9 @@
-import React, { Component } from "react";
-import './pedidos.css';
+import React from "react";
+import './hall.css';
 
 
-export default class Pedidos extends Component {
-
+export default function Hall() {
+  return (
+    <h1>Salão</h1>
+  )
 }

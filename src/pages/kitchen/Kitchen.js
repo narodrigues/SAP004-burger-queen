@@ -1,7 +1,9 @@
-import React, { Component } from "react";
-import './cardapio.css';
+import React from "react";
+import './kitchen.css';
 
 
-export default class Cardapio extends Component {
-
+export default function Kitchen() {
+  return (
+    <h1>Cozinha</h1>
+  )
 }
