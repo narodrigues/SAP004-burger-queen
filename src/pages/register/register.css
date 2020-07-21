@@ -1,3 +1,8 @@
+p {
+  color: red;
+  font-weight: bold;
+}
+
 .form-register {
   align-items: center;
   background: white;
