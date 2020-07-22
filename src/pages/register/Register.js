@@ -43,7 +43,7 @@ export default function Register(props) {
     return isValid;
   }
 
-  const creatUser = (e, username, email, password, jobTitle) => {
+  const creatUser = (e) => {
     e.preventDefault()
 
     const isValid = validForm();

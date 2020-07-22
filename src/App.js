@@ -8,7 +8,6 @@ import './App.css';
 
 export default function App() {
   const [user, setUser] = useState();
-  console.log(user)
 
   useEffect(() => {
     firebase
