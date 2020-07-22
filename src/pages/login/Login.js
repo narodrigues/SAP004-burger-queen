@@ -10,6 +10,10 @@ import './login.css';
 export default function Login() {
   const [modalRegister, setModalRegister] = useState(false);
 
+  function closeModal() {
+    setModalRegister(false);
+  }
+
   return (
     <section className='flex-row-desk'>
       <Header />
@@ -25,7 +29,7 @@ export default function Login() {
         <Button handleClick={() => setModalRegister(true)} id='btn-register' className='button' name='Registrar-se' />
       </div>
       <Modal show={modalRegister}>
-        <Register />
+        <Register closeModal={closeModal} />
       </Modal>
     </section>
   );
