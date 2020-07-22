@@ -1,64 +1,40 @@
-// import React from 'react';
-// // import logo from './logo.svg';
-// import Routes from './routes';
-import React, { useEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import Kitchen from './pages/kitchen';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './pages/login/Login';
 import Kitchen from './pages/kitchen/Kitchen';
 import Hall from './pages/hall/Hall';
 import firebase from './configure-firebase'
-
-// import Header from './components/header/Header';
-// import Login from  './pages/login/Login';
 import './App.css';
-// import 'bootstrap / dist / css / bootstrap.min.css';
 
 export default function App(){
-  // <div className="App">
+  const [user, setUser] = useState();
 
-// const history = useHistory();
-// console.log(history)
+  useEffect(() => {
+    firebase
+      .auth()
+      .onAuthStateChanged(user => {
+        user ? 
+          firebase
+            .firestore()
+            .collection('users')
+            .where('userUid', '==', user.uid)
+            .get()
+            .then(querySnapshot => {
+              querySnapshot.forEach(doc => setUser(doc.data()))
+            }) 
+        : setUser();
+    })
+  }, []);
 
-// useEffect(() => {
-//   firebase
-//   .auth()
-//   .onAuthStateChanged(user => {
-//     user ? 
-//     firebase
-//       .firestore()
-//       .collection('users')
-//       // .doc(user.uid)
-//       .where('userUid', '==', user.uid)
-//       .get()
-//       .then(querySnapshot => {
-//         querySnapshot.forEach((doc) => {
-//           const userData = doc.data().jobTitle
-//           // if(userData === 'kitchen'){
-//           //   console.log(useHistory)
-//           //   history.push('/kitchen')
-//           // } else {
-//           //   history.push('/hall')
-//           // }
-//         })
-    
-//       }) 
-//       : history.push('/')
+  return (
+    <BrowserRouter>
+      {user ? <Redirect to={user.jobTitle} /> : <Redirect to={'/'} />}
 
-//   })
-// }, [history]);
-
-return  (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path='/' component={Login} />
-      <Route exact path='/kitchen' component={Kitchen} />
-      <Route exact path='/hall' component={Hall} />
-    </Switch>
-  </BrowserRouter>
-)
-  //   <Routes />
-  // </div>
+      <Switch>
+        <Route exact path='/' component={Login} />
+        <Route path='/kitchen' component={Kitchen} />
+        <Route path='/hall' component={Hall} />
+      </Switch>
+    </BrowserRouter>
+  )
 }
-
-// export default App;

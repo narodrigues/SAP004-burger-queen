@@ -37,9 +37,9 @@ export default function Register() {
       </div>
       <div className='select-role' onChange={(e) => setJobTitle(e.target.value)}>
         <label htmlFor='kitchen'>COZINHA</label>
-        <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='kitchen' />
+        <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='Kitchen' />
         <label htmlFor='hall'>SALÃO</label>
-        <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='hall' />
+        <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='Hall' />
       </div>
       <div className='btn-confirms'>
         <Button id='btn-cancel' className='button' name='Cancelar' />

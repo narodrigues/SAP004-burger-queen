@@ -17,16 +17,13 @@ export default function Login() {
     setShow(!open)
   }
 
-  const login = (email, password) => {
+  const login = (e, email, password) => {
+    e.preventDefault();
+    console.log('entrou no login')
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        window.location = '#feed';
-      })
-      .catch((error) => {
-        alert(error.code);
-      })
+      .catch(error => alert(error.code));
   }
   
   return (
@@ -37,7 +34,7 @@ export default function Login() {
           <Input type='email' placeholder='email@exemple.com' id='emal-login' onChange={(e) => setEmail(e.target.value)}/>
           <Input type='password' placeholder='senha' id='password-login' onChange={(e) => setPassword(e.target.value)}/>
           <div className='div-buttons-login'>
-            <Button id='btn-login' className='button' name='Entrar' handleClick={(e) => login(email, password)}/>
+            <Button id='btn-login' className='button' name='Entrar' handleClick={(e) => login(e, email, password)}/>
             <span>Ainda não é registrado?</span>
             <Button id='btn-register' className='button' name='Registrar-se' handleClick={(e) => changeShow(e, modalRegister)}/>
           </div>
