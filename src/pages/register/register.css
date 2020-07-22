@@ -1,3 +1,8 @@
+p {
+  color: red;
+  font-weight: bold;
+}
+
 .form-register {
   align-items: center;
   background: white;
@@ -13,6 +18,7 @@
   margin-top: -175px;
   padding: 20px 0px;
   position: absolute;
+  text-align: center;
   top: 50%; 
   width: 350px;
 }
