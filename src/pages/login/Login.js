@@ -19,7 +19,6 @@ export default function Login() {
 
   const login = (e, email, password) => {
     e.preventDefault();
-    console.log('entrou no login')
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
