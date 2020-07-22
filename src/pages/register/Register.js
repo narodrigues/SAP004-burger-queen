@@ -6,13 +6,13 @@ import firebase from '../../configure-firebase';
 
 export default function Register(props) {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [jobTitle, setJoTitle] = useState('');
-  let [showErroNameEmpty, setErrorNameEmpty] = useState(false);
-  let [showErroEmailInvalid, setErrorEmailInvalid] = useState(false);
-  let [showErroPassword, setErrorPassword] = useState(false);
-  let [showErroEmptyRadios, setErrorEmptyRadios] = useState(false);
+  const [password, setPassword] = useState('');
+  const [jobTitle, setJobTitle] = useState('');
+  const [showErroNameEmpty, setErrorNameEmpty] = useState(false);
+  const [showErroEmailInvalid, setErrorEmailInvalid] = useState(false);
+  const [showErroPassword, setErrorPassword] = useState(false);
+  const [showErroEmptyRadios, setErrorEmptyRadios] = useState(false);
 
   function validForm() {
     setErrorNameEmpty(false);
@@ -43,9 +43,11 @@ export default function Register(props) {
     return isValid;
   }
 
-  const creatUser = (e) => {
+  const creatUser = (e, username, email, password, jobTitle) => {
     e.preventDefault()
+
     const isValid = validForm();
+
     if (isValid) {
       firebase
         .auth()
@@ -59,9 +61,8 @@ export default function Register(props) {
               jobTitle,
               userUid: firebase.auth().currentUser.uid,
             });
-          props.closeModal()
         }).catch((err) => {
-          alert(err.message)
+          console.log(err)
         })
     };
   }
@@ -72,7 +73,7 @@ export default function Register(props) {
         <div className='inputs-text'>
           <Input type='text' name='username' placeholder='nome' id='name-login' onChange={(e) => setUsername(e.target.value)} />
           {showErroNameEmpty && (
-            <p>Por favor, preencha seu nome</p>
+            <p>Por favor, preencha seu nome.</p>
           )}
           <Input type='email' required name='email' placeholder='email@exemple.com' id='email-register' onChange={(e) => setEmail(e.target.value)} />
           {showErroEmailInvalid && (
@@ -85,18 +86,18 @@ export default function Register(props) {
         </div>
         <div className='select-role'>
           <label htmlFor='kitchen'>COZINHA</label>
-          <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='kitchen' onChange={(e) => setJoTitle(e.target.value)} />
+          <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='Kitchen' onChange={(e) => setJobTitle(e.target.value)} />
           <label htmlFor='hall'>SALÃO</label>
-          <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='hall' onChange={(e) => setJoTitle(e.target.value)} />
+          <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='Hall' onChange={(e) => setJobTitle(e.target.value)} />
           {showErroEmptyRadios && (
             <p>{showErroEmptyRadios}</p>
           )}
         </div>
       </form>
       <div className='btn-confirms'>
-        <Button id='btn-cancel' name='Cancelar' />
+        <Button id='btn-cancel' name='Cancelar' handleClick={props.closeModalConfirm} />
         <Button id='btn-confirm' className='button' name='Confirmar' handleClick={creatUser} />
       </div>
     </div>
-  )
+  );
 }
