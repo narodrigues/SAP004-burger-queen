@@ -8,13 +8,18 @@ import firebase from '../../configure-firebase';
 import './login.css';
 
 export default function Login() {
-  const [modalRegister, setShow] = useState(false);
+  const [modalRegister, setModalRegister] = useState(false);
+  const [register, setRegister] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const changeShow = (e, open) => {
+  const changeShow = (e, show) => {
     e.preventDefault();
-    setShow(!open)
+    setRegister(!show)
+  }
+
+  function closeModal() {
+    setModalRegister(false);
   }
 
   const login = (e, email, password) => {
@@ -35,12 +40,12 @@ export default function Login() {
           <div className='div-buttons-login'>
             <Button id='btn-login' className='button' name='Entrar' handleClick={(e) => login(e, email, password)}/>
             <span>Ainda não é registrado?</span>
-            <Button id='btn-register' className='button' name='Registrar-se' handleClick={(e) => changeShow(e, modalRegister)}/>
+            <Button id='btn-register' className='button' name='Registrar-se' handleClick={(e) => changeShow(e, register)}/>
           </div>
         </form>
       </div>
-      <Modal open={modalRegister}>
-        <Register />
+      <Modal show={register}>
+        <Register closeModal={closeModal}/>
       </Modal>
     </section>
   )

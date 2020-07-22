@@ -1,3 +1,8 @@
+p {
+  color: red;
+  font-weight: bold;
+}
+
 .form-register {
   align-items: center;
   background: white;
@@ -8,16 +13,14 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  min-width: 500px;
-  min-height: 450px;
   left: 50%;
-  margin-left: -250px;
-  margin-top: -250px;
+  margin-left: -175px;
+  margin-top: -175px;
   padding: 20px 0px;
   position: absolute;
   text-align: center;
   top: 50%; 
-  width: 300px;
+  width: 350px;
 }
 
 .form-register .inputs-text input {
@@ -58,6 +61,15 @@
 
 input[type=radio] {
   margin: 20px 40px 20px 5px;
+}
+
+@media screen and (min-width: 500px) {
+  .form-register {
+    margin-left: -250px;
+    margin-top: -250px;
+    min-width: 500px;
+    min-height: 450px;
+  }
 }
 
 
