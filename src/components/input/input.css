@@ -2,3 +2,7 @@ input::placeholder {
     font-family: 'Comfortaa', cursive;
 }
 
+input {
+    color: black;
+}
+
