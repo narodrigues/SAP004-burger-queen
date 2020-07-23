@@ -1,7 +1,7 @@
 header {
 	align-items: center;
-	/* background: url('../../assets/background.jpg') fixed;
-	background-size: cover; */
+	/* background: url('../../assets/background.jpg') fixed;*/
+	background-size: cover;
 	background: url('../../assets/background.jpg');
 	display: flex;
 	height: 45vh;
@@ -19,10 +19,10 @@ header {
 		height: 40vh;
 	}
 
-	.logo-login {
-		height: 395px;
-		width: 415px;
-	}
+	/* .logo-login { */
+		/* height: 395px; */
+		/* width: 415px;
+	} */
 }
 
 @media screen and (min-width: 850x){
@@ -33,7 +33,7 @@ header {
 
 @media screen and (min-width: 1300px){
 	header {
-		background-size: auto;
+		background-size: cover;
 	}
 
 	.logo-login {

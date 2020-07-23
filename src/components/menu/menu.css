@@ -39,7 +39,13 @@
 img {
     border: transparent;
     border-radius: 15px;
-    height: 150px;
+    /* height: 150px; */
+    width: 200px;
+}
+
+.hall .logo-login {
+    left: 40px;
+    position: absolute;
     width: 200px;
 }
 

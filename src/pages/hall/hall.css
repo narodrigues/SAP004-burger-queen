@@ -1,29 +1,30 @@
 body {
-    font-family: 'Comfortaa', cursive;
+	font-family: 'Comfortaa', cursive;
 }
 
 .hall {
-    display: flex;
-    background: url('../../assets/background.jpg');
+	display: flex;
+	background: url(/static/media/background.978f099e.jpg);
+	background-size: cover;
 }
 
 .hall header {
-    height: 30vh;
-    width: 100%;
+	background: none!important;
+	height: 30vh;
+	width: 100%;
 }
 
-
 .header-hall img {
-    width: 250px;
+	width: 250px;
 }
 
 .buttons-option {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .buttons-option button {
-    font-size: 16px;
+	font-size: 16px;
 }
