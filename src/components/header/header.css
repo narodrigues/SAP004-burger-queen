@@ -1,8 +1,7 @@
 header {
 	align-items: center;
-	/* background: url('../../assets/background.jpg') fixed;*/
 	background-size: cover;
-	background: url('../../assets/background.jpg');
+	background: url('../../assets/background.jpg') fixed;
 	display: flex;
 	height: 45vh;
 	justify-content: center;
