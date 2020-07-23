@@ -1,3 +1,29 @@
 body {
     font-family: 'Comfortaa', cursive;
 }
+
+.hall {
+    display: flex;
+    background: url('../../assets/background.jpg');
+}
+
+.hall header {
+    height: 30vh;
+    width: 100%;
+}
+
+
+.header-hall img {
+    width: 250px;
+}
+
+.buttons-option {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttons-option button {
+    font-size: 16px;
+}

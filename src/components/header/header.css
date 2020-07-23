@@ -1,6 +1,6 @@
 header {
 	align-items: center;
-	background: #950021;
+	background: url('../../assets/background.jpg');
 	display: flex;
 	height: 45vh;
 	justify-content: center;
