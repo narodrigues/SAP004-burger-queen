@@ -1,6 +1,7 @@
 header {
 	align-items: center;
-	background: #950021;
+	background: url('../../assets/background.jpg') fixed;
+	background-size: cover;
 	display: flex;
 	height: 45vh;
 	justify-content: center;
@@ -18,7 +19,7 @@ header {
 	}
 
 	.logo-login {
-		width: 415px;
+		width: 315px;
 	}
 }
 
@@ -29,7 +30,11 @@ header {
 }
 
 @media screen and (min-width: 1300px){
+	header {
+		background-size: auto;
+	}
+
 	.logo-login {
-		width: 615px;
+		width: 515px;
 	}
 }
