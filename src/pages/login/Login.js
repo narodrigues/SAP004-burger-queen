@@ -8,7 +8,7 @@ import firebase from '../../configure-firebase';
 import './login.css';
 
 export default function Login() {
-  const [modalRegister, setModalRegister] = useState(false);
+  // const [modalRegister, setModalRegister] = useState(false);
   const [register, setRegister] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,9 +18,9 @@ export default function Login() {
     setRegister(!show)
   }
 
-  function closeModal() {
-    setModalRegister(false);
-  }
+  // function closeModal() {
+  //   setModalRegister(false);
+  // }
 
   const login = (e, email, password) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ export default function Login() {
         </form>
       </div>
       <Modal show={register}>
-        <Register closeModal={closeModal} />
+        <Register /*closeModal={closeModal}*/ />
       </Modal>
     </section>
   )

@@ -65,8 +65,8 @@ input[type=radio] {
 
 @media screen and (min-width: 500px) {
   .form-register {
-    margin-left: -250px;
-    margin-top: -250px;
+    margin-left: -250px!important;
+    margin-top: -250px!important;
     min-width: 500px;
     min-height: 450px;
   }
