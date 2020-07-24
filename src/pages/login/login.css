@@ -22,6 +22,10 @@ header {
   width: 300px;
 }
 
+.form-login p {
+  color: red;
+}
+
 .div-buttons-login {
   align-items: center;
   display: flex;
