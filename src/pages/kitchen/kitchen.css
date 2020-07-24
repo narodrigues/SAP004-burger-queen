@@ -1,3 +1,85 @@
 body {
-    font-family: 'Comfortaa', cursive;
+	font-family: 'Comfortaa', cursive;
+}
+
+.kitchen {
+	background: url('../../assets/background.jpg') fixed;
+	display: flex;
+	background-size: cover;
+	height: 50vh;
+}
+
+.kitchen header {
+	background: none!important;
+	height: 30vh;
+	width: 100%;
+}
+
+.kitchen button {
+	height: 40px;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	width: 110px;
+}
+
+.kitchen-hall img {
+	width: 250px;
+}
+
+.exit-btn {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.kitchen .logo-login {
+	left: 10vw;
+	position: absolute;
+	top: 10px;
+	width: 180px;
+}
+
+@media screen and (min-width: 700px){
+	.kitchen .logo-login {
+		top: 40px;
+		width: 230px;
+	}
+
+	.kitchen button {
+		height: 60px;
+		right: 10vw;
+		top: 40px;
+		width: 150px;
+	}
+}
+
+@media screen and (min-width: 850px){
+	.kitchen .logo-login {
+		width: 300px;
+	}
+
+	.kitchen button {
+    height: 75px;
+    width: 200px;
+	}
+}
+
+@media screen and (min-width: 1024px){
+  .kitchen .logo-login {
+    top: 15px;
+    width: 250px;
+	}
+	
+	.kitchen button {
+    height: 60px;
+    width: 170px;
+}
+}
+
+@media screen and (min-width: 1300px){
+	.kitchen .logo-login {
+		width: 250px;
+	}
 }
