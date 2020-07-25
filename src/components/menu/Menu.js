@@ -5,44 +5,33 @@ import './menu.css'
 import firebase from '../../configure-firebase'
 
 const Menu = () => {
-  const [menu, setMenu] = useState(null);
+  const [menuAllDay, setMenuAllDay] = useState(null);
+  const [menuBreakfast, setMenuBreakfast] = useState(null);
+  const [currentMenu, setCurrentMenu] = useState('allDay');
 
   const breakfast = (e) => {
     e.preventDefault()
+    setCurrentMenu('breakfast')
     firebase
       .firestore()
       .collection('breakfast')
       .get()
       .then(querySnapshot => {
-        querySnapshot.forEach(doc => console.log(doc.data().drinks));
+        querySnapshot.forEach(doc => { setMenuBreakfast(doc.data()) });
       });
   };
 
   const allDay = (e) => {
     e.preventDefault();
+    setCurrentMenu('allDay')
     firebase
       .firestore()
       .collection('allday')
       .get()
       .then(querySnapshot => {
-        querySnapshot.forEach(doc => { setMenu(doc.data()) });
+        querySnapshot.forEach(doc => { setMenuAllDay(doc.data()) });
       });
   };
-
-  
-// const[cafe, setCafe] = useState(false)
-// const[almoço, setAlmoço] = useState(false)
-
-// useEffect(() => {
-//   {cafe && (
-//     breakfast()
-//   )},
-//   {almoço && (
-//     allDay()
-//   )}
-// }, [cafe, almoço])
-
-
 
   return (
     <section className='menu'>
@@ -53,33 +42,59 @@ const Menu = () => {
         </div>
         <div className='menu-principal bg-color'>
           <div className='border-menu bg-color'>
-            {menu && menu.burger.map(item => (
-              <div className='divs-option-menu' key={item.name}>
-                <div className='only-option-menu'>
-                  <Img alt={item.alt} className='img-food' />
-                  <p>{item.name}</p>
-                  <p>{item.price}</p>
-                </div>
+            {currentMenu === 'allDay' &&
+              <div>
+                {menuAllDay && menuAllDay.burger.map(item => (
+                  <div className='divs-option-menu' key={item.name}>
+                    <div className='only-option-menu'>
+                      <Img alt={item.alt} className='img-food' />
+                      <p>{item.name}</p>
+                      <p>{item.price}</p>
+                    </div>
+                  </div>
+                ))}
+                {menuAllDay && menuAllDay.startes.map(item => (
+                  <div className='divs-option-menu' key={item.name}>
+                    <div className='only-option-menu'>
+                      <Img alt={item.alt} className='img-food' />
+                      <p>{item.name}</p>
+                      <p>{item.price}</p>
+                    </div>
+                  </div>
+                ))}
+                {menuAllDay && menuAllDay.drinks.map(item => (
+                  <div className='divs-option-menu' key={item.name}>
+                    <div className='only-option-menu'>
+                      <Img alt={item.alt} className='img-food' />
+                      <p>{item.name}</p>
+                      <p>{item.price}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-            {menu && menu.startes.map(item => (
-              <div className='divs-option-menu' key={item.name}>
-                <div className='only-option-menu'>
-                  <Img alt={item.alt} className='img-food' />
-                  <p>{item.name}</p>
-                  <p>{item.price}</p>
-                </div>
+            }
+            {currentMenu === 'breakfast' &&
+              <div>
+                {menuBreakfast && menuBreakfast.grilled.map(item => (
+                  <div className='divs-option-menu' key={item.name}>
+                    <div className='only-option-menu'>
+                      <Img alt={item.alt} className='img-food' />
+                      <p>{item.name}</p>
+                      <p>{item.price}</p>
+                    </div>
+                  </div>
+                ))}
+                {menuBreakfast && menuBreakfast.drinks.map(item => (
+                  <div className='divs-option-menu' key={item.name}>
+                    <div className='only-option-menu'>
+                      <Img alt={item.alt} className='img-food' />
+                      <p>{item.name}</p>
+                      <p>{item.price}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-            {menu && menu.drinks.map(item => (
-              <div className='divs-option-menu' key={item.name}>
-                <div className='only-option-menu'>
-                  <Img alt={item.alt} className='img-food' />
-                  <p>{item.name}</p>
-                  <p>{item.price}</p>
-                </div>
-              </div>
-            ))}
+            }
           </div>
         </div>
       </div>
