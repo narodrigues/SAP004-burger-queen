@@ -1,29 +1,55 @@
 body {
-    font-family: 'Comfortaa', cursive;
+	font-family: 'Comfortaa', cursive;
 }
 
 .hall {
-    display: flex;
-    background: url('../../assets/background.jpg');
+	background: url('../../assets/background.jpg') fixed;
+	display: flex;
+	background-size: cover;
+	height: 50vh;
 }
 
 .hall header {
-    height: 30vh;
-    width: 100%;
+	background: none!important;
+	height: 30vh;
+	width: 100%;
 }
 
-
 .header-hall img {
-    width: 250px;
+	width: 250px;
+}
+
+.hall .logo-login {
+	left: 30px;
+	position: absolute;
+	top: 20px;
+	width: 250px;
 }
 
 .buttons-option {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	/* align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	top: 30px;
+	position: absolute;
+	right: 30px; */
+	display: flex;
+	flex-direction: column;
+	height: 60%;
+	justify-content: space-evenly;
+	margin: 0 30px;
 }
 
 .buttons-option button {
-    font-size: 16px;
+	font-size: 16px;
+	/* margin-bottom: 20px; */
+}
+
+@media screen and (min-width: 850px) {
+	.hall .logo-login {
+		left: 40px;
+		top: 30px;
+		/* width: 250px; */
+	}
 }

@@ -8,26 +8,46 @@ import firebase from '../../configure-firebase';
 import './login.css';
 
 export default function Login() {
-  const [modalRegister, setModalRegister] = useState(false);
   const [register, setRegister] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showErroEmailInvalid, setErrorEmailInvalid] = useState(false);
+  const [showErroPassword, setErrorPassword] = useState(false);
 
   const changeShow = (e, show) => {
     e.preventDefault();
     setRegister(!show)
   }
 
-  function closeModal() {
-    setModalRegister(false);
+  function validForm() {
+    setErrorEmailInvalid(false);
+    setErrorPassword(false);
+
+    let isValid = true;
+    if (!(/\S+@\S+\.\S+/.test(email))) {
+      setErrorEmailInvalid(true);
+    }
+    if (!password) {
+      setErrorPassword(true);
+      isValid = false;
+    }
+    return isValid;
   }
+
+  // function closeModal() {
+  //   setModalRegister(false);
+  // }
 
   const login = (e, email, password) => {
     e.preventDefault();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch(error => alert(error.code));
+
+    const isValid = validForm();
+    if (isValid) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch(error => console.log(error));
+    }
   }
 
   return (
@@ -36,7 +56,13 @@ export default function Login() {
       <div>
         <form className='form-login'>
           <Input type='email' placeholder='email@exemple.com' id='emal-login' onChange={(e) => setEmail(e.target.value)} />
+          {showErroEmailInvalid && (
+            <p>Este e-mail parece não estar cadastrado. Tente novamente ou cadastre-se.</p>
+          )}
           <Input type='password' placeholder='senha' id='password-login' onChange={(e) => setPassword(e.target.value)} />
+          {showErroPassword && (
+            <p>Sua senha deve ter mais de 6 dígitos.</p>
+          )}
           <div className='div-buttons-login'>
             <Button id='btn-login' className='button' name='Entrar' handleClick={(e) => login(e, email, password)} />
             <span>Ainda não é registrado?</span>
@@ -45,7 +71,7 @@ export default function Login() {
         </form>
       </div>
       <Modal show={register}>
-        <Register closeModal={closeModal} />
+        <Register /*closeModal={closeModal}*/ />
       </Modal>
     </section>
   )

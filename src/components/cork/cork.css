@@ -1,0 +1,47 @@
+.order-background p {
+  color: #2e2e2e;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 40px;
+}
+
+.order-background {
+	background: #ffe868;
+	border-radius: 20px;
+	box-shadow: 40px 38px 24px -10px #3b30273d;
+	/* display: flex; */
+	height: 65vh;
+	justify-content: space-around;
+	margin: 40px auto;
+	position: absolute;
+  width: 80vw;
+  top: 25vh;
+  left: 0;
+  right: 0;
+}
+
+.order-background:after {
+	border: 3px ridge #2e2e2e;
+	border-radius: 20px;
+	bottom: 20px;
+	content: '';
+	display: block;
+	left: 20px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+@media screen and (min-width: 700px){
+  .order-background {
+    display: flex;
+    top: 28vh;
+  }
+
+  .order-background p {
+    color: #2e2e2e;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 40px;
+  }
+}

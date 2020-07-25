@@ -1,3 +1,7 @@
+header {
+  background-size: cover;
+}
+
 .form-login {
   align-items: center;
   display: flex;
@@ -10,12 +14,16 @@
   background: #d0d0d033;
   border: none;
   border-radius: 12px;
-  box-shadow: 15px 15px 21px 0px #e7c8ad78;
+  box-shadow: 15px 15px 21px 0px #886e5778;
   height: 55px;
   letter-spacing: 1px;
   margin: 10px;
   padding-left: 10px;
   width: 300px;
+}
+
+.form-login p {
+  color: red;
 }
 
 .div-buttons-login {
@@ -24,7 +32,6 @@
   flex-direction: column;
   margin-top: 20px;
 }
-
 
 @media screen and (min-width: 700px){
   .form-login {
@@ -47,6 +54,7 @@
   }
 
   span {
+    color: black;
     font-size: 20px;
     margin-top: 15px;
   }
