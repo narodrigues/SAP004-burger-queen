@@ -1,8 +1,8 @@
 * {
-    font-family: 'Comfortaa', cursive;
+	font-family: 'Comfortaa', cursive;
 }
 
-button {
+.standard-btn {
 	background: #065F73;
 	border: none;
 	border-radius: 35px;
@@ -12,14 +12,14 @@ button {
 	font-weight: bold;
 	height: 55px;
 	letter-spacing: 1px;
-	/* margin: 15px; */
+	margin: 15px;
 	opacity: 0.7;
 	text-transform: uppercase;
 	transition: all 0.3s;
 	width: 145px;
 } 
 
-button:hover {
+.standard-btn:hover {
 	background: #45a9d2;
 	color: #FFF;
 	opacity: initial;

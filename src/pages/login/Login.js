@@ -16,7 +16,7 @@ export default function Login() {
 
   const changeShow = (e, show) => {
     e.preventDefault();
-    setRegister(!show)
+    setRegister(!show);
   }
 
   function validForm() {
@@ -33,10 +33,6 @@ export default function Login() {
     }
     return isValid;
   }
-
-  // function closeModal() {
-  //   setModalRegister(false);
-  // }
 
   const login = (e, email, password) => {
     e.preventDefault();
@@ -71,7 +67,7 @@ export default function Login() {
         </form>
       </div>
       <Modal show={register}>
-        <Register /*closeModal={closeModal}*/ />
+        <Register />
       </Modal>
     </section>
   )
