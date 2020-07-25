@@ -1,5 +1,4 @@
 * {
-    color: white;
     font-family: 'Comfortaa', cursive;
     letter-spacing: 2px;
 }
@@ -8,12 +7,20 @@
     display: flex;
 }
 
+.menu p, span {
+    color: white;
+}
+
 .bg-color {
     background: #065F73;
     border-radius: 10px;
     height: 70vh;
     margin: 70px auto;
     padding: 10px;
+}
+
+.bg-color:first-child {
+    margin: 0 auto;
 }
 
 .menu-principal {
@@ -29,6 +36,7 @@
     justify-content: space-between;
     padding: 10px;
 }
+
 
 .only-option-menu {
     margin: 5px 0px 15px 0px;
@@ -61,4 +69,14 @@ img {
     height: 20vh;
     padding: 10px 0px;
     width: 100%;
+}
+
+@media screen and (min-width: 900px) {
+    .border-menu {
+        padding: 15px 40px;
+    }
+
+    .divs-option-menu {
+        margin-right: 5px;
+    }
 }
