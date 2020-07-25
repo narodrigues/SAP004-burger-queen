@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import CloseModal from '../../components/modalCloseButton/ModalCloseButton';
 // import './modal.css'
 
 const Modal = (props) => {
-  const[value, setValue] = useState(props.show)
+  const [value, setValue] = useState(props.show)
   const showHideClassName = value ? "modal display-block" : "modal display-none";
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Modal = (props) => {
 
   return (
     <div className={showHideClassName}>
-      <CloseModal name='X' handleClick={() => {setValue(false)}}/>
+      <CloseModal name='X' handleClick={() => { setValue(false) }} />
       <section className="modal-main">
         {props.children}
       </section>

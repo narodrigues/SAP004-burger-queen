@@ -17,6 +17,10 @@
 	color: white;
 }
 
+.menu p, span {
+    color: white;
+}
+
 .bg-color {
 	background: #065F73;
 	border-radius: 10px;
@@ -49,6 +53,10 @@
 	margin: 0px 0px 0px 10px;
 }
 
+.bg-color:first-child {
+    margin: 0 auto;
+}
+
 .menu-principal {
 	margin: 0;
 	overflow: auto;
@@ -70,6 +78,7 @@
 	margin-top: 0;
 	padding: 10px;
 }
+
 
 .only-option-menu {
 	margin: 5px 0px 15px 0px;
