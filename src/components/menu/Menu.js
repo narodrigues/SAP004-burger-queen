@@ -11,6 +11,7 @@ const Menu = () => {
 
   const breakfast = (e) => {
     e.preventDefault()
+    setCurrentMenu('breakfast')
     firebase
       .firestore()
       .collection('breakfast')
