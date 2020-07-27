@@ -12,11 +12,29 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 2000;
+    z-index: 2;
 }
 
 .modal-options {
     align-items: center;
+    background: white;
+    border: 10px solid #065F73;
+    border-radius: 25px;
+    box-shadow: 0 0 0 10px white;
+    /* box-shadow: 15px 15px 20px 0px #3b302762; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    left: 50%;
+    margin-left: -175px;
+    margin-top: -175px;
+    padding: 40px 0px;
+    position: absolute;
+    text-align: center;
+    top: 50%; 
+    width: 350px;
+    /* align-items: center;
     background: white;
     border: 10px solid #065F73;
     box-shadow: 0 0 0 10px white;
@@ -29,7 +47,7 @@
     min-width: 360px;
     padding: 25px;
     position: relative;
-    text-align: center;
+    text-align: center; */
 }
 
 .modal-options fieldset {
@@ -70,3 +88,12 @@
     top: -50px;
     width: 50px;
 }
+
+@media screen and (min-width: 500px) {
+    .modal-options {
+      margin-left: -250px!important;
+      margin-top: -250px!important;
+      min-width: 500px;
+      min-height: 450px;
+    }
+  }

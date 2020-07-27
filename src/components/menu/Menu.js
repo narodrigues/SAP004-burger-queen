@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
-import ModalHamburger from '../modalHamburger/Modal';
+import BurgerOptions from '../modalHamburger/BurgerOptions';
+import Modal from '../modal/Modal'
 import './menu.css';
 import firebase from '../../configure-firebase';
 
@@ -10,6 +11,11 @@ const Menu = () => {
   const [menuBreakfast, setMenuBreakfast] = useState(null);
   const [optionBurger, setOptionBurger] = useState(false);
   const [currentMenu, setCurrentMenu] = useState('allDay');
+
+  const changeShow = (e, show) => {
+    e.preventDefault();
+    setOptionBurger(!show);
+  }
 
   const breakfast = (e) => {
     e.preventDefault()
@@ -43,15 +49,16 @@ const Menu = () => {
     setPrice([...price, Number(value)])
     // orders === name ? setOrdens() : setOrdens([...orders, name]);
   }
+  
 
   const totalPrice = price.reduce((acc, total) => { return acc + total });
 
   const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-  const showModal = (e) => {
-    e.preventDefault();
-    setOptionBurger(!optionBurger)
-  }
+  // const showModal = (e) => {
+  //   e.preventDefault();
+  //   setOptionBurger(!optionBurger)
+  // }
 
   return (
     <section className='menu'>
@@ -66,7 +73,7 @@ const Menu = () => {
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => { getOrders(item.name, item.price) }}>
+                    <div className='only-option-menu' onClick={(e) => changeShow(e, optionBurger)}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -128,7 +135,10 @@ const Menu = () => {
         </div>
         <Button name='PEDIR' />
       </div>
-      <ModalHamburger show={optionBurger} closeModal={((e) => e, showModal)} />
+      <Modal show={optionBurger} closeModal={e => changeShow(e, optionBurger)}>
+        <BurgerOptions />
+      </Modal>
+      {/* <ModalHamburger show={optionBurger} closeModal={((e) => e, showModal)} /> */}
     </section>
   );
 };

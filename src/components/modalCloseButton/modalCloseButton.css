@@ -16,7 +16,7 @@
   text-shadow: 2px 2px 2px #00000070;
   top: 50%;
   width: 30px;
-  z-index: 1;
+  z-index: 5;
 }
 
 @media screen and (min-width: 500px) {
