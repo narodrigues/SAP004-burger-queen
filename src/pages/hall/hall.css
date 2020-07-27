@@ -27,13 +27,6 @@ body {
 }
 
 .buttons-option {
-	/* align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	top: 30px;
-	position: absolute;
-	right: 30px; */
 	display: flex;
 	flex-direction: column;
 	height: 60%;
@@ -43,13 +36,11 @@ body {
 
 .buttons-option button {
 	font-size: 16px;
-	/* margin-bottom: 20px; */
 }
 
 @media screen and (min-width: 850px) {
 	.hall .logo-login {
 		left: 40px;
 		top: 30px;
-		/* width: 250px; */
 	}
 }
