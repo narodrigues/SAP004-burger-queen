@@ -11,12 +11,8 @@
 	width: 100vw;
 }
 
-.menu p, .menu span, .menu button {
+.menu p, .menu span, .menu button, .orders {
 	color: white;
-}
-
-.menu p, span {
-    color: white;
 }
 
 .bg-color {
@@ -24,6 +20,10 @@
 	border-radius: 10px;
 	height: 70vh;
 	margin: 55px 0;
+}
+
+.orders {
+	white-space: pre-wrap;
 }
 
 .div-menu {
@@ -74,6 +74,7 @@
 }
 
 .only-option-menu {
+	cursor: pointer;
 	margin: 5px 0px 15px 0px;
 	text-align: center;
 	width: 200px;

@@ -33,6 +33,13 @@ const Menu = () => {
       });
   };
 
+  const [orders, setOrdens] = useState([]);
+
+  const getOrders = (name) => {
+    setOrdens([...orders, name]);
+    // orders === name ? setOrdens() : setOrdens([...orders, name]);
+  }
+
   return (
     <section className='menu'>
       <div className='div-menu'>
@@ -46,7 +53,7 @@ const Menu = () => {
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu'>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -55,7 +62,7 @@ const Menu = () => {
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu'>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -64,7 +71,7 @@ const Menu = () => {
                 ))}
                 {menuAllDay && menuAllDay.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu'>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -77,7 +84,7 @@ const Menu = () => {
               <div className='border-menu'>
                 {menuBreakfast && menuBreakfast.grilled.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu'>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -86,7 +93,7 @@ const Menu = () => {
                 ))}
                 {menuBreakfast && menuBreakfast.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu'>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -101,6 +108,7 @@ const Menu = () => {
       <div className='requests bg-color'>
         <div className='requests-quantity'>
           <p>PEDIDOS</p>
+          <div className='orders'>{orders.map(itens => `${itens} \n`)}</div>
         </div>
         <div className='total'>
           <span>Total: </span>
