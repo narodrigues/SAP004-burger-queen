@@ -1,5 +1,4 @@
 * {
-	/* color: white; */
 	font-family: 'Comfortaa', cursive;
 	letter-spacing: 2px;
 }
@@ -8,7 +7,6 @@
 	display: flex;
 	justify-content: space-around;
 	position: absolute;
-	/* top: 30vh; */
 	top: 300px;
 	width: 100vw;
 }
@@ -69,7 +67,6 @@
 }
 
 .border-menu {
-	/* border: 2px solid white; */
 	border-radius: 10px;
 	display: flex;
 	flex-wrap: wrap;
@@ -79,17 +76,16 @@
 	padding: 10px;
 }
 
-
 .only-option-menu {
 	margin: 5px 0px 15px 0px;
 	text-align: center;
 	width: 200px;
 }
 
-img {
+.only-option-menu img {
 	border: transparent;
 	border-radius: 15px;
-	/* height: 150px; */
+	height: 150px;
 	width: 100%;
 }
 

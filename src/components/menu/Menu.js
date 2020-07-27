@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Img from '../imagem/Img';
-import Button from '../button/Button'
-import './menu.css'
-import firebase from '../../configure-firebase'
+import Button from '../button/Button';
+import './menu.css';
+import firebase from '../../configure-firebase';
 
 const Menu = () => {
   const [menuAllDay, setMenuAllDay] = useState(null);
@@ -41,55 +41,55 @@ const Menu = () => {
           <Button name='Almoço/Janta' className='option-menu-food' handleClick={allDay} />
         </div>
         <div className='menu-principal bg-color'>
-          <div className='border-menu bg-color'>
+          <div className='bg-color'>
             {currentMenu === 'allDay' &&
-              <div>
+              <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
                   <div className='divs-option-menu' key={item.name}>
                     <div className='only-option-menu'>
-                      <Img alt={item.alt} className='img-food' />
+                      <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>{item.price}</p>
+                      <p>R$ {item.price}</p>
                     </div>
                   </div>
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
                   <div className='divs-option-menu' key={item.name}>
                     <div className='only-option-menu'>
-                      <Img alt={item.alt} className='img-food' />
+                      <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>{item.price}</p>
+                      <p>R$ {item.price}</p>
                     </div>
                   </div>
                 ))}
                 {menuAllDay && menuAllDay.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name}>
                     <div className='only-option-menu'>
-                      <Img alt={item.alt} className='img-food' />
+                      <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>{item.price}</p>
+                      <p>R$ {item.price}</p>
                     </div>
                   </div>
                 ))}
               </div>
             }
             {currentMenu === 'breakfast' &&
-              <div>
+              <div className='border-menu'>
                 {menuBreakfast && menuBreakfast.grilled.map(item => (
                   <div className='divs-option-menu' key={item.name}>
                     <div className='only-option-menu'>
-                      <Img alt={item.alt} className='img-food' />
+                      <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>{item.price}</p>
+                      <p>R$ {item.price}</p>
                     </div>
                   </div>
                 ))}
                 {menuBreakfast && menuBreakfast.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name}>
                     <div className='only-option-menu'>
-                      <Img alt={item.alt} className='img-food' />
+                      <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>{item.price}</p>
+                      <p>R$ {item.price}</p>
                     </div>
                   </div>
                 ))}
