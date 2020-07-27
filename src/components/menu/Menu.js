@@ -34,11 +34,15 @@ const Menu = () => {
   };
 
   const [orders, setOrdens] = useState([]);
+  const [price, setPrice] = useState([0]);
 
-  const getOrders = (name) => {
+  const getOrders = (name, value) => {
     setOrdens([...orders, name]);
+    setPrice([...price, Number(value)])
     // orders === name ? setOrdens() : setOrdens([...orders, name]);
   }
+
+  const totalPrice = price.reduce((acc, total) => {return acc + total});
 
   return (
     <section className='menu'>
@@ -53,7 +57,7 @@ const Menu = () => {
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -62,7 +66,7 @@ const Menu = () => {
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -71,7 +75,7 @@ const Menu = () => {
                 ))}
                 {menuAllDay && menuAllDay.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -84,7 +88,7 @@ const Menu = () => {
               <div className='border-menu'>
                 {menuBreakfast && menuBreakfast.grilled.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -93,7 +97,7 @@ const Menu = () => {
                 ))}
                 {menuBreakfast && menuBreakfast.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => {getOrders(item.name)}}>
+                    <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -112,6 +116,7 @@ const Menu = () => {
         </div>
         <div className='total'>
           <span>Total: </span>
+          <div className='total-price'>{totalPrice !== 0 ? totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : ''}</div>
         </div>
         <Button name='PEDIR' />
       </div>

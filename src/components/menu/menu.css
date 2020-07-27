@@ -4,6 +4,7 @@
 }
 
 .menu {
+	color: white;
 	display: flex;
 	justify-content: space-around;
 	position: absolute;
@@ -11,9 +12,9 @@
 	width: 100vw;
 }
 
-.menu p, .menu span, .menu button, .orders {
+/* .menu p, .menu span, .menu button, .orders {
 	color: white;
-}
+} */
 
 .bg-color {
 	background: #065F73;
