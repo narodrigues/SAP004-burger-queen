@@ -91,8 +91,12 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding: 20px 5px 5px 5px;
+	padding: 20px 10px 5px;
 	width: 30vw;
+}
+
+.requests button {
+	background: #0b2b33;
 }
 
 .requests-quantity p {
@@ -102,6 +106,7 @@
 
 .total {
 	border-top: 1px solid white;
+	display: flex;
 	height: 20vh;
 	padding: 10px 0px;
 	width: 100%;
