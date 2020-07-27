@@ -95,7 +95,6 @@ export default function Register(props) {
         </div>
       </form>
       <div className='btn-confirms'>
-        <Button id='btn-cancel' name='Cancelar' handleClick={props.closeModalConfirm} />
         <Button id='btn-confirm' className='button' name='Confirmar' handleClick={creatUser} />
       </div>
     </div>

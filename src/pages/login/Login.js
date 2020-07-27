@@ -66,7 +66,7 @@ export default function Login() {
           </div>
         </form>
       </div>
-      <Modal show={register}>
+      <Modal show={register} closeModal={e => changeShow(e, register)}>
         <Register />
       </Modal>
     </section>
