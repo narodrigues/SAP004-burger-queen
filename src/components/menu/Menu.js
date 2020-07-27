@@ -8,7 +8,9 @@ import firebase from '../../configure-firebase';
 const Menu = () => {
   const [menuAllDay, setMenuAllDay] = useState(null);
   const [menuBreakfast, setMenuBreakfast] = useState(null);
+  const [optionBurger, setOptionBurger] = useState(false);
   const [currentMenu, setCurrentMenu] = useState('allDay');
+  const [orders, setOrdens] = useState([]);
 
   const breakfast = (e) => {
     e.preventDefault()
@@ -34,12 +36,13 @@ const Menu = () => {
       });
   };
 
-  const [orders, setOrdens] = useState([])
-  console.log(orders)
-
+  const showModal = (e) => {
+    e.preventDefault();
+    setOptionBurger(!optionBurger);
+  }
   const getOrders = (name) => {
     orders === name ? setOrdens() : setOrdens([...orders] + name);
-  }
+  };
 
   return (
     <section className='menu'>
@@ -54,7 +57,7 @@ const Menu = () => {
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => { getOrders(item.name) }}>
+                    <div className='only-option-menu' onClick={() => getOrders(item.name)}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>R$ {item.price}</p>
@@ -116,7 +119,7 @@ const Menu = () => {
         </div>
         <Button name='PEDIR' />
       </div>
-      <ModalHamburger />
+      <ModalHamburger show={optionBurger} closeModal={((e) => e, showModal)} />
     </section>
   );
 };
