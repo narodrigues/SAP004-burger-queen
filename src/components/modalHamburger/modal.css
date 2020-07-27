@@ -16,6 +16,7 @@
     background: white;
     border: 10px solid #065F73;
     box-shadow: 0 0 0 10px white;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     font-size: 20px;
@@ -55,7 +56,7 @@
     margin: 0;
 }
 
-.modal-options button {
+.modal-options button:nth-child(1) {
     background: #020202;
     border-radius: 50%;
     font-size: 18px;
