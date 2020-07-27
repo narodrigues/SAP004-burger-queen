@@ -107,11 +107,22 @@
 }
 
 .total {
-	border-top: 1px solid white;
+	/* border-top: 1px solid white;
 	display: flex;
 	height: 20vh;
 	padding: 10px 0px;
-	width: 100%;
+	width: 100%; */
+	border-top: 1px solid white;
+	bottom: 15vh;
+	display: flex;
+	flex-direction: column;
+	padding: 10px 0px;
+	position: absolute;
+	width: 30%;
+}
+
+.total span {
+	margin: 20px;
 }
 
 @media screen and (min-width: 850px) {

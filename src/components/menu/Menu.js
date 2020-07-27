@@ -44,6 +44,8 @@ const Menu = () => {
 
   const totalPrice = price.reduce((acc, total) => {return acc + total});
 
+  const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
   return (
     <section className='menu'>
       <div className='div-menu'>
@@ -60,7 +62,7 @@ const Menu = () => {
                     <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>R$ {item.price}</p>
+                      <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
                 ))}
@@ -69,7 +71,7 @@ const Menu = () => {
                     <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>R$ {item.price}</p>
+                      <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
                 ))}
@@ -78,7 +80,7 @@ const Menu = () => {
                     <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>R$ {item.price}</p>
+                      <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
                 ))}
@@ -91,7 +93,7 @@ const Menu = () => {
                     <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>R$ {item.price}</p>
+                      <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
                 ))}
@@ -100,7 +102,7 @@ const Menu = () => {
                     <div className='only-option-menu' onClick={() => {getOrders(item.name, item.price)}}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
-                      <p>R$ {item.price}</p>
+                      <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
                 ))}
@@ -115,8 +117,7 @@ const Menu = () => {
           <div className='orders'>{orders.map(itens => `${itens} \n`)}</div>
         </div>
         <div className='total'>
-          <span>Total: </span>
-          <div className='total-price'>{totalPrice !== 0 ? totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : ''}</div>
+          <span>Total: {totalPrice !== 0 ? brazilianCurrency(totalPrice) : ''}</span>
         </div>
         <Button name='PEDIR' />
       </div>
