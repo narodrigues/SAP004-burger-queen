@@ -24,15 +24,12 @@
 	border-radius: 10px;
 	height: 70vh;
 	margin: 55px 0;
-	/* margin: 70px auto; */
-	/* padding: 10px; */
 }
 
 .div-menu {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	/* margin: 16px auto; */
 }
 
 .buttons-options-menu {
@@ -90,9 +87,10 @@
 }
 
 .requests {
-	justify-content: space-between;
+	align-items: center;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	padding: 20px 5px 5px 5px;
 	width: 30vw;
 }
