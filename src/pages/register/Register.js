@@ -4,7 +4,7 @@ import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
 import firebase from '../../configure-firebase';
 
-export default function Register(props) {
+export default function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

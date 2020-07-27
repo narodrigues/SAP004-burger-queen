@@ -35,7 +35,7 @@ const ModalHamburger = () => {
               <Input type='checkbox' className='radio-option' name='option-burger' id='option-egg' />
             </div>
           </fieldset>
-          <Button className='btn-confirm-requests' name='CONFIRMAR' />
+          <Button name='CONFIRMAR' />
         </form>
       </div>
     </section>
