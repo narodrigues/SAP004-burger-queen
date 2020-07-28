@@ -50,7 +50,7 @@ const Menu = () => {
 
   const showModal = (e) => {
     e.preventDefault();
-    setOptionBurger(!optionBurger)
+    setOptionBurger(!optionBurger);
   }
 
   return (
