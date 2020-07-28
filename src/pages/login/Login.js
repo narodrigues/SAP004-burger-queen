@@ -51,16 +51,16 @@ export default function Login() {
       <Header />
       <div>
         <form className='form-login'>
-          <Input type='email' placeholder='email@exemple.com' id='emal-login' onChange={(e) => setEmail(e.target.value)} />
+          <Input type='email' placeholder='email@exemple.com' id='emal-login' onChange={e => setEmail(e.target.value)} />
           {showErroEmailInvalid && (
             <p>Este e-mail parece não estar cadastrado. Tente novamente ou cadastre-se.</p>
           )}
-          <Input type='password' placeholder='senha' id='password-login' onChange={(e) => setPassword(e.target.value)} />
+          <Input type='password' placeholder='senha' id='password-login' onChange={e => setPassword(e.target.value)} />
           {showErroPassword && (
             <p>Sua senha deve ter mais de 6 dígitos.</p>
           )}
           <div className='div-buttons-login'>
-            <Button id='btn-login' className='button' name='Entrar' handleClick={(e) => login(e, email, password)} />
+            <Button id='btn-login' className='button' name='Entrar' handleClick={e => login(e, email, password)} />
             <span>Ainda não é registrado?</span>
             <Button id='btn-register' className='button' name='Registrar-se' handleClick={(e) => changeShow(e, register)} />
           </div>

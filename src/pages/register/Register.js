@@ -71,24 +71,24 @@ export default function Register() {
     <div className='form-register'>
       <form className=' modal-main overlay'>
         <div className='inputs-text'>
-          <Input type='text' name='username' placeholder='nome' id='name-login' onChange={(e) => setUsername(e.target.value)} />
+          <Input type='text' name='username' placeholder='nome' id='name-login' onChange={e => setUsername(e.target.value)} />
           {showErroNameEmpty && (
             <p>Por favor, preencha seu nome.</p>
           )}
-          <Input type='email' required name='email' placeholder='email@exemple.com' id='email-register' onChange={(e) => setEmail(e.target.value)} />
+          <Input type='email' required name='email' placeholder='email@exemple.com' id='email-register' onChange={e => setEmail(e.target.value)} />
           {showErroEmailInvalid && (
             <p>{showErroEmailInvalid}</p>
           )}
-          <Input type='password' name='password' placeholder='senha' id='password-register' onChange={(e) => setPassword(e.target.value)} />
+          <Input type='password' name='password' placeholder='senha' id='password-register' onChange={e => setPassword(e.target.value)} />
           {showErroPassword && (
             <p>Sua senha deve ter mais de 6 dígitos.</p>
           )}
         </div>
         <div className='select-role'>
           <label htmlFor='kitchen'>COZINHA</label>
-          <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='Kitchen' onChange={(e) => setJobTitle(e.target.value)} />
+          <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='Kitchen' onChange={e => setJobTitle(e.target.value)} />
           <label htmlFor='hall'>SALÃO</label>
-          <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='Hall' onChange={(e) => setJobTitle(e.target.value)} />
+          <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='Hall' onChange={e => setJobTitle(e.target.value)} />
           {showErroEmptyRadios && (
             <p>{showErroEmptyRadios}</p>
           )}

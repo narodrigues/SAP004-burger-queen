@@ -26,8 +26,10 @@ const Menu = () => {
     setPrice([...price, Number(value)]);
     setOption([...option, options]);
 
-    console.log(value)
-    console.log(options)
+    console.log(options, 'options que vem do getOrders')
+    console.log(option, 'nosso array option')
+
+    // orders === name ? setOrdens() : setOrdens([...orders, name]);
 
     // if(options ! ==)
     // options !== null ? setFinalPrice(...price + 1) : setFinalPrice(...price);
@@ -39,7 +41,7 @@ const Menu = () => {
     setModalBoolean(!show);
   }
 
-  const breakfast = (e) => {
+  const breakfast = e => {
     e.preventDefault()
     setCurrentMenu('breakfast')
     firebase
@@ -51,7 +53,7 @@ const Menu = () => {
       });
   };
 
-  const allDay = (e) => {
+  const allDay = e => {
     e.preventDefault();
     setCurrentMenu('allDay')
     firebase
@@ -76,7 +78,7 @@ const Menu = () => {
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={(e) => { changeShow(e, modalBoolean); getOrders(item.name, item.price) }}>
+                    <div className='only-option-menu' onClick={e => { changeShow(e, modalBoolean); getOrders(item.name, item.price) }}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -85,7 +87,7 @@ const Menu = () => {
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => { getOrders(item.name, item.price) }}>
+                    <div className='only-option-menu' onClick={() => getOrders(item.name, item.price)}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -94,7 +96,7 @@ const Menu = () => {
                 ))}
                 {menuAllDay && menuAllDay.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => { getOrders(item.name, item.price) }}>
+                    <div className='only-option-menu' onClick={() => getOrders(item.name, item.price)}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -107,7 +109,7 @@ const Menu = () => {
               <div className='border-menu'>
                 {menuBreakfast && menuBreakfast.grilled.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => { getOrders(item.name, item.price) }}>
+                    <div className='only-option-menu' onClick={() => getOrders(item.name, item.price)}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -116,7 +118,7 @@ const Menu = () => {
                 ))}
                 {menuBreakfast && menuBreakfast.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => { getOrders(item.name, item.price) }}>
+                    <div className='only-option-menu' onClick={() => getOrders(item.name, item.price)}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -139,7 +141,8 @@ const Menu = () => {
         <Button name='PEDIR' />
       </div>
       <BurgerOptions show={modalBoolean} closeModal={e => changeShow(e, modalBoolean)} setBurger={(meat, price, option) => getOrders(meat, price, option)} />
-    </section>
+      {/* <BurgerOptions show={modalBoolean} closeModal={e => changeShow(e, modalBoolean)} setBurger={(meat, option) => getOrders(meat, option)}/> */}
+    </section >
   );
 };
 
