@@ -1,20 +1,33 @@
 import React, { useState } from 'react';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
-import BurgerOptions from '../modalHamburger/BurgerOptions';
-import Modal from '../modal/Modal'
+import BurgerOptions from '../modalHamburger/BurgerOptions'
 import './menu.css';
 import firebase from '../../configure-firebase';
 
 const Menu = () => {
   const [menuAllDay, setMenuAllDay] = useState(null);
   const [menuBreakfast, setMenuBreakfast] = useState(null);
-  const [optionBurger, setOptionBurger] = useState(false);
+  const [modalBoolean, setModalBoolean] = useState(false);
   const [currentMenu, setCurrentMenu] = useState('allDay');
+  const [orders, setOrdens] = useState([]);
+  const [price, setPrice] = useState([0]);
+  const [option, setOption] = useState([]);
+
+  const totalPrice = price.reduce((acc, total) => { return acc + total });
+
+  const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+  const getOrders = (name, value, options) => {
+    setOrdens([...orders, name]);
+    setPrice([...price, Number(value)]);
+    setOption([...option, options]);
+    // orders === name ? setOrdens() : setOrdens([...orders, name]);
+  }
 
   const changeShow = (e, show) => {
     e.preventDefault();
-    setOptionBurger(!show);
+    setModalBoolean(!show);
   }
 
   const breakfast = (e) => {
@@ -41,25 +54,6 @@ const Menu = () => {
       });
   };
 
-  const [orders, setOrdens] = useState([]);
-  const [price, setPrice] = useState([0]);
-
-  const getOrders = (name, value) => {
-    setOrdens([...orders, name]);
-    setPrice([...price, Number(value)])
-    // orders === name ? setOrdens() : setOrdens([...orders, name]);
-  }
-
-
-  const totalPrice = price.reduce((acc, total) => { return acc + total });
-
-  const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-  // const showModal = (e) => {
-  //   e.preventDefault();
-  //   setOptionBurger(!optionBurger)
-  // }
-
   return (
     <section className='menu'>
       <div className='div-menu'>
@@ -73,7 +67,7 @@ const Menu = () => {
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
                   <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={(e) => changeShow(e, optionBurger)}>
+                    <div className='only-option-menu' onClick={(e) => { changeShow(e, modalBoolean); getOrders(item.name, item.price) }}>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -135,10 +129,7 @@ const Menu = () => {
         </div>
         <Button name='PEDIR' />
       </div>
-      <Modal show={optionBurger} closeModal={e => changeShow(e, optionBurger)}>
-        <BurgerOptions />
-      </Modal>
-      {/* <ModalHamburger show={optionBurger} closeModal={((e) => e, showModal)} /> */}
+      <BurgerOptions show={modalBoolean} closeModal={e => changeShow(e, modalBoolean)} setBurger={(meat, option) => getOrders(meat, option)} />
     </section>
   );
 };

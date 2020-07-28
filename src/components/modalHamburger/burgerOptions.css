@@ -19,7 +19,7 @@
     align-items: center;
     background: white;
     border: 10px solid #065F73;
-    border-radius: 25px;
+    border-radius: 10px;
     box-shadow: 0 0 0 10px white;
     /* box-shadow: 15px 15px 20px 0px #3b302762; */
     display: flex;
@@ -66,12 +66,21 @@
     margin-top: 20px;
 }
 
+.modal-form {
+    width: 300px;
+}
+
 .modal-options .modal-form p {
     color: black;
+    font-weight: bold;
+    font-size: 18px;
 }
+
 
 .modal-form label {
     cursor: pointer;
+    color: black;
+    font-size: 17px;
 }
 
 .modal-form input[type=radio] {
