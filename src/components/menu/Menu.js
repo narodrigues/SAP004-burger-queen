@@ -13,8 +13,11 @@ const Menu = () => {
   const [orders, setOrdens] = useState([]);
   const [price, setPrice] = useState([0]);
   const [option, setOption] = useState([]);
+  // const [finalPrice, setFinalPrice] = useState([]);
 
-  const totalPrice = price.reduce((acc, total) => { return acc + total });
+  const totalPrice = price.reduce((acc, total) => {
+    return acc + total;
+  });
 
   const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
@@ -22,6 +25,12 @@ const Menu = () => {
     setOrdens([...orders, name]);
     setPrice([...price, Number(value)]);
     setOption([...option, options]);
+
+    console.log(value)
+    console.log(options)
+
+    // if(options ! ==)
+    // options !== null ? setFinalPrice(...price + 1) : setFinalPrice(...price);
     // orders === name ? setOrdens() : setOrdens([...orders, name]);
   }
 
@@ -129,7 +138,7 @@ const Menu = () => {
         </div>
         <Button name='PEDIR' />
       </div>
-      <BurgerOptions show={modalBoolean} closeModal={e => changeShow(e, modalBoolean)} setBurger={(meat, option) => getOrders(meat, option)} />
+      <BurgerOptions show={modalBoolean} closeModal={e => changeShow(e, modalBoolean)} setBurger={(meat, price, option) => getOrders(meat, price, option)} />
     </section>
   );
 };
