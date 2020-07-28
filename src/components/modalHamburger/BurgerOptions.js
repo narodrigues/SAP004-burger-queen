@@ -1,17 +1,15 @@
 import React from 'react';
-import Button from '../button/Button';
-import CloseModal from '../../components/modalCloseButton/ModalCloseButton';
+// import Button from '../button/Button';
+// import CloseModal from '../../components/modalCloseButton/ModalCloseButton';
 import Input from '../input/Input';
-import './modal.css';
+import './burgerOptions.css';
 
-const ModalHamburger = (props) => {
-  const showHideClassName = props.show ? "modal display-block" : "modal display-none";
 
+export default function BurgerOptions() {
   return (
-    <section className={showHideClassName}>
       <section className='modal-container'>
         <div className='modal-options'>
-          <Button className='btn-modal-close' name='X' />
+          {/* <Button className='btn-modal-close' name='X' /> */}
           <form className='modal-form'>
             <fieldset>
               <p>Escolha sua carne:</p>
@@ -39,12 +37,10 @@ const ModalHamburger = (props) => {
                 <Input type='checkbox' className='radio-option' name='option-burger' id='option-egg' />
               </div>
             </fieldset>
-            <CloseModal name='CONFIRMAR' onClick={props.closeModal} />
+            {/* <CloseModal name='CONFIRMAR' onClick={props.closeModal} /> */}
           </form>
         </div>
       </section>
-    </section>
   );
 };
 
-export default ModalHamburger;
