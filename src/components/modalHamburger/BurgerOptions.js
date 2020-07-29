@@ -17,6 +17,9 @@ const ModalBurger = (props) => {
     //em relação a opção, ainda está com aquele problema de adicinar várias vezes o mesmo adicional
     const payload = { ...props.currentBurger };
 
+    console.log(payload)
+    console.log(option)
+    console.log(meat)
     payload.meat = meat
     payload.option = option
     props.setBurger(payload);
