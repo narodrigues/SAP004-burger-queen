@@ -37,15 +37,22 @@ const Menu = () => {
       });
   }
 
-  const getBurger = (item) => {
+  const getBurger = item => {
     setBurger(item);
     setModalBoolean(true);
   }
 
-  const getAdditional = (orderBurger) => {
-    setOrders([...orders, orderBurger]);
+  const getAdditional = orderBurger => {
+    // let num = Number(orderBurger.price)
+    // console.log(num)
+    // orderBurger.egg && orderBurger.cheese ? setOrders([...orders, orderBurger, (num += 2)]) : console.log('enfim');
+
+    orders.push(orderBurger)
+
+    // setOrders([...orders, orderBurger]);
     setModalBoolean(false);
-    setBurger(null);
+    // setBurger();
+    console.log(orderBurger)
   }
 
   const totalPrice = orders.reduce((total, acc) => total + Number(acc.price), 0);
