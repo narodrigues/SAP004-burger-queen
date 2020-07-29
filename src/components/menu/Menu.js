@@ -14,12 +14,6 @@ const Menu = () => {
   const [orders, setOrdens] = useState([]);
   const [currentburger, setCurrentburger] = useState(null);
 
-  const totalPrice = orders.reduce((total, acc) => {
-    return total + Number(acc.price)
-  }, 0);
-
-  const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
   const breakfast = e => {
     e.preventDefault()
     setCurrentMenu('breakfast')
@@ -60,6 +54,13 @@ const Menu = () => {
     setModalBoolean(false)
     setCurrentburger(null)
   }
+
+  //aqui o total vem na frente porque ele é 0. ai converto nosso preço pra número igual estavamos fazendo e somo os produtos que ja estão lá, + o novo produto que etrou
+  const totalPrice = orders.reduce((total, acc) => {
+    return total + Number(acc.price)
+  }, 0);
+
+  const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   return (
     <section className='menu'>
