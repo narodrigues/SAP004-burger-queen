@@ -10,34 +10,8 @@ const Menu = () => {
   const [menuBreakfast, setMenuBreakfast] = useState(null);
   const [modalBoolean, setModalBoolean] = useState(false);
   const [currentMenu, setCurrentMenu] = useState('allDay');
-  const [orders, setOrdens] = useState([]);
-  const [price, setPrice] = useState([0]);
-  const [option, setOption] = useState([]);
-  // const [finalPrice, setFinalPrice] = useState([]);
-
-  const totalPrice = price.reduce((acc, total) => { return acc + total });
-
-  const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-  const getOrders = (name, value, options) => {
-    setOrdens([...orders, name]);
-    setPrice([...price, Number(value)]);
-    setOption([...option, options]);
-    
-    console.log(options, 'options que vem do getOrders')
-    console.log(option, 'nosso array option' )
-
-    // orders === name ? setOrdens() : setOrdens([...orders, name]);
-
-    // if(options ! ==)
-    // options !== null ? setFinalPrice(...price + 1) : setFinalPrice(...price);
-    // orders === name ? setOrdens() : setOrdens([...orders, name]);
-  }
-
-  const changeShow = (e, show) => {
-    e.preventDefault();
-    setModalBoolean(!show);
-  }
+  const [orders, setOrders] = useState([]);
+  const [burger, setBurger] = useState(null);
 
   const breakfast = e => {
     e.preventDefault()
@@ -49,7 +23,7 @@ const Menu = () => {
       .then(querySnapshot => {
         querySnapshot.forEach(doc => { setMenuBreakfast(doc.data()) });
       });
-  };
+  }
 
   const allDay = e => {
     e.preventDefault();
@@ -59,9 +33,24 @@ const Menu = () => {
       .collection('allday')
       .get()
       .then(querySnapshot => {
-        querySnapshot.forEach(doc => { setMenuAllDay(doc.data()) });
+        querySnapshot.forEach(doc => setMenuAllDay(doc.data()));
       });
-  };
+  }
+
+  const getBurger = (item) => {
+    setBurger(item);
+    setModalBoolean(true);
+  }
+
+  const getAdditional = (orderBurger) => {
+    setOrders([...orders, orderBurger]);
+    setModalBoolean(false);
+    setBurger(null);
+  }
+
+  const totalPrice = orders.reduce((total, acc) => total + Number(acc.price), 0);
+
+  const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   return (
     <section className='menu'>
@@ -75,8 +64,8 @@ const Menu = () => {
             {currentMenu === 'allDay' &&
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
-                  <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={e =>  { changeShow(e, modalBoolean); getOrders(item.name, item.price) }}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => getBurger(item)}>
+                    <div className='only-option-menu' >
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -84,8 +73,8 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
-                  <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => getOrders(item.name, item.price)}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
+                    <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -93,8 +82,8 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuAllDay && menuAllDay.drinks.map(item => (
-                  <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => getOrders(item.name, item.price)}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
+                    <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -106,8 +95,8 @@ const Menu = () => {
             {currentMenu === 'breakfast' &&
               <div className='border-menu'>
                 {menuBreakfast && menuBreakfast.grilled.map(item => (
-                  <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => getOrders(item.name, item.price)}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
+                    <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -115,8 +104,8 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuBreakfast && menuBreakfast.drinks.map(item => (
-                  <div className='divs-option-menu' key={item.name}>
-                    <div className='only-option-menu' onClick={() => getOrders(item.name, item.price)}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
+                    <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
                       <p>{brazilianCurrency(item.price)}</p>
@@ -131,16 +120,19 @@ const Menu = () => {
       <div className='requests bg-color'>
         <div className='requests-quantity'>
           <p>PEDIDOS</p>
-          <div className='orders'>{orders.map(itens => `${itens} \n`)}</div>
+          <div className='orders'>
+            {orders.map((item, index) => (
+              <p key={index}>{item.name} - {brazilianCurrency(item.price)}</p>
+            ))}
+          </div>
         </div>
         <div className='total'>
-          <span>Total: {totalPrice !== 0 ? brazilianCurrency(totalPrice) : ''}</span>
+          <span>Total: {brazilianCurrency(totalPrice)}</span>
         </div>
         <Button name='PEDIR' />
       </div>
-      <BurgerOptions show={modalBoolean} closeModal={e => changeShow(e, modalBoolean)} setBurger={(meat, price, option) => getOrders(meat, price, option)} />
-      {/* <BurgerOptions show={modalBoolean} closeModal={e => changeShow(e, modalBoolean)} setBurger={(meat, option) => getOrders(meat, option)}/> */}
-    </section>
+      <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
+    </section >
   );
 };
 
