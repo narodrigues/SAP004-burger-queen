@@ -8,7 +8,22 @@ const ModalBurger = (props) => {
   const showHideClassName = props.show ? "modal display-block" : "modal display-none";
 
   const [meat, setMeat] = useState();
-  const [option, setOption] = useState([])
+  const [option, setOption] = useState([]);
+
+  const getValueOfAdditionals = (e) => {
+    e.preventDefault();
+    //uni tudo aquilo que tava inline e coloquei dentro de uma função
+    //vai adicionar ao pedido a carne desejada e a opção 
+    //em relação a opção, ainda está com aquele problema de adicinar várias vezes o mesmo adicional
+    const payload = { ...props.currentBurger };
+
+    payload.meat = meat
+    payload.option = option
+    props.setBurger(payload);
+
+    setMeat(null);
+    setOption([]);
+  }
 
   return (
     <div className={showHideClassName}>
@@ -42,9 +57,7 @@ const ModalBurger = (props) => {
                 <Input type='checkbox' className='radio-option' name='option-burger' id='option-egg' value='ovo' onChange={e => setOption([...option, e.target.value])} />
               </div>
             </fieldset>
-            <Button name='CONFIRMAR' type="button" handleClick={e => { e.preventDefault(); props.setBurger(meat, 0, option) }} />
-            {/* <Button name='CONFIRMAR' type="button" handleClick={e => { e.preventDefault();  props.setBurger(meat, options) }}/> */}
-            {/* <Button name='CONFIRMAR' handleClick={props.getOptionsAdditional(meat, options)} /> */}
+            <Button name='CONFIRMAR' type="button" handleClick={getValueOfAdditionals} />
           </form>
         </div>
       </section>
