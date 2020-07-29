@@ -43,16 +43,36 @@ const Menu = () => {
   }
 
   const getAdditional = orderBurger => {
-    // let num = Number(orderBurger.price)
-    // console.log(num)
-    // orderBurger.egg && orderBurger.cheese ? setOrders([...orders, orderBurger, (num += 2)]) : console.log('enfim');
+    let priceToNumber = Number(orderBurger.price)
+    let finalName = orderBurger.name;
 
-    orders.push(orderBurger)
+    if(orderBurger.cheese === true && orderBurger.egg){
+      priceToNumber += 2;
+      finalName += ` e adicionais de queijo e ovo`
+    } else if(orderBurger.cheese === true){
+      priceToNumber += 1;
+      finalName += ` e adicional de queijo`
+    } else if(orderBurger.egg === true){
+      priceToNumber += 1;
+      finalName += ` e adicional de ovo`
+    } else {
+      priceToNumber += 0;
+      finalName += '';
+    }
+
+    const finalOrder = {
+      alt: orderBurger.alt,
+      cheese: orderBurger.cheese,
+      egg: orderBurger.egg,
+      img: orderBurger.img,
+      name: finalName,
+      price: priceToNumber
+    };
+
+    orders.push(finalOrder)
 
     // setOrders([...orders, orderBurger]);
     setModalBoolean(false);
-    // setBurger();
-    console.log(orderBurger)
   }
 
   const totalPrice = orders.reduce((total, acc) => total + Number(acc.price), 0);

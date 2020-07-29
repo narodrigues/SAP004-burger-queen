@@ -8,7 +8,6 @@ const ModalBurger = props => {
   const showHideClassName = props.show ? "modal display-block" : "modal display-none";
 
   const [meat, setMeat] = useState();
-  // const [option, setOption] = useState([]);
   const [egg, setEgg] = useState(false);
   const [cheese, setCheese] = useState(false);
 
@@ -22,10 +21,9 @@ const ModalBurger = props => {
     e.preventDefault();
     const payload = { ...props.currentBurger };
 
-    payload.name = `${payload.name} com hambúrguer de ${meat}`;
+    payload.name = `${payload.name} com hambúrguer sabor ${meat}`;
     payload.egg = egg;
     payload.cheese = cheese;
-    // payload.option = option
     props.setBurger(payload);
 
     resetModal()
