@@ -83,7 +83,7 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
-                  <div className='divs-option-menu' key={item.name}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => setOrdens([...orders, item])}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
