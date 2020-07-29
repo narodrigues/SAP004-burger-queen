@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
 import BurgerOptions from '../modalHamburger/BurgerOptions'
@@ -120,10 +121,17 @@ const Menu = () => {
       </div>
       <div className='requests bg-color'>
         <div className='requests-quantity'>
-          <p>PEDIDOS</p>
+          <p className='title-request'>PEDIDOS</p>
           <div className='orders'>
             {orders.map((item, index) => (
-              <p key={index}>{item.name} - {brazilianCurrency(item.price)}</p>
+              <div className='request-plus-minus'>
+                <p key={index}>{item.name}</p>
+                <div className='div-btn-icons'>
+                  <button className='icon-btn'> <FaMinusCircle className='icon' />  </button>
+                  <span>1</span>
+                  <button className='icon-btn'><FaPlusCircle className='icon' /></button>
+                </div>
+              </div>
             ))}
           </div>
         </div>

@@ -12,10 +12,6 @@
 	width: 100vw;
 }
 
-/* .menu p, .menu span, .menu button, .orders {
-	color: white;
-} */
-
 .bg-color {
 	background: #065F73;
 	border-radius: 10px;
@@ -97,21 +93,54 @@
 	width: 30vw;
 }
 
-.requests button {
-	background: #0b2b33;
-}
-
-.requests-quantity p {
+.requests .title-request {
 	font-size: 20px;
 	text-align: center;
 }
 
-.total {
-	/* border-top: 1px solid white;
+.requests button {
+	background: #0b2b33;
+}
+
+.orders .request-plus-minus p {
+	font-size: 16px;
+	text-align: center;
+}
+
+.orders {
 	display: flex;
-	height: 20vh;
-	padding: 10px 0px;
-	width: 100%; */
+	flex-direction: column;
+	padding: 20px;
+	width: 100%;
+}
+
+.request-plus-minus {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.div-btn-icons {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-left: 30px;
+	height: 20px;
+	width: 70px;
+}
+
+.requests .icon-btn {
+	background: none;
+	border: none;
+	display: flex;
+}
+
+.icon {
+	color: white;
+	width: 20px;
+}
+
+.total {
 	border-top: 1px solid white;
 	bottom: 15vh;
 	display: flex;
