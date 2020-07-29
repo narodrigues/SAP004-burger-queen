@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
