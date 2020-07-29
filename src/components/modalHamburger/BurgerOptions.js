@@ -4,22 +4,16 @@ import CloseModal from '../modalCloseButton/ModalCloseButton';
 import Input from '../input/Input';
 import './burgerOptions.css';
 
-const ModalBurger = (props) => {
+const ModalBurger = props => {
   const showHideClassName = props.show ? "modal display-block" : "modal display-none";
 
   const [meat, setMeat] = useState();
   const [option, setOption] = useState([]);
 
-  const getValueOfAdditionals = (e) => {
+  const getValueOfAdditionals = e => {
     e.preventDefault();
-    //uni tudo aquilo que tava inline e coloquei dentro de uma função
-    //vai adicionar ao pedido a carne desejada e a opção 
-    //em relação a opção, ainda está com aquele problema de adicinar várias vezes o mesmo adicional
     const payload = { ...props.currentBurger };
 
-    console.log(payload)
-    console.log(option)
-    console.log(meat)
     payload.meat = meat
     payload.option = option
     props.setBurger(payload);

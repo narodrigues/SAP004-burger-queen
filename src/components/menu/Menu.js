@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
 import BurgerOptions from '../modalHamburger/BurgerOptions'
@@ -11,8 +11,8 @@ const Menu = () => {
   const [menuBreakfast, setMenuBreakfast] = useState(null);
   const [modalBoolean, setModalBoolean] = useState(false);
   const [currentMenu, setCurrentMenu] = useState('allDay');
-  const [orders, setOrdens] = useState([]);
-  const [currentburger, setCurrentburger] = useState(null);
+  const [orders, setOrders] = useState([]);
+  const [burger, setBurger] = useState(null);
 
   const breakfast = e => {
     e.preventDefault()
@@ -24,7 +24,7 @@ const Menu = () => {
       .then(querySnapshot => {
         querySnapshot.forEach(doc => { setMenuBreakfast(doc.data()) });
       });
-  };
+  }
 
   const allDay = e => {
     e.preventDefault();
@@ -34,31 +34,22 @@ const Menu = () => {
       .collection('allday')
       .get()
       .then(querySnapshot => {
-        querySnapshot.forEach(doc => { setMenuAllDay(doc.data()) });
+        querySnapshot.forEach(doc => setMenuAllDay(doc.data()));
       });
-  };
-
-
-  //guardando o valor antigo do hamburger que foi clicado
-  //se o modal for true, mostra, se for false, fecha
-  const handleBurger = (item) => {
-    setCurrentburger(item)
-    setModalBoolean(true)
   }
 
-  //set order -  vou pegar as orders(pedidos) que ja foram feitos, e adicionar o hamburguer que foi escolhido
-  // setCurrentburger(null) = para poder limpar 
-  //e fecha o modal
-  const handleBurgerOrder = (orderBurger) => {
-    setOrdens([...orders, orderBurger])
-    setModalBoolean(false)
-    setCurrentburger(null)
+  const getBurger = (item) => {
+    setBurger(item);
+    setModalBoolean(true);
   }
 
-  //aqui o total vem na frente porque ele é 0. ai converto nosso preço pra número igual estavamos fazendo e somo os produtos que ja estão lá, + o novo produto que etrou
-  const totalPrice = orders.reduce((total, acc) => {
-    return total + Number(acc.price)
-  }, 0);
+  const getAdditional = (orderBurger) => {
+    setOrders([...orders, orderBurger]);
+    setModalBoolean(false);
+    setBurger(null);
+  }
+
+  const totalPrice = orders.reduce((total, acc) => total + Number(acc.price), 0);
 
   const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
@@ -74,7 +65,7 @@ const Menu = () => {
             {currentMenu === 'allDay' &&
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => handleBurger(item)}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => getBurger(item)}>
                     <div className='only-option-menu' >
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
@@ -83,7 +74,7 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => setOrdens([...orders, item])}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
@@ -92,7 +83,7 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuAllDay && menuAllDay.drinks.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => setOrdens([...orders, item])}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
@@ -105,7 +96,7 @@ const Menu = () => {
             {currentMenu === 'breakfast' &&
               <div className='border-menu'>
                 {menuBreakfast && menuBreakfast.grilled.map(item => (
-                  <div className='divs-option-menu' key={item.name}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
@@ -114,7 +105,7 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuBreakfast && menuBreakfast.drinks.map(item => (
-                  <div className='divs-option-menu' key={item.name}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
@@ -141,7 +132,7 @@ const Menu = () => {
         </div>
         <Button name='PEDIR' />
       </div>
-      <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={currentburger} setBurger={handleBurgerOrder} />
+      <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
     </section >
   );
 };
