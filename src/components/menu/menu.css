@@ -12,10 +12,6 @@
 	width: 100vw;
 }
 
-/* .menu p, .menu span, .menu button, .orders {
-	color: white;
-} */
-
 .bg-color {
 	background: #065F73;
 	border-radius: 10px;
@@ -94,24 +90,62 @@
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 20px 10px 5px;
-	width: 30vw;
+	width: 35vw;
+}
+
+.requests .title-request {
+	font-size: 20px;
+	text-align: center;
 }
 
 .requests button {
 	background: #0b2b33;
 }
 
-.requests-quantity p {
-	font-size: 20px;
-	text-align: center;
+.orders {
+	display: flex;
+	flex-direction: column;
+	overflow: scroll;
+	padding: 20px;
+	width: 100%;
+}
+
+.request-plus-minus {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+	width: 100%;
+}
+
+.orders .request-plus-minus p {
+	font-size: 16px;
+	text-align: start;
+}
+
+.div-btn-icons {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	height: 20px;
+}
+
+.div-btn-icons span {
+	margin: 0px 5px;
+}
+
+.requests .icon-btn {
+	background: none;
+	border: none;
+	display: flex;
+}
+
+.icon {
+	color: white;
+	width: 20px;
 }
 
 .total {
-	/* border-top: 1px solid white;
-	display: flex;
-	height: 20vh;
-	padding: 10px 0px;
-	width: 100%; */
 	border-top: 1px solid white;
 	bottom: 15vh;
 	display: flex;
@@ -138,9 +172,6 @@
 	.requests.bg-color {
 		margin: 50px 0;
 	}
-	/* .bg-color {
-		margin: 65px 0;
-	} */
 
 	.divs-option-menu {
 		margin-right: 5px;

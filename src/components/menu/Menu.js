@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
 import BurgerOptions from '../modalHamburger/BurgerOptions'
@@ -62,7 +63,8 @@ const Menu = () => {
     let finalOrder = orderBurger;
     finalOrder = {
       name: finalName,
-      price: priceToNumber
+      price: priceToNumber,
+      count: orderBurger.count,
     }
  
     // const finalOrder = {
@@ -73,16 +75,33 @@ const Menu = () => {
     //   name: finalName,
     //   price: priceToNumber
     // };
+      // price: priceToNumber,
+      // count: orderBurger.count,
+    // };
 
-    orders.push(finalOrder)
-
-    // setOrders([...orders, orderBurger]);
+    countQuantity(finalOrder)
     setModalBoolean(false);
   }
 
-  const totalPrice = orders.reduce((total, acc) => total + Number(acc.price), 0);
+  const totalPrice = orders.reduce((total, acc) => total + (Number(acc.price) * acc.count), 0);
 
   const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+  const getRequests = (item) => {
+    setOrders([...orders, item]);
+    countQuantity(item);
+  }
+
+  const countQuantity = (item) => {
+    if (!orders.includes(item)) {
+      item.count = 1;
+      setOrders([...orders, item]);
+    } else {
+      item.count++;
+      console.log(`esta pessoa quer + ${item.count} de ${item.name}`);
+      setOrders([...orders]);
+    }
+  }
 
   return (
     <section className='menu'>
@@ -105,7 +124,7 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
@@ -114,7 +133,7 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuAllDay && menuAllDay.drinks.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
@@ -127,7 +146,7 @@ const Menu = () => {
             {currentMenu === 'breakfast' &&
               <div className='border-menu'>
                 {menuBreakfast && menuBreakfast.grilled.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
@@ -136,7 +155,7 @@ const Menu = () => {
                   </div>
                 ))}
                 {menuBreakfast && menuBreakfast.drinks.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => setOrders([...orders, item])}>
+                  <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
                       <p>{item.name}</p>
@@ -151,10 +170,17 @@ const Menu = () => {
       </div>
       <div className='requests bg-color'>
         <div className='requests-quantity'>
-          <p>PEDIDOS</p>
+          <p className='title-request'>PEDIDOS</p>
           <div className='orders'>
             {orders.map((item, index) => (
-              <p key={index}>{item.name} - {brazilianCurrency(item.price)}</p>
+              <div className='request-plus-minus' key={item.name}>
+                <p key={index}>{item.name}</p>
+                <div className='div-btn-icons'>
+                  <button className='icon-btn'> <FaMinusCircle className='icon' /></button>
+                  <span>{item.count}</span>
+                  <button className='icon-btn' onClick={() => getRequests(item)}><FaPlusCircle className='icon' /></button>
+                </div>
+              </div>
             ))}
           </div>
         </div>

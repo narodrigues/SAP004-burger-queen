@@ -21,7 +21,7 @@ const ModalBurger = props => {
     e.preventDefault();
     const payload = { ...props.currentBurger };
 
-    payload.name = `${payload.name} com hambúrguer sabor ${meat}`;
+    payload.name = `${payload.name} + hambúrguer sabor ${meat}`;
     payload.egg = egg;
     payload.cheese = cheese;
     props.setBurger(payload);
