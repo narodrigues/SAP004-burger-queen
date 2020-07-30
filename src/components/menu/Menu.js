@@ -10,7 +10,7 @@ const Menu = () => {
   const [menuAllDay, setMenuAllDay] = useState(null);
   const [menuBreakfast, setMenuBreakfast] = useState(null);
   const [modalBoolean, setModalBoolean] = useState(false);
-  const [currentMenu, setCurrentMenu] = useState('allDay');
+  const [currentMenu, setCurrentMenu] = useState(null);
   const [orders, setOrders] = useState([]);
   const [burger, setBurger] = useState(null);
 
@@ -47,28 +47,32 @@ const Menu = () => {
     let priceToNumber = Number(orderBurger.price)
     let finalName = orderBurger.name;
 
-    if(orderBurger.cheese === true && orderBurger.egg){
+    if(orderBurger.cheese && orderBurger.egg){
       priceToNumber += 2;
       finalName += ` e adicionais de queijo e ovo`
-    } else if(orderBurger.cheese === true){
+    } else if(orderBurger.cheese){
       priceToNumber += 1;
       finalName += ` e adicional de queijo`
-    } else if(orderBurger.egg === true){
+    } else if(orderBurger.egg){
       priceToNumber += 1;
       finalName += ` e adicional de ovo`
-    } else {
-      priceToNumber += 0;
-      finalName += '';
-    }
+    } 
 
-    const finalOrder = {
-      alt: orderBurger.alt,
-      cheese: orderBurger.cheese,
-      egg: orderBurger.egg,
-      img: orderBurger.img,
+
+    let finalOrder = orderBurger;
+    finalOrder = {
       name: finalName,
       price: priceToNumber
-    };
+    }
+ 
+    // const finalOrder = {
+    //   alt: orderBurger.alt,
+    //   cheese: orderBurger.cheese,
+    //   egg: orderBurger.egg,
+    //   img: orderBurger.img,
+    //   name: finalName,
+    //   price: priceToNumber
+    // };
 
     orders.push(finalOrder)
 
