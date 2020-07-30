@@ -105,7 +105,6 @@
 .orders {
 	display: flex;
 	flex-direction: column;
-	overflow: scroll;
 	padding: 20px;
 	width: 100%;
 }
