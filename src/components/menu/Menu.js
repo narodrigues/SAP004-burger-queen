@@ -46,21 +46,17 @@ const Menu = () => {
 
   const getAdditional = orderBurger => {
     let priceToNumber = Number(orderBurger.price)
-    const count = orders.filter(item => item.count);
     let finalName = orderBurger.name;
 
-    if (orderBurger.cheese === true && orderBurger.egg) {
+    if (orderBurger.cheese && orderBurger.egg) {
       priceToNumber += 2;
       finalName += ` + queijo e ovo`
-    } else if (orderBurger.cheese === true) {
+    } else if (orderBurger.cheese) {
       priceToNumber += 1;
       finalName += ` + queijo`
-    } else if (orderBurger.egg === true) {
+    } else if (orderBurger.egg) {
       priceToNumber += 1;
       finalName += ` + ovo`
-    } else {
-      priceToNumber += 0;
-      finalName += '';
     }
 
     const finalOrder = {
@@ -91,7 +87,6 @@ const Menu = () => {
       item.count = 1;
       setOrders([...orders, item]);
     } else {
-      const count = orders.filter(item => item.count);
       item.count++;
       console.log(`esta pessoa quer + ${item.count} de ${item.name}`);
       setOrders([...orders]);
