@@ -39,20 +39,48 @@ const Menu = () => {
       });
   }
 
-  const getBurger = (item) => {
+  const getBurger = item => {
     setBurger(item);
     setModalBoolean(true);
   }
 
-  const getAdditional = (orderBurger) => {
-    setOrders([...orders, orderBurger]);
+  const getAdditional = orderBurger => {
+    let priceToNumber = Number(orderBurger.price)
+    let finalName = orderBurger.name;
+
+    if (orderBurger.cheese === true && orderBurger.egg) {
+      priceToNumber += 2;
+      finalName += ` e adicionais de queijo e ovo`
+    } else if (orderBurger.cheese === true) {
+      priceToNumber += 1;
+      finalName += ` e adicional de queijo`
+    } else if (orderBurger.egg === true) {
+      priceToNumber += 1;
+      finalName += ` e adicional de ovo`
+    } else {
+      priceToNumber += 0;
+      finalName += '';
+    }
+
+    const finalOrder = {
+      alt: orderBurger.alt,
+      cheese: orderBurger.cheese,
+      egg: orderBurger.egg,
+      img: orderBurger.img,
+      name: finalName,
+      price: priceToNumber
+    };
+
+    orders.push(finalOrder)
+
+    // setOrders([...orders, orderBurger]);
     setModalBoolean(false);
-    setBurger(null);
   }
 
   const totalPrice = orders.reduce((total, acc) => total + Number(acc.price), 0);
 
   const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
 
   return (
     <section className='menu'>
@@ -124,14 +152,16 @@ const Menu = () => {
           <p className='title-request'>PEDIDOS</p>
           <div className='orders'>
             {orders.map((item, index) => (
-              <div className='request-plus-minus'>
-                <p key={index}>{item.name}</p>
-                <div className='div-btn-icons'>
-                  <button className='icon-btn'> <FaMinusCircle className='icon' />  </button>
-                  <span>1</span>
-                  <button className='icon-btn'><FaPlusCircle className='icon' /></button>
-                </div>
-              </div>
+              <p key={index}>{item.name} - {brazilianCurrency(item.price)}</p>
+
+              // <div className='request-plus-minus' key={item.name}>
+              //   <p key={index}>{item.name}</p>
+              //   <div className='div-btn-icons'>
+              //     <button className='icon-btn'> <FaMinusCircle className='icon' />  </button>
+              //     <span>{orders.qtd}</span>
+              //     <button className='icon-btn' /*onClick={countQuantity}*/><FaPlusCircle className='icon' /></button>
+              //   </div>
+              // </div>
             ))}
           </div>
         </div>
