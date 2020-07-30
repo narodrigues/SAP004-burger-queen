@@ -48,15 +48,18 @@ const Menu = () => {
     let priceToNumber = Number(orderBurger.price)
     let finalName = orderBurger.name;
 
-    if (orderBurger.cheese && orderBurger.egg) {
+    if (orderBurger.cheese === true && orderBurger.egg) {
       priceToNumber += 2;
-      finalName += ` + queijo e ovo`
-    } else if (orderBurger.cheese) {
+      finalName += ` e adicionais de queijo e ovo`
+    } else if (orderBurger.cheese === true) {
       priceToNumber += 1;
-      finalName += ` + queijo`
-    } else if (orderBurger.egg) {
+      finalName += ` e adicional de queijo`
+    } else if (orderBurger.egg === true) {
       priceToNumber += 1;
-      finalName += ` + ovo`
+      finalName += ` e adicional de ovo`
+    } else {
+      priceToNumber += 0;
+      finalName += '';
     }
 
     const finalOrder = {
