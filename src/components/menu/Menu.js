@@ -59,25 +59,12 @@ const Menu = () => {
       finalName += ` e adicional de ovo`
     } 
 
-
     let finalOrder = orderBurger;
     finalOrder = {
       name: finalName,
       price: priceToNumber,
       count: orderBurger.count,
     }
- 
-    // const finalOrder = {
-    //   alt: orderBurger.alt,
-    //   cheese: orderBurger.cheese,
-    //   egg: orderBurger.egg,
-    //   img: orderBurger.img,
-    //   name: finalName,
-    //   price: priceToNumber
-    // };
-      // price: priceToNumber,
-      // count: orderBurger.count,
-    // };
 
     countQuantity(finalOrder)
     setModalBoolean(false);
@@ -102,14 +89,13 @@ const Menu = () => {
       setOrders([...orders]);
     }
   }
+
   const reduceItem = (item) => {
     if (orders.includes(item)) {
       item.count--;
-      console.log(`esta pessoa não quer mais + ${item.count} de ${item.name}`);
-      setOrders([...orders]);
+      // setOrders([...orders]);
       if (item.count === 0) {
-        orders.splice(item, 1)
-        console.log('deletou')
+        orders.splice(orders.indexOf(item), 1)
         setOrders([...orders]);
       }
     }
