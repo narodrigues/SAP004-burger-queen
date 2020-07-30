@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
@@ -63,8 +63,6 @@ const Menu = () => {
       finalName += '';
     }
 
-    console.log(priceToNumber)
-
     const finalOrder = {
       alt: orderBurger.alt,
       cheese: orderBurger.cheese,
@@ -74,8 +72,6 @@ const Menu = () => {
       price: priceToNumber,
       count: orderBurger.count,
     };
-
-    // orders.push(finalOrder);
 
     countQuantity(finalOrder)
     setModalBoolean(false);
