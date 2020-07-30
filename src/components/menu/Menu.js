@@ -92,6 +92,13 @@ const Menu = () => {
       setOrders([...orders]);
     }
   }
+  const reduceItem = (item) => {
+    if (orders.includes(item)) {
+      item.count--;
+      console.log(`esta pessoa não quer mais + ${item.count} de ${item.name}`);
+      setOrders([...orders]);
+    }
+  }
 
   return (
     <section className='menu'>
@@ -166,7 +173,7 @@ const Menu = () => {
               <div className='request-plus-minus' key={item.name}>
                 <p key={index}>{item.name}</p>
                 <div className='div-btn-icons'>
-                  <button className='icon-btn'> <FaMinusCircle className='icon' /></button>
+                  <button className='icon-btn'> <FaMinusCircle className='icon' onClick={() => reduceItem(item)} /></button>
                   <span>{item.count}</span>
                   <button className='icon-btn' onClick={() => getRequests(item)}><FaPlusCircle className='icon' /></button>
                 </div>
