@@ -157,6 +157,15 @@
 	margin: 20px;
 }
 
+a.btn-order {
+	align-items: center;
+	border-radius: inherit;
+	color: inherit;
+	display: flex;
+	height: inherit;
+	justify-content: center;
+}
+
 @media screen and (min-width: 850px) {
 	.menu {
     top: 350px;

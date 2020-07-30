@@ -6,6 +6,7 @@ import Button from '../button/Button';
 import BurgerOptions from '../modalHamburger/BurgerOptions'
 import './menu.css';
 import firebase from '../../configure-firebase';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
   const [menuAllDay, setMenuAllDay] = useState(null);
@@ -185,7 +186,12 @@ const Menu = () => {
         <div className='total'>
           <span>Total: {brazilianCurrency(totalPrice)}</span>
         </div>
-        <Button name='PEDIR' />
+        <Button>
+          <Link to="/table" className='btn-order'>PEDIR</Link>
+        </Button>
+        {/* <button className='standard-btn'>
+          <Link to="/table">PEDIR</Link>
+        </button> */}
       </div>
       <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
     </section >
