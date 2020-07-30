@@ -46,21 +46,24 @@ const Menu = () => {
 
   const getAdditional = orderBurger => {
     let priceToNumber = Number(orderBurger.price)
+    const count = orders.filter(item => item.count);
     let finalName = orderBurger.name;
 
     if (orderBurger.cheese === true && orderBurger.egg) {
       priceToNumber += 2;
-      finalName += ` e adicionais de queijo e ovo`
+      finalName += ` + queijo e ovo`
     } else if (orderBurger.cheese === true) {
       priceToNumber += 1;
-      finalName += ` e adicional de queijo`
+      finalName += ` + queijo`
     } else if (orderBurger.egg === true) {
       priceToNumber += 1;
-      finalName += ` e adicional de ovo`
+      finalName += ` + ovo`
     } else {
       priceToNumber += 0;
       finalName += '';
     }
+
+    console.log(priceToNumber)
 
     const finalOrder = {
       alt: orderBurger.alt,
@@ -68,11 +71,13 @@ const Menu = () => {
       egg: orderBurger.egg,
       img: orderBurger.img,
       name: finalName,
-      price: priceToNumber
+      price: priceToNumber,
+      count: orderBurger.count,
     };
 
-    orders.push(finalOrder)
+    // orders.push(finalOrder);
 
+    countQuantity(finalOrder)
     setModalBoolean(false);
   }
 
@@ -81,19 +86,19 @@ const Menu = () => {
   const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   const getRequests = (item) => {
-    setOrders([...orders, item])
-    countQuantity(item)
+    setOrders([...orders, item]);
+    countQuantity(item);
   }
 
   const countQuantity = (item) => {
     if (!orders.includes(item)) {
-      item.count = 1
-      setOrders([...orders, item])
+      item.count = 1;
+      setOrders([...orders, item]);
     } else {
       const count = orders.filter(item => item.count);
       item.count++;
       console.log(`esta pessoa quer + ${item.count} de ${item.name}`);
-      setOrders([...orders])
+      setOrders([...orders]);
     }
   }
 
