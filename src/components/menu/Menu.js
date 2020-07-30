@@ -97,6 +97,11 @@ const Menu = () => {
       item.count--;
       console.log(`esta pessoa não quer mais + ${item.count} de ${item.name}`);
       setOrders([...orders]);
+      if (item.count === 0) {
+        orders.splice(item, 1)
+        console.log('deletou')
+        setOrders([...orders]);
+      }
     }
   }
 
