@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import './hall.css';
 import Button from '../../components/button/Button'
 import Header from '../../components/header/Header'
@@ -18,7 +19,9 @@ export default function Hall() {
       <section className='hall'>
         <Header className='header-hall' />
         <div className='buttons-option'>
-          <Button name='Pedidos Prontos' />
+          <Button>
+            <Link to="/Requests" className='btn-order'>Pedidos prontos</Link>
+          </Button>
           <Button name='Sair' handleClick={(e) => logout(e)} />
         </div>
       </section>
