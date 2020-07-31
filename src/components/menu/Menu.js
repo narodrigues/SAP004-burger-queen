@@ -67,7 +67,7 @@ const Menu = () => {
       count: orderBurger.count,
     }
 
-    countQuantity(finalOrder)
+    countQuantity(finalOrder);
     setModalBoolean(false);
   }
 
@@ -86,7 +86,6 @@ const Menu = () => {
       setOrders([...orders, item]);
     } else {
       item.count++;
-      console.log(`esta pessoa quer + ${item.count} de ${item.name}`);
       setOrders([...orders]);
     }
   }
@@ -102,6 +101,23 @@ const Menu = () => {
     }
   }
 
+  const ordersToCollection = () => {
+    let requests = {
+      order: orders.map(e => {
+        return {
+          name: e.name,
+          count: e.count,
+          status: "Pendente"
+        }
+      })
+    }
+    firebase
+      .firestore()
+      .collection('orders')
+      .add(requests)
+      .then(() => setOrders([]));
+  }
+  
   return (
     <section className='menu'>
       <div className='div-menu'>
@@ -187,7 +203,7 @@ const Menu = () => {
           <span>Total: {brazilianCurrency(totalPrice)}</span>
         </div>
         <Button>
-          <Link to="/table" className='btn-order'>PEDIR</Link>
+          <Link to="/table" className='btn-order' onClick={ordersToCollection}>PEDIR</Link>
         </Button>
         {/* <button className='standard-btn'>
           <Link to="/table">PEDIR</Link>
