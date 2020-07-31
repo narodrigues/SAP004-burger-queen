@@ -67,7 +67,7 @@ const Menu = () => {
       count: orderBurger.count,
     }
 
-    countQuantity(finalOrder)
+    countQuantity(finalOrder);
     setModalBoolean(false);
   }
 
@@ -86,7 +86,6 @@ const Menu = () => {
       setOrders([...orders, item]);
     } else {
       item.count++;
-      console.log(`esta pessoa quer + ${item.count} de ${item.name}`);
       setOrders([...orders]);
     }
   }
@@ -112,13 +111,15 @@ const Menu = () => {
         }
       })
     }
+    localStorage.setItem('id', new Date().getTime())
+
     firebase
       .firestore()
       .collection('orders')
       .doc(`${new Date().getTime()}`)
       .set(requests)
-  }
-
+    }
+  
   return (
     <section className='menu'>
       <div className='div-menu'>

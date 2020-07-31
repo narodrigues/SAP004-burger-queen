@@ -5,6 +5,8 @@ import ModalConfirm from '../../components/modalConfirmRequest/ModalConfirm';
 import React, { useState } from "react";
 import Header from '../../components/header/Header';
 import { Link } from 'react-router-dom';
+import firebase from '../../configure-firebase';
+
 
 export default function Table() {
   const [username, setUsername] = useState('');
@@ -13,10 +15,11 @@ export default function Table() {
   const [showErrorTable, setErrorTable] = useState(false);
   const [confirmTable, setConfirmTabel] = useState(false);
 
+  const orderId = localStorage.getItem('id');
+
   const changeShow = (e, show) => {
     e.preventDefault();
     setConfirmTabel(!show);
-    sendOrder(e);
   }
 
   const validForm = () => {
@@ -36,13 +39,22 @@ export default function Table() {
     return isValid;
   }
 
-  const sendOrder = e => {
+  const sendOrder = (e, show) => {
     e.preventDefault()
 
     const isValid = validForm();
 
     if (isValid) {
-      console.log('tudo certo')
+      setConfirmTabel(!show);
+
+      firebase
+        .firestore()
+        .collection('orders')
+        .doc(orderId)
+        .update({
+          client: username,
+          table: table,
+        });
     };
   }
 
@@ -62,8 +74,8 @@ export default function Table() {
               <p>Sua senha deve ter mais de 6 dígitos.</p>
             )}
             <div className='div-buttons-order'>
-              <Button id='btn-order' className='button' name='Fazer pedido' handleClick={(e) => changeShow(e, confirmTable)} />
-              <Button id='btn-return' className='button' /*handleClick={''}*/>
+              <Button id='btn-order' className='button' name='Fazer pedido' handleClick={(e) => sendOrder(e, confirmTable)} />
+              <Button id='btn-return' className='button'>
                 <Link to="/hall" className='btn-order'>VOLTAR</Link>
               </Button>
             </div>
