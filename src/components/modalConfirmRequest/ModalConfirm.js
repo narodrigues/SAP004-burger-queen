@@ -1,6 +1,7 @@
 import React from 'react';
-import Button from '../button/Button';
+import { Link } from 'react-router-dom';
 import './modalConfirm.css'
+import Button from '../button/Button';
 
 export default function ModalConfirm() {
   return (
@@ -9,7 +10,9 @@ export default function ModalConfirm() {
         <p>PEDIDO REGISTRADO</p>
       </div>
       <div className='btn-confirms'>
-        <Button id='btn-confirm' className='button' name='PRÓXIMO PEDIDO' />
+        <Button>
+          <Link to="/Hall" className='btn-order'>Próximo Pedido</Link>
+        </Button>
       </div>
     </div>
   )

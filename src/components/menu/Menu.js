@@ -101,6 +101,24 @@ const Menu = () => {
     }
   }
 
+  const ordersToCollection = () => {
+    let requests = {
+      order: orders.map(e => {
+        return {
+          name: e.name,
+          count: e.count,
+          id: new Date().getTime(),
+          status: "Pendente"
+        }
+      })
+    }
+    firebase
+      .firestore()
+      .collection('orders')
+      .doc(`${new Date().getTime()}`)
+      .set(requests)
+  }
+
   return (
     <section className='menu'>
       <div className='div-menu'>
@@ -186,7 +204,7 @@ const Menu = () => {
           <span>Total: {brazilianCurrency(totalPrice)}</span>
         </div>
         <Button>
-          <Link to="/table" className='btn-order'>PEDIR</Link>
+          <Link to="/table" className='btn-order' onClick={ordersToCollection}>PEDIR</Link>
         </Button>
       </div>
       <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
