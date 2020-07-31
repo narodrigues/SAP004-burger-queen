@@ -6,12 +6,13 @@ import Button from '../button/Button';
 import BurgerOptions from '../modalHamburger/BurgerOptions'
 import './menu.css';
 import firebase from '../../configure-firebase';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
   const [menuAllDay, setMenuAllDay] = useState(null);
   const [menuBreakfast, setMenuBreakfast] = useState(null);
   const [modalBoolean, setModalBoolean] = useState(false);
-  const [currentMenu, setCurrentMenu] = useState('allDay');
+  const [currentMenu, setCurrentMenu] = useState(null);
   const [orders, setOrders] = useState([]);
   const [burger, setBurger] = useState(null);
 
@@ -48,26 +49,23 @@ const Menu = () => {
     let priceToNumber = Number(orderBurger.price)
     let finalName = orderBurger.name;
 
-    if (orderBurger.cheese && orderBurger.egg) {
+    if(orderBurger.cheese && orderBurger.egg){
       priceToNumber += 2;
-      finalName += ` + queijo e ovo`
-    } else if (orderBurger.cheese) {
+      finalName += ` e adicionais de queijo e ovo`
+    } else if(orderBurger.cheese){
       priceToNumber += 1;
-      finalName += ` + queijo`
-    } else if (orderBurger.egg) {
+      finalName += ` e adicional de queijo`
+    } else if(orderBurger.egg){
       priceToNumber += 1;
-      finalName += ` + ovo`
-    }
+      finalName += ` e adicional de ovo`
+    } 
 
-    const finalOrder = {
-      alt: orderBurger.alt,
-      cheese: orderBurger.cheese,
-      egg: orderBurger.egg,
-      img: orderBurger.img,
+    let finalOrder = orderBurger;
+    finalOrder = {
       name: finalName,
       price: priceToNumber,
       count: orderBurger.count,
-    };
+    }
 
     countQuantity(finalOrder)
     setModalBoolean(false);
@@ -92,11 +90,11 @@ const Menu = () => {
       setOrders([...orders]);
     }
   }
+
   const reduceItem = (item) => {
     if (orders.includes(item)) {
       item.count--;
-      console.log(`esta pessoa não quer mais + ${item.count} de ${item.name}`);
-      setOrders([...orders]);
+      // setOrders([...orders]);
       if (item.count === 0) {
         orders.splice(orders.indexOf(item), 1)
         setOrders([...orders]);
@@ -188,7 +186,12 @@ const Menu = () => {
         <div className='total'>
           <span>Total: {brazilianCurrency(totalPrice)}</span>
         </div>
-        <Button name='PEDIR' />
+        <Button>
+          <Link to="/table" className='btn-order'>PEDIR</Link>
+        </Button>
+        {/* <button className='standard-btn'>
+          <Link to="/table">PEDIR</Link>
+        </button> */}
       </div>
       <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
     </section >

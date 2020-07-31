@@ -19,10 +19,6 @@
 	margin: 55px 0;
 }
 
-.orders {
-	white-space: pre-wrap;
-}
-
 .div-menu {
 	align-items: center;
 	display: flex;
@@ -105,7 +101,10 @@
 .orders {
 	display: flex;
 	flex-direction: column;
+	height: 45vh;
+	overflow: auto;
 	padding: 20px;
+	white-space: pre-wrap;
 	width: 100%;
 }
 
@@ -146,7 +145,7 @@
 
 .total {
 	border-top: 1px solid white;
-	bottom: 15vh;
+	bottom: 13vh;
 	display: flex;
 	flex-direction: column;
 	padding: 10px 0px;
@@ -156,6 +155,15 @@
 
 .total span {
 	margin: 20px;
+}
+
+a.btn-order {
+	align-items: center;
+	border-radius: inherit;
+	color: inherit;
+	display: flex;
+	height: inherit;
+	justify-content: center;
 }
 
 @media screen and (min-width: 850px) {

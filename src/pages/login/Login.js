@@ -11,8 +11,8 @@ export default function Login() {
   const [register, setRegister] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showErroEmailInvalid, setErrorEmailInvalid] = useState(false);
-  const [showErroPassword, setErrorPassword] = useState(false);
+  const [showErrorEmailInvalid, setErrorEmailInvalid] = useState(false);
+  const [showErrorPassword, setErrorPassword] = useState(false);
 
   const changeShow = (e, show) => {
     e.preventDefault();
@@ -52,11 +52,11 @@ export default function Login() {
       <div>
         <form className='form-login'>
           <Input type='email' placeholder='email@exemple.com' id='emal-login' onChange={e => setEmail(e.target.value)} />
-          {showErroEmailInvalid && (
+          {showErrorEmailInvalid && (
             <p>Este e-mail parece não estar cadastrado. Tente novamente ou cadastre-se.</p>
           )}
           <Input type='password' placeholder='senha' id='password-login' onChange={e => setPassword(e.target.value)} />
-          {showErroPassword && (
+          {showErrorPassword && (
             <p>Sua senha deve ter mais de 6 dígitos.</p>
           )}
           <div className='div-buttons-login'>
