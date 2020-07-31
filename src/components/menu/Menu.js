@@ -118,8 +118,7 @@ const Menu = () => {
       .collection('orders')
       .doc(`${new Date().getTime()}`)
       .set(requests)
-      // .then(() => setOrders([]));
-  }
+    }
   
   return (
     <section className='menu'>
