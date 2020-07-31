@@ -106,15 +106,19 @@ const Menu = () => {
         return {
           name: e.name,
           count: e.count,
+          id: new Date().getTime(),
           status: "Pendente"
         }
       })
     }
+    localStorage.setItem('id', new Date().getTime())
+
     firebase
       .firestore()
       .collection('orders')
-      .add(requests)
-      .then(() => setOrders([]));
+      .doc(`${new Date().getTime()}`)
+      .set(requests)
+      // .then(() => setOrders([]));
   }
   
   return (
