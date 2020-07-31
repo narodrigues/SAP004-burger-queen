@@ -47,7 +47,7 @@ export default function Table() {
           {showErrorNameEmpty && (
             <p>Por favor, preencha o nome do cliente.</p>
           )}
-          <Input type='number' id='table-number' min="1" max="15" onChange={e => setTable(e.target.value)} />
+          <Input type='number' placeholder='Número da mesa' id='table-number' min="1" max="15" onChange={e => setTable(e.target.value)} />
           {showErrorTable && (
             <p>Sua senha deve ter mais de 6 dígitos.</p>
           )}

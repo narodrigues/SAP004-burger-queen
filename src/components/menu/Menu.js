@@ -49,16 +49,16 @@ const Menu = () => {
     let priceToNumber = Number(orderBurger.price)
     let finalName = orderBurger.name;
 
-    if(orderBurger.cheese && orderBurger.egg){
+    if (orderBurger.cheese && orderBurger.egg) {
       priceToNumber += 2;
       finalName += ` e adicionais de queijo e ovo`
-    } else if(orderBurger.cheese){
+    } else if (orderBurger.cheese) {
       priceToNumber += 1;
       finalName += ` e adicional de queijo`
-    } else if(orderBurger.egg){
+    } else if (orderBurger.egg) {
       priceToNumber += 1;
       finalName += ` e adicional de ovo`
-    } 
+    }
 
     let finalOrder = orderBurger;
     finalOrder = {
@@ -94,7 +94,6 @@ const Menu = () => {
   const reduceItem = (item) => {
     if (orders.includes(item)) {
       item.count--;
-      // setOrders([...orders]);
       if (item.count === 0) {
         orders.splice(orders.indexOf(item), 1)
         setOrders([...orders]);
@@ -189,9 +188,6 @@ const Menu = () => {
         <Button>
           <Link to="/table" className='btn-order'>PEDIR</Link>
         </Button>
-        {/* <button className='standard-btn'>
-          <Link to="/table">PEDIR</Link>
-        </button> */}
       </div>
       <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
     </section >
