@@ -20,7 +20,6 @@ export default function Table() {
   const changeShow = (e, show) => {
     e.preventDefault();
     setConfirmTabel(!show);
-    // sendOrder(e);
   }
 
   const validForm = () => {
@@ -76,7 +75,7 @@ export default function Table() {
             )}
             <div className='div-buttons-order'>
               <Button id='btn-order' className='button' name='Fazer pedido' handleClick={(e) => sendOrder(e, confirmTable)} />
-              <Button id='btn-return' className='button' /*handleClick={''}*/>
+              <Button id='btn-return' className='button'>
                 <Link to="/hall" className='btn-order'>VOLTAR</Link>
               </Button>
             </div>
