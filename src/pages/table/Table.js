@@ -47,30 +47,32 @@ export default function Table() {
   }
 
   return (
-    <section className='flex-row-desk'>
-      <Header />
-      <div>
-        <form className='form-login'>
-          <label>Escreva o nome do cliente e o número da mesa</label>
-          <Input type='text' placeholder='Nome do cliente' id='client-name' onChange={e => setUsername(e.target.value)} />
-          {showErrorNameEmpty && (
-            <p>Por favor, preencha o nome do cliente.</p>
-          )}
-          <Input type='number' placeholder='Número da mesa' id='table-number' min="1" max="15" onChange={e => setTable(e.target.value)} />
-          {showErrorTable && (
-            <p>Sua senha deve ter mais de 6 dígitos.</p>
-          )}
-          <div className='div-buttons-order'>
-            <Button id='btn-order' className='button' name='Fazer pedido' handleClick={(e) => changeShow(e, confirmTable)} />
-            <Button id='btn-return' className='button' /*handleClick={''}*/>
-              <Link to="/hall" className='btn-order'>VOLTAR</Link>
-            </Button>
-          </div>
-        </form>
-      </div>
-      <Modal show={confirmTable} closeModal={e => changeShow(e, confirmTable)} >
-        <ModalConfirm />
-      </Modal>
-    </section>
+    <section className='close-modal-only'>
+      <section className='flex-row-desk'>
+        <Header />
+        <div>
+          <form className='form-login'>
+            <label>Escreva o nome do cliente e o número da mesa</label>
+            <Input type='text' placeholder='Nome do cliente' id='client-name' onChange={e => setUsername(e.target.value)} />
+            {showErrorNameEmpty && (
+              <p>Por favor, preencha o nome do cliente.</p>
+            )}
+            <Input type='number' placeholder='Número da mesa' id='table-number' min="1" max="15" onChange={e => setTable(e.target.value)} />
+            {showErrorTable && (
+              <p>Sua senha deve ter mais de 6 dígitos.</p>
+            )}
+            <div className='div-buttons-order'>
+              <Button id='btn-order' className='button' name='Fazer pedido' handleClick={(e) => changeShow(e, confirmTable)} />
+              <Button id='btn-return' className='button' /*handleClick={''}*/>
+                <Link to="/hall" className='btn-order'>VOLTAR</Link>
+              </Button>
+            </div>
+          </form>
+        </div>
+        <Modal show={confirmTable} closeModal={e => changeShow(e, confirmTable)} >
+          <ModalConfirm />
+        </Modal>
+      </section>
+    </section >
   )
 }
