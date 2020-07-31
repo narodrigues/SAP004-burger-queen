@@ -21,7 +21,6 @@
     border: 10px solid #065F73;
     border-radius: 10px;
     box-shadow: 0 0 0 10px white;
-    /* box-shadow: 15px 15px 20px 0px #3b302762; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,20 +33,6 @@
     text-align: center;
     top: 50%; 
     width: 350px;
-    /* align-items: center;
-    background: white;
-    border: 10px solid #065F73;
-    box-shadow: 0 0 0 10px white;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    justify-content: center;
-    min-height: 460px;
-    min-width: 360px;
-    padding: 25px;
-    position: relative;
-    text-align: center; */
 }
 
 .modal-options fieldset {

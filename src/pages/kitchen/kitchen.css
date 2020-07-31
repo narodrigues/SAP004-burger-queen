@@ -15,83 +15,44 @@ body {
 	width: 100%;
 }
 
-.kitchen-hall img {
-	width: 250px;
+.preparing-order {
+	text-align: center;
 }
 
-.kitchen .logo-login {
-	left: 30px;
-	position: absolute;
-	top: 20px;
-	width: 250px;
+.ready-order {
+	text-align: center;
 }
 
-.kitchen button {
-	font-size: 16px;
 
-	/* height: 40px;
-	position: absolute;
-	right: 0;
-	top: 10px;
-	width: 110px; */
-}
-
-.exit-btn {
-	display: flex;
-	flex-direction: column;
-	height: 60%;
-	justify-content: space-evenly;
-	margin: 0 30px;
-
-	/* align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center; */
-}
-
-/* @media screen and (min-width: 700px){
+@media screen and (min-width: 700px){
+	.kitchen-hall img {
+		width: 250px;
+	}
+	
 	.kitchen .logo-login {
-		top: 40px;
-		width: 230px;
+		left: 30px;
+		position: absolute;
+		top: 20px;
+		width: 250px;
 	}
-
+	
 	.kitchen button {
-		height: 60px;
-		right: 10vw;
-		top: 40px;
-		width: 150px;
+		font-size: 16px;
 	}
-} */
+	
+	.exit-btn {
+		display: flex;
+		flex-direction: column;
+		height: 60%;
+		justify-content: space-evenly;
+		margin: 0 30px;
+	}
+}
 
 @media screen and (min-width: 850px){
 	.kitchen .logo-login {
-		/* width: 300px; */
 		left: 40px;
 		top: 30px;
 
 	}
 }
-/* 
-	.kitchen button {
-    height: 75px;
-    width: 200px;
-	}
-}
-
-@media screen and (min-width: 1024px){
-  .kitchen .logo-login {
-    top: 15px;
-    width: 250px;
-	}
-	
-	.kitchen button {
-    height: 60px;
-    width: 170px;
-}
-}
-
-@media screen and (min-width: 1300px){
-	.kitchen .logo-login {
-		width: 250px;
-	}
-} */

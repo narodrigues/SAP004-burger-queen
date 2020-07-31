@@ -9,10 +9,9 @@
 	background: #ffe868;
 	border-radius: 20px;
 	box-shadow: 40px 38px 24px -10px #3b30273d;
-	/* display: flex; */
 	height: 65vh;
 	justify-content: space-around;
-	margin: 40px auto;
+  margin: 55px auto;
 	position: absolute;
   width: 80vw;
   top: 25vh;
