@@ -54,7 +54,8 @@ export default function Table() {
         .update({
           client: username,
           table: table,
-          status: "Pendente"
+          status: "Pendente",
+          id: orderId
         });
     };
   }

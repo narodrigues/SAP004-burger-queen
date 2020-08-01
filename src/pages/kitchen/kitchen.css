@@ -17,10 +17,26 @@ body {
 
 .preparing-order {
 	text-align: center;
+	width: 50vw;
 }
 
 .ready-order {
 	text-align: center;
+	width: 50vw;
+}
+
+.divs-orders {
+	background: white;
+	border-radius: 10px;
+	font-size: 25px;
+	height: 250px;
+	margin: 0 0 40px 40px;
+	padding: 15px;
+	width: 200px;
+}
+
+.p-orders {
+	font-size: 16px;
 }
 
 
