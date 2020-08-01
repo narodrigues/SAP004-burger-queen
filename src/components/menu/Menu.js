@@ -107,7 +107,7 @@ const Menu = () => {
           name: e.name,
           count: e.count,
           id: new Date().getTime(),
-          status: "Pendente"
+          // status: "Pronto"
         }
       })
     }

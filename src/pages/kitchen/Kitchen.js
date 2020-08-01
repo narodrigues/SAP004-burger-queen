@@ -12,6 +12,19 @@ export default function Kitchen() {
       .signOut()
   }
 
+  const getOrders = () => {
+    firebase
+    .firestore()
+    .collection('orders')
+    .where('status', '==', 'Pendente')
+    .get()
+    // .then(a => a.docs.map(b => console.log(...b.data())))
+    .then(querySnapshot => {
+      querySnapshot.forEach(doc => console.log(doc.data()));
+    });
+  }
+  getOrders()
+
   return (
     <>
       <section className='kitchen'>
