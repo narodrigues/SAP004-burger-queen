@@ -13,13 +13,13 @@ export default function Table() {
   const [table, setTable] = useState('');
   const [showErrorNameEmpty, setErrorNameEmpty] = useState(false);
   const [showErrorTable, setErrorTable] = useState(false);
-  const [confirmTable, setConfirmTabel] = useState(false);
+  const [confirmTable, setConfirmTable] = useState(false);
 
   const orderId = localStorage.getItem('id');
 
   const changeShow = (e, show) => {
     e.preventDefault();
-    setConfirmTabel(!show);
+    setConfirmTable(!show);
   }
 
   const validForm = () => {
@@ -45,7 +45,7 @@ export default function Table() {
     const isValid = validForm();
 
     if (isValid) {
-      setConfirmTabel(!show);
+      setConfirmTable(!show);
 
       firebase
         .firestore()
@@ -54,6 +54,8 @@ export default function Table() {
         .update({
           client: username,
           table: table,
+          status: "Pendente",
+          id: orderId
         });
     };
   }

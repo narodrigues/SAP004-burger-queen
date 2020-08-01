@@ -1,4 +1,4 @@
-.order-background p {
+.cork-titles {
   color: #2e2e2e;
   font-size: 15px;
   font-weight: bold;
@@ -31,13 +31,18 @@
 	top: 20px;
 }
 
+.orders-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media screen and (min-width: 700px){
   .order-background {
     display: flex;
     top: 28vh;
   }
 
-  .order-background p {
+  .cork-titles {
     color: #2e2e2e;
     font-size: 30px;
     font-weight: bold;
