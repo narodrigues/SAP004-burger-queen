@@ -4,14 +4,12 @@ import Button from '../../components/button/Button'
 import firebase from '../../configure-firebase'
 import Header from '../../components/header/Header'
 import Cork from '../../components/cork/Cork'
-import moment from 'moment';
-import 'moment/locale/pt-br';
+// import moment from 'moment';
+// import 'moment/locale/pt-br';
 
 export default function Kitchen() {
-  console.log(moment().locale())
-  console.log(moment.duration(moment("DD/MM/YYYY HH:mm:ss").diff([2020, 9, 2], "DD/MM/YYYY HH:mm:ss")))
   const [pendingOrder, setPendingOrder] = useState([]);
-  setTimeout(() => console.log(pendingOrder), 2000)
+  const [readyOrder, setReadyOrder] = useState([]);
 
   const logout = () => {
     firebase
@@ -25,16 +23,25 @@ export default function Kitchen() {
       .collection('orders')
       .where('status', '==', 'Pendente')
       .get()
-      // .then(a => a.docs.map(b => console.log(...b.data())))
       .then(querySnapshot => {
-        const teste = querySnapshot.docs.map(doc =>
+        const getData = querySnapshot.docs.map(doc =>
           ({
             ...doc.data()
           })
         );
-        setPendingOrder(teste)
+        setPendingOrder(getData)
       });
   }, [])
+
+  const changeStatus = (id) => {
+    firebase
+      .firestore()
+      .collection('orders')
+      .doc(id)
+      .update({
+        status: "Pronto",
+      });
+  }
 
   return (
     <>
@@ -49,12 +56,14 @@ export default function Kitchen() {
         {pendingOrder &&
           pendingOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p>{item.client}</p>
+              <p>Cliente: {item.client}</p>
+              <p>Mesa: {item.table}</p>
+              <p className='status-pending'>{item.status}</p>
               {item.order.map(pedido =>
                 <p className='p-orders'>• {pedido.name}</p>
               )}
               <div>
-                <Button name='PRONTO' />
+                <Button name='PRONTO' handleClick={changeStatus(item.id)} />
               </div>
             </div>
           ))

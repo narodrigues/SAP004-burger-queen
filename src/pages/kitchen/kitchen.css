@@ -41,9 +41,10 @@ body::-webkit-scrollbar-thumb {
 .divs-orders {
 	background: white;
 	border-radius: 10px;
+	box-shadow: 10px 10px 10px #0000001f;
 	display: flex;
 	flex-direction: column;
-	font-size: 25px;
+	font-size: 20px;
 	justify-content: space-between;
 	height: 250px;
 	margin: 0 0 40px 40px;
@@ -74,6 +75,11 @@ body::-webkit-scrollbar-thumb {
 	font-size: 16px;
 	margin-top: 5px;
 	text-align: center;
+}
+
+.status-pending {
+	background: rgb(255, 196, 0);
+	border-radius: 5px;
 }
 
 
