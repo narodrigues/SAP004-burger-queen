@@ -2,14 +2,14 @@
   color: #2e2e2e;
   font-size: 15px;
   font-weight: bold;
-  margin: 40px;
+  margin: 30px;
 }
 
 .order-background {
 	background: #ffe868;
 	border-radius: 20px;
 	box-shadow: 40px 38px 24px -10px #3b30273d;
-	height: 65vh;
+	height: 70vh;
 	justify-content: space-around;
   margin: 55px auto;
 	position: absolute;
@@ -19,12 +19,11 @@
   right: 0;
 }
 
-.order-background:after {
+.border{
 	border: 3px ridge #2e2e2e;
 	border-radius: 20px;
 	bottom: 20px;
-	content: '';
-	display: block;
+	display: flex;
 	left: 20px;
 	position: absolute;
 	right: 20px;
@@ -32,9 +31,20 @@
 }
 
 .orders-wrap {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
+  height: 50vh;
+  justify-content: center;
+  overflow-y: scroll;
 }
+
+
+.orders-wrap::-webkit-scrollbar {
+  background-color: rgba(170, 160, 26, 0.466);
+	width: 5px;
+}
+
 
 @media screen and (min-width: 700px){
   .order-background {
