@@ -9,7 +9,7 @@ import Cork from '../../components/cork/Cork'
 
 export default function Kitchen() {
   const [pendingOrder, setPendingOrder] = useState([]);
-  const [readyOrder, setReadyOrder] = useState([]);
+  // const [readyOrder, setReadyOrder] = useState([]);
 
   const logout = () => {
     firebase

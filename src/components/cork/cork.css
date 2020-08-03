@@ -31,14 +31,12 @@
 }
 
 .orders-wrap {
-  align-items: center;
   display: flex;
   flex-wrap: wrap;
   height: 50vh;
   justify-content: center;
   overflow-y: scroll;
 }
-
 
 .orders-wrap::-webkit-scrollbar {
   background-color: rgba(170, 160, 26, 0.466);
