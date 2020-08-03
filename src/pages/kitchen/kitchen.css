@@ -2,6 +2,19 @@ body {
 	font-family: 'Comfortaa', cursive;
 }
 
+body::-webkit-scrollbar {
+	width: 1em;
+}
+	
+body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+	
+body::-webkit-scrollbar-thumb {
+	background-color: rgba(30, 80, 200, 0.25);
+	outline: 1px solid slategrey;
+}
+
 .kitchen {
 	background: url('../../assets/background.jpg') fixed;
 	display: flex;
@@ -28,9 +41,10 @@ body {
 .divs-orders {
 	background: white;
 	border-radius: 10px;
+	box-shadow: 10px 10px 10px #0000001f;
 	display: flex;
 	flex-direction: column;
-	font-size: 25px;
+	font-size: 20px;
 	justify-content: space-between;
 	height: 250px;
 	margin: 0 0 40px 40px;
@@ -64,6 +78,11 @@ body {
 	font-size: 16px;
 	margin-top: 5px;
 	text-align: center;
+}
+
+.status-pending {
+	background: rgb(255, 196, 0);
+	border-radius: 5px;
 }
 
 
