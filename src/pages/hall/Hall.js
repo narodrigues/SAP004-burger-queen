@@ -20,7 +20,7 @@ export default function Hall() {
         <Header className='header-hall' />
         <div className='buttons-option'>
           <Button>
-            <Link to="/Requests" className='btn-order'>Pedidos prontos</Link>
+            <Link to="/requests" className='btn-order'>Pedidos prontos</Link>
           </Button>
           <Button name='Sair' handleClick={(e) => logout(e)} />
         </div>

@@ -107,7 +107,6 @@ const Menu = () => {
           name: e.name,
           count: e.count,
           id: new Date().getTime(),
-          // status: "Pronto"
         }
       })
     }
@@ -118,8 +117,8 @@ const Menu = () => {
       .collection('orders')
       .doc(`${new Date().getTime()}`)
       .set(requests)
-    }
-  
+  }
+
   return (
     <section className='menu'>
       <div className='div-menu'>
