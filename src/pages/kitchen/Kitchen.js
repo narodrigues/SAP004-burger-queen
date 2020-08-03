@@ -78,7 +78,7 @@ export default function Kitchen() {
               <p>Mesa: {item.table}</p>
               <p className='status-ready'>{item.status}</p>
               {item.order.map(pedido =>
-                <p className='p-orders'>• {pedido.name}</p>
+                <p className='p-orders'>•{pedido.count}x {pedido.name}</p>
               )}
             </div>
           ))
