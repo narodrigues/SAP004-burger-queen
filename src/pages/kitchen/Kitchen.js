@@ -31,7 +31,7 @@ export default function Kitchen() {
         );
         setPendingOrder(getData)
       });
-  }, [])
+  }, [pendingOrder])
 
   const changeStatus = (id) => {
     firebase
@@ -63,7 +63,7 @@ export default function Kitchen() {
                 <p className='p-orders'>• {pedido.name}</p>
               )}
               <div>
-                <Button name='PRONTO' handleClick={changeStatus(item.id)} />
+                <Button name='PRONTO' handleClick={() => changeStatus(item.id)} />
               </div>
             </div>
           ))
