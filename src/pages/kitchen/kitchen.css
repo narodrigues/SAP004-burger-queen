@@ -46,9 +46,9 @@ body::-webkit-scrollbar-thumb {
 	flex-direction: column;
 	font-size: 20px;
 	justify-content: space-between;
-	height: 250px;
+	/* height: auto; */
 	margin: 0 0 40px 40px;
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
 	padding: 15px;
 	width: 200px;
 }
@@ -82,6 +82,11 @@ body::-webkit-scrollbar-thumb {
 
 .status-pending {
 	background: rgb(255, 196, 0);
+	border-radius: 5px;
+}
+
+.status-ready {
+	background: rgb(30, 255, 0);
 	border-radius: 5px;
 }
 

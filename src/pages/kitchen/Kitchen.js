@@ -9,7 +9,7 @@ import Cork from '../../components/cork/Cork'
 
 export default function Kitchen() {
   const [pendingOrder, setPendingOrder] = useState([]);
-  // const [readyOrder, setReadyOrder] = useState([]);
+  const [readyOrder, setReadyOrder] = useState([]);
 
   const logout = () => {
     firebase
@@ -31,7 +31,21 @@ export default function Kitchen() {
         );
         setPendingOrder(getData)
       });
-  }, [pendingOrder])
+
+    firebase
+      .firestore()
+      .collection('orders')
+      .where('status', '==', 'Pronto')
+      .get()
+      .then(querySnapshot => {
+        const getData = querySnapshot.docs.map(doc =>
+          ({
+            ...doc.data()
+          })
+        );
+        setReadyOrder(getData)
+      });
+  }, [pendingOrder, readyOrder])
 
   const changeStatus = (id) => {
     firebase
@@ -52,8 +66,8 @@ export default function Kitchen() {
         </div>
       </section>
 
-      <Cork>
-        {pendingOrder &&
+      <Cork
+        children={pendingOrder &&
           pendingOrder.map(item => (
             <div className='divs-orders' key={item.id}>
               <p>Cliente: {item.client}</p>
@@ -68,7 +82,20 @@ export default function Kitchen() {
             </div>
           ))
         }
-      </Cork>
+
+        secondChildren={readyOrder &&
+          readyOrder.map(item => (
+            <div className='divs-orders' key={item.id}>
+              <p>Cliente: {item.client}</p>
+              <p>Mesa: {item.table}</p>
+              <p className='status-ready'>{item.status}</p>
+              {item.order.map(pedido =>
+                <p className='p-orders'>• {pedido.name}</p>
+              )}
+            </div>
+          ))
+        }
+      />
     </>
   )
 }

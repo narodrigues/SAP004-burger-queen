@@ -12,6 +12,9 @@ const Cork = (props) => (
       </div>
       <div className='ready-order'>
         <h1 className='cork-titles'>PRONTO</h1>
+        <div className='orders-wrap'>
+          {props.secondChildren}
+        </div>
       </div>
     </div>
   </section>
