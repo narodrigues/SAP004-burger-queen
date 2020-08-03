@@ -21,19 +21,19 @@ export default function Kitchen() {
 
   useEffect(() => {
     firebase
-    .firestore()
-    .collection('orders')
-    .where('status', '==', 'Pendente')
-    .get()
-    // .then(a => a.docs.map(b => console.log(...b.data())))
-    .then(querySnapshot => {
-      const teste = querySnapshot.docs.map(doc => 
-        ({
-          ...doc.data()
-        })
-      );
-        setPendingOrder(teste) 
-    });
+      .firestore()
+      .collection('orders')
+      .where('status', '==', 'Pendente')
+      .get()
+      // .then(a => a.docs.map(b => console.log(...b.data())))
+      .then(querySnapshot => {
+        const teste = querySnapshot.docs.map(doc =>
+          ({
+            ...doc.data()
+          })
+        );
+        setPendingOrder(teste)
+      });
   }, [])
 
   return (
@@ -46,21 +46,19 @@ export default function Kitchen() {
       </section>
 
       <Cork>
-        {/* <div className='border-menu'> */}
-          {pendingOrder && 
-            pendingOrder.map(item => (
-              // console.log(item)
-              <div className='divs-orders' key={item.id}>
-                {/* <div className='only-option-menu' > */}
-                  <p>{item.client}</p>
-                  {item.order.map(pedido => 
-                    <p className='p-orders'>{pedido.name}</p>
-                  )}
-                {/* </div> */}
+        {pendingOrder &&
+          pendingOrder.map(item => (
+            <div className='divs-orders' key={item.id}>
+              <p>{item.client}</p>
+              {item.order.map(pedido =>
+                <p className='p-orders'>• {pedido.name}</p>
+              )}
+              <div>
+                <Button name='PRONTO' />
               </div>
-            ))
-          }
-        {/* </div> */}
+            </div>
+          ))
+        }
       </Cork>
     </>
   )

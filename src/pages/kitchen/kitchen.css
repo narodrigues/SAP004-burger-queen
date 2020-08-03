@@ -41,15 +41,39 @@ body::-webkit-scrollbar-thumb {
 .divs-orders {
 	background: white;
 	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
 	font-size: 25px;
+	justify-content: space-between;
 	height: 250px;
 	margin: 0 0 40px 40px;
+	overflow-y: scroll;
 	padding: 15px;
 	width: 200px;
 }
 
-.p-orders {
+.divs-orders::-webkit-scrollbar {
+	background-color: rgba(170, 160, 26, 0.466);
+	width: 5px;
+}
+
+.divs-orders button {
+	background: rgb(33, 112, 33);
+
+	height: 40px;
+	width: 100px;
+}
+
+.divs-orders .p-orders {
 	font-size: 16px;
+	margin-top: 5px;
+	text-align: start;
+}
+
+.divs-orders .p-orders:nth-child(1) {
+	font-size: 16px;
+	margin-top: 5px;
+	text-align: center;
 }
 
 

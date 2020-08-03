@@ -1,6 +1,10 @@
 {
-  "short_name": "Wonderland Burger",
   "name": "Wonderland Burger",
+  "short_name": "Wonderland Burger",
+  "theme_color": "#065f73",
+  "background_color": "#065f73",
+  "display": "standalone",
+  "scope": "/",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,18 +12,34 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "icon-72x72.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "72x72"
     },
     {
-      "src": "logo512.png",
+      "src": "icon-96x96.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "96x96"
+    },
+    {
+      "src": "icon-51x51.png",
+      "type": "image/png",
+      "sizes": "51x51"
+    },
+    {
+      "src": "icon-38x38.png",
+      "type": "image/png",
+      "sizes": "38x38"
+    },
+    {
+      "src": "icon-19x19.png",
+      "type": "image/png",
+      "sizes": "19x19"
+    },
+    {
+      "src": "icon-15x15.png",
+      "type": "image/png",
+      "sizes": "15x15"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
