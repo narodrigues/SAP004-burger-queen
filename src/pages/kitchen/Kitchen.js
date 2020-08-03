@@ -4,8 +4,12 @@ import Button from '../../components/button/Button'
 import firebase from '../../configure-firebase'
 import Header from '../../components/header/Header'
 import Cork from '../../components/cork/Cork'
+import moment from 'moment';
+import 'moment/locale/pt-br';
 
 export default function Kitchen() {
+  console.log(moment().locale())
+  console.log(moment.duration(moment("DD/MM/YYYY HH:mm:ss").diff([2020, 9, 2], "DD/MM/YYYY HH:mm:ss")))
   const [pendingOrder, setPendingOrder] = useState([]);
   setTimeout(() => console.log(pendingOrder), 2000)
 
