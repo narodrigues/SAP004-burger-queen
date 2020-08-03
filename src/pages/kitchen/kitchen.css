@@ -46,13 +46,16 @@ body {
 
 .divs-orders button {
 	background: rgb(33, 112, 33);
-
 	height: 40px;
 	width: 100px;
 }
 
+.divs-orders span {
+	font-size: 15px;
+}
+
 .divs-orders .p-orders {
-	font-size: 16px;
+	font-size: 15px;
 	margin-top: 5px;
 	text-align: start;
 }

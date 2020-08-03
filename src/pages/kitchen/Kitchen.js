@@ -46,6 +46,7 @@ export default function Kitchen() {
           pendingOrder.map(item => (
             <div className='divs-orders' key={item.id}>
               <p>{item.client}</p>
+              <span>mesa {item.table}</span>
               {item.order.map(pedido =>
                 <p className='p-orders'>• {pedido.name}</p>
               )}
