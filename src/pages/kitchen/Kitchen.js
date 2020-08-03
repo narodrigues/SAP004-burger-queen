@@ -49,7 +49,9 @@ export default function Kitchen() {
               {item.order.map(pedido =>
                 <p className='p-orders'>• {pedido.name}</p>
               )}
-              <Button name='PRONTO' />
+              <div>
+                <Button name='PRONTO' />
+              </div>
             </div>
           ))
         }

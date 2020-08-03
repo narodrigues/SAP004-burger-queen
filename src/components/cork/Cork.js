@@ -5,13 +5,13 @@ const Cork = (props) => (
   <section id={props.id} className='order-background'>
     <div className='border'>
       <div className='preparing-order'>
-        <p className='cork-titles'>PREPARANDO</p>
+        <h1 className='cork-titles'>PREPARANDO</h1>
         <div className='orders-wrap'>
           {props.children}
         </div>
       </div>
       <div className='ready-order'>
-        <p className='cork-titles'>PRONTO</p>
+        <h1 className='cork-titles'>PRONTO</h1>
       </div>
     </div>
   </section>
