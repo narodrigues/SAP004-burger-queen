@@ -53,7 +53,7 @@ export default function Kitchen() {
         </div>
       </section>
 
-      <Cork
+      <Cork name='PREPARANDO'
         children={pendingOrder &&
           pendingOrder.map(item => (
             <div className='divs-orders' key={item.id}>

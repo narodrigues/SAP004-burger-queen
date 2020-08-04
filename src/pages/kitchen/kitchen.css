@@ -51,6 +51,10 @@ body::-webkit-scrollbar-thumb {
 	width: 200px;
 }
 
+.divs-orders p {
+	margin-top: 5px;
+}
+
 .divs-orders::-webkit-scrollbar {
 	background-color: rgba(170, 160, 26, 0.466);
 	width: 5px;
@@ -84,10 +88,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .status-ready {
-	background: rgb(30, 255, 0);
+	background: rgb(33, 112, 33);
 	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	margin: 10px 0px;
+	padding: 3px;
 }
-
 
 @media screen and (min-width: 700px){
 	.kitchen-hall img {
