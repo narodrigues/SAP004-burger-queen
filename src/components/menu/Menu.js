@@ -131,6 +131,8 @@ const Menu = () => {
             {currentMenu === 'allDay' &&
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
+                  <>
+                  <p className='menu-titles'></p>
                   <div className='divs-option-menu' key={item.name} onClick={() => getBurger(item)}>
                     <div className='only-option-menu' >
                       <Img src={item.img} alt={item.alt} />
@@ -138,8 +140,11 @@ const Menu = () => {
                       <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
+                  </>
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
+                  <>
+                  <p className='menu-titles'></p>
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
@@ -147,6 +152,7 @@ const Menu = () => {
                       <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
+                  </>
                 ))}
                 {menuAllDay && menuAllDay.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
