@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
@@ -16,8 +16,11 @@ const Menu = () => {
   const [orders, setOrders] = useState([]);
   const [burger, setBurger] = useState(null);
 
-  const breakfast = e => {
-    e.preventDefault()
+  useEffect(() => {
+    allDay()
+  }, [])
+
+  const breakfast = () => {
     setCurrentMenu('breakfast')
     firebase
       .firestore()
@@ -27,8 +30,7 @@ const Menu = () => {
       });
   }
 
-  const allDay = e => {
-    e.preventDefault();
+  const allDay = () => {
     setCurrentMenu('allDay')
     firebase
       .firestore()
