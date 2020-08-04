@@ -1,0 +1,29 @@
+.page-requests {
+	background: url('../../assets/background.jpg') fixed;
+	display: flex;
+	background-size: cover;
+	height: 50vh;
+}
+
+.page-requests header {
+	background: none!important;
+	height: 30vh;
+	width: 100%;
+}
+
+@media screen and (min-width: 700px){
+	.page-requests .logo-login {
+		left: 30px;
+		position: absolute;
+		top: 20px;
+		width: 250px;
+	}
+}
+
+@media screen and (min-width: 850px){
+	.page-requests .logo-login {
+		left: 40px;
+		top: 30px;
+
+	}
+}

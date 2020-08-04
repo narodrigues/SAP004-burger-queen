@@ -20,8 +20,7 @@ export default function App() {
             .firestore()
             .collection('users')
             .where('userUid', '==', user.uid)
-            .get()
-            .then(querySnapshot => {
+            .onSnapshot(querySnapshot => {
               querySnapshot.forEach(doc => setUser(doc.data()))
             })
           : setUser();

@@ -83,6 +83,11 @@ body::-webkit-scrollbar-thumb {
 	border-radius: 5px;
 }
 
+.status-ready {
+	background: rgb(30, 255, 0);
+	border-radius: 5px;
+}
+
 
 @media screen and (min-width: 700px){
 	.kitchen-hall img {

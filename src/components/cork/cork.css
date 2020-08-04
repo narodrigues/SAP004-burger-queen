@@ -35,7 +35,7 @@
   flex-wrap: wrap;
   height: 54vh;
   justify-content: center;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .orders-wrap::-webkit-scrollbar {
