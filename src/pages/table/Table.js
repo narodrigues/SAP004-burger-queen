@@ -54,7 +54,8 @@ export default function Table() {
           client: username,
           table: table,
           status: "Pendente",
-          id: orderId
+          id: orderId,
+          initialTime: new Date().toLocaleString(),
         });
     };
   }

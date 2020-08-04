@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
@@ -16,8 +16,11 @@ const Menu = () => {
   const [orders, setOrders] = useState([]);
   const [burger, setBurger] = useState(null);
 
-  const breakfast = e => {
-    e.preventDefault()
+  useEffect(() => {
+    allDay()
+  }, [])
+
+  const breakfast = () => {
     setCurrentMenu('breakfast')
     firebase
       .firestore()
@@ -27,8 +30,7 @@ const Menu = () => {
       });
   }
 
-  const allDay = e => {
-    e.preventDefault();
+  const allDay = () => {
     setCurrentMenu('allDay')
     firebase
       .firestore()
@@ -129,6 +131,8 @@ const Menu = () => {
             {currentMenu === 'allDay' &&
               <div className='border-menu'>
                 {menuAllDay && menuAllDay.burger.map(item => (
+                  <>
+                  <p className='menu-titles'></p>
                   <div className='divs-option-menu' key={item.name} onClick={() => getBurger(item)}>
                     <div className='only-option-menu' >
                       <Img src={item.img} alt={item.alt} />
@@ -136,8 +140,11 @@ const Menu = () => {
                       <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
+                  </>
                 ))}
                 {menuAllDay && menuAllDay.startes.map(item => (
+                  <>
+                  <p className='menu-titles'></p>
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
@@ -145,6 +152,7 @@ const Menu = () => {
                       <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
+                  </>
                 ))}
                 {menuAllDay && menuAllDay.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>

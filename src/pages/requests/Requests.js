@@ -3,7 +3,8 @@ import Header from '../../components/header/Header';
 import Cork from '../../components/cork/Cork';
 import Button from '../../components/button/Button'
 import firebase from '../../configure-firebase';
-import './requests.css'
+import './requests.css';
+import moment from 'moment';
 
 export default function Requests() {
   const [readyOrder, setReadyOrder] = useState([]);
@@ -31,6 +32,7 @@ export default function Requests() {
       .doc(item.id)
       .update({
         status: "Entregue",
+        finalTime: new Date().toLocaleString(),
       });
 
     const filter = readyOrder.filter(orders => orders !== item);
@@ -44,7 +46,7 @@ export default function Requests() {
         <Header />
       </section>
 
-      <Cork name='ENTREGUES'
+      <Cork name='PRONTOS' secondName ='ENTREGUES'
         children={readyOrder &&
           readyOrder.map(item => (
             <div className='divs-orders' key={item.id}>
@@ -66,6 +68,7 @@ export default function Requests() {
             <div className='divs-orders' key={item.id}>
               <p>Cliente: {item.client}</p>
               <p>Mesa: {item.table}</p>
+              <p>Tempo de preparo: {Math.floor(moment.duration(moment(item.finalTime).diff(item.initialTime)).asMinutes())} minuto(s) atrás</p>
               <p className='status-completed'>{item.status}</p>
               {item.order.map(pedido =>
                 <p className='p-orders'>•{pedido.count} x {pedido.name}</p>
