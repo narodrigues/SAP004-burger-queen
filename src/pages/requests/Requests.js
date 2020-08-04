@@ -64,8 +64,8 @@ export default function Requests() {
         secondChildren={completedOrder &&
           completedOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p>Mesa: {item.table}</p>
               <p>Cliente: {item.client}</p>
+              <p>Mesa: {item.table}</p>
               <p className='status-completed'>{item.status}</p>
               {item.order.map(pedido =>
                 <p className='p-orders'>•{pedido.count} x {pedido.name}</p>
