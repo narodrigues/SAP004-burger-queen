@@ -45,10 +45,8 @@ body::-webkit-scrollbar-thumb {
 	display: flex;
 	flex-direction: column;
 	font-size: 20px;
-	justify-content: space-evenly;
-	/* height: auto; */
+	justify-content: space-between;
 	margin: 0 0 40px 40px;
-	/* overflow-y: scroll; */
 	padding: 15px;
 	width: 200px;
 }
