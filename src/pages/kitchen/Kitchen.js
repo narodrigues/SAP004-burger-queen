@@ -19,8 +19,7 @@ export default function Kitchen() {
     firebase
       .firestore()
       .collection('orders')
-      .get()
-      .then(querySnapshot => {
+      .onSnapshot(querySnapshot => {
         const getData = querySnapshot.docs.map(doc =>
           ({
             ...doc.data()
@@ -40,9 +39,9 @@ export default function Kitchen() {
         status: "Pronto",
       });
 
-      const filter = pendingOrder.filter(orders => orders !== item);
-      setReadyOrder([...readyOrder, item]);
-      setPendingOrder([...filter]);
+    const filter = pendingOrder.filter(orders => orders !== item);
+    setReadyOrder([...readyOrder, item]);
+    setPendingOrder([...filter]);
   }
 
   return (
@@ -74,8 +73,8 @@ export default function Kitchen() {
         secondChildren={readyOrder &&
           readyOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p>Cliente: {item.client}</p>
               <p>Mesa: {item.table}</p>
+              <p>Cliente: {item.client}</p>
               <p className='status-ready'>{item.status}</p>
               {item.order.map(pedido =>
                 <p className='p-orders'>•{pedido.count}x {pedido.name}</p>

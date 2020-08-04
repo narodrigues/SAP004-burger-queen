@@ -22,8 +22,7 @@ const Menu = () => {
     firebase
       .firestore()
       .collection('breakfast')
-      .get()
-      .then(querySnapshot => {
+      .onSnapshot(querySnapshot => {
         querySnapshot.forEach(doc => { setMenuBreakfast(doc.data()) });
       });
   }
@@ -34,8 +33,7 @@ const Menu = () => {
     firebase
       .firestore()
       .collection('allday')
-      .get()
-      .then(querySnapshot => {
+      .onSnapshot(querySnapshot => {
         querySnapshot.forEach(doc => setMenuAllDay(doc.data()));
       });
   }
