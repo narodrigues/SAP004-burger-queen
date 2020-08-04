@@ -4,12 +4,10 @@ import Button from '../../components/button/Button'
 import firebase from '../../configure-firebase'
 import Header from '../../components/header/Header'
 import Cork from '../../components/cork/Cork'
-// import moment from 'moment';
-// import 'moment/locale/pt-br';
 
 export default function Kitchen() {
   const [pendingOrder, setPendingOrder] = useState([]);
-  // const [readyOrder, setReadyOrder] = useState([]);
+  const [readyOrder, setReadyOrder] = useState([]);
 
   const logout = () => {
     firebase
@@ -21,26 +19,29 @@ export default function Kitchen() {
     firebase
       .firestore()
       .collection('orders')
-      .where('status', '==', 'Pendente')
-      .get()
-      .then(querySnapshot => {
+      .onSnapshot(querySnapshot => {
         const getData = querySnapshot.docs.map(doc =>
           ({
             ...doc.data()
           })
         );
-        setPendingOrder(getData)
+        setPendingOrder(getData.filter(doc => doc.status === 'Pendente'));
+        setReadyOrder(getData.filter(doc => doc.status === 'Pronto'));
       });
-  }, [pendingOrder])
+  }, [])
 
-  const changeStatus = (id) => {
+  const changeStatus = (item) => {
     firebase
       .firestore()
       .collection('orders')
-      .doc(id)
+      .doc(item.id)
       .update({
         status: "Pronto",
       });
+
+    const filter = pendingOrder.filter(orders => orders !== item);
+    setReadyOrder([...readyOrder, item]);
+    setPendingOrder([...filter]);
   }
 
   return (
@@ -52,8 +53,8 @@ export default function Kitchen() {
         </div>
       </section>
 
-      <Cork>
-        {pendingOrder &&
+      <Cork
+        children={pendingOrder &&
           pendingOrder.map(item => (
             <div className='divs-orders' key={item.id}>
               <p>Cliente: {item.client}</p>
@@ -63,12 +64,25 @@ export default function Kitchen() {
                 <p className='p-orders'>• {pedido.name}</p>
               )}
               <div>
-                <Button name='PRONTO' handleClick={() => changeStatus(item.id)} />
+                <Button name='PRONTO' handleClick={() => changeStatus(item)} />
               </div>
             </div>
           ))
         }
-      </Cork>
+
+        secondChildren={readyOrder &&
+          readyOrder.map(item => (
+            <div className='divs-orders' key={item.id}>
+              <p>Mesa: {item.table}</p>
+              <p>Cliente: {item.client}</p>
+              <p className='status-ready'>{item.status}</p>
+              {item.order.map(pedido =>
+                <p className='p-orders'>•{pedido.count}x {pedido.name}</p>
+              )}
+            </div>
+          ))
+        }
+      />
     </>
   )
 }

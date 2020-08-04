@@ -7,7 +7,6 @@ import Header from '../../components/header/Header';
 import { Link } from 'react-router-dom';
 import firebase from '../../configure-firebase';
 
-
 export default function Table() {
   const [username, setUsername] = useState('');
   const [table, setTable] = useState('');
@@ -73,7 +72,7 @@ export default function Table() {
             )}
             <Input type='number' placeholder='Número da mesa' id='table-number' min="1" max="15" onChange={e => setTable(e.target.value)} />
             {showErrorTable && (
-              <p>Sua senha deve ter mais de 6 dígitos.</p>
+              <p>Por favor, escolha o número da mesa.</p>
             )}
             <div className='div-buttons-order'>
               <Button id='btn-order' className='button' name='Fazer pedido' handleClick={(e) => sendOrder(e, confirmTable)} />
