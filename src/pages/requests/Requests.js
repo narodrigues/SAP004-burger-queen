@@ -3,6 +3,7 @@ import Header from '../../components/header/Header';
 import Cork from '../../components/cork/Cork';
 import Button from '../../components/button/Button'
 import firebase from '../../configure-firebase';
+import { Link } from 'react-router-dom';
 import './requests.css';
 import moment from 'moment';
 
@@ -52,9 +53,12 @@ export default function Requests() {
     <>
       <section className='page-requests'>
         <Header />
+        <Button>
+          <Link to="/hall" className='btn-order'>VOLTAR</Link>
+        </Button>
       </section>
 
-      <Cork name='PRONTOS' secondName ='ENTREGUES'
+      <Cork name='PRONTOS' secondName='ENTREGUES'
         children={readyOrder &&
           readyOrder.map(item => (
             <div className='divs-orders' key={item.id}>

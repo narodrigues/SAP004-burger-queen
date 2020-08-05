@@ -4,8 +4,10 @@ body {
 
 .hall {
 	background: url('../../assets/background.jpg') fixed;
-	display: flex;
 	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	height: 50vh;
 }
 
@@ -21,22 +23,43 @@ body {
 
 .hall .logo-login {
 	left: 30px;
-	position: absolute;
 	top: 20px;
 	width: 250px;
 }
 
 .buttons-option {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	height: 60%;
 	justify-content: space-evenly;
-	margin: 0 30px;
+	margin: 20px 30px 0px;
 }
 
 .buttons-option button {
-	font-size: 16px;
+	font-size: 12px;
 }
+
+
+@media screen and (min-width: 450px) {
+	.hall {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.buttons-option {
+		flex-direction: column;
+	}
+
+	.hall .logo-login {
+		position: absolute;
+	}
+
+	
+	.buttons-option button {
+		font-size: 16px;
+	}
+}
+
 
 @media screen and (min-width: 850px) {
 	.hall .logo-login {

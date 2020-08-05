@@ -8,6 +8,8 @@ header {
   flex-direction: column;
   justify-content: center;
   margin-top: 5vh;
+  padding: 15px;
+  text-align: center;
 }
 
 .form-login input {
