@@ -57,7 +57,7 @@ export default function Table() {
           id: orderId,
           initialTime: new Date().toLocaleString(),
         });
-    };
+    }
   }
 
   return (
@@ -76,7 +76,7 @@ export default function Table() {
               <p>Por favor, escolha o número da mesa.</p>
             )}
             <div className='div-buttons-order'>
-              <Button id='btn-order' className='button' name='Fazer pedido' handleClick={(e) => sendOrder(e, confirmTable)} />
+              <Button id='btn-order' className='button' name='Fazer pedido' handleClick={e => sendOrder(e, confirmTable)} />
               <Button id='btn-return' className='button'>
                 <Link to="/hall" className='btn-order'>VOLTAR</Link>
               </Button>
@@ -88,5 +88,5 @@ export default function Table() {
         </Modal>
       </section>
     </section >
-  )
+  );
 }

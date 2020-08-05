@@ -2,12 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
  
 .App {
   text-align: center;
-
 }
 
 @media (prefers-reduced-motion: no-preference) {

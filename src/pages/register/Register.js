@@ -43,8 +43,8 @@ export default function Register() {
     return isValid;
   }
 
-  const creatUser = (e) => {
-    e.preventDefault()
+  const creatUser = e => {
+    e.preventDefault();
 
     const isValid = validForm();
 
@@ -55,16 +55,18 @@ export default function Register() {
         .then(() => {
           firebase
             .firestore()
-            .collection('users').add({
+            .collection('users')
+            .add({
               username,
               email,
               jobTitle,
               userUid: firebase.auth().currentUser.uid,
             });
-        }).catch((err) => {
-          console.log(err)
         })
-    };
+        .catch(err => {
+          console.log(err);
+        });
+    }
   }
 
   return (

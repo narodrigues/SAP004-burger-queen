@@ -1,93 +1,93 @@
 .display-block {
-    display: block;
+	display: block;
 }
 
 .modal-container {
-    align-items: center;
-    background: rgba(0, 0, 0, .5);
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 2;
+	align-items: center;
+	background: rgba(0, 0, 0, .5);
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
 }
 
 .modal-options {
-    align-items: center;
-    background: white;
-    border: 10px solid #065F73;
-    border-radius: 10px;
-    box-shadow: 0 0 0 10px white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    left: 50%;
-    margin-left: -175px;
-    margin-top: -175px;
-    padding: 40px 0px;
-    position: absolute;
-    text-align: center;
-    top: 50%; 
-    width: 350px;
+	align-items: center;
+	background: white;
+	border: 10px solid #065F73;
+	border-radius: 10px;
+	box-shadow: 0 0 0 10px white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+	left: 50%;
+	margin-left: -175px;
+	margin-top: -175px;
+	padding: 40px 0px;
+	position: absolute;
+	text-align: center;
+	top: 50%; 
+	width: 350px;
 }
 
 .modal-options fieldset {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .modal-options fieldset:nth-child(2) {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
 .modal-options .modal-form div {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
 }
 
 .modal-form {
-    width: 300px;
+	width: 300px;
 }
 
 .modal-options .modal-form p {
-    color: black;
-    font-weight: bold;
-    font-size: 18px;
+	color: black;
+	font-weight: bold;
+	font-size: 18px;
 }
 
 
 .modal-form label {
-    cursor: pointer;
-    color: black;
-    font-size: 17px;
+	cursor: pointer;
+	color: black;
+	font-size: 17px;
 }
 
 .modal-form input[type=radio] {
-    margin: 0;
+	margin: 0;
 }
 
 .modal-options button:nth-child(1) {
-    background: #020202;
-    border-radius: 50%;
-    font-size: 18px;
-    height: 50px;
-    position: absolute;
-    right: -50px;
-    top: -50px;
-    width: 50px;
+	background: #020202;
+	border-radius: 50%;
+	font-size: 18px;
+	height: 50px;
+	position: absolute;
+	right: -50px;
+	top: -50px;
+	width: 50px;
 }
 
 @media screen and (min-width: 500px) {
-    .modal-options {
-      margin-left: -250px!important;
-      margin-top: -250px!important;
-      min-width: 500px;
-      min-height: 450px;
-    }
+	.modal-options {
+		margin-left: -250px!important;
+		margin-top: -250px!important;
+		min-width: 500px;
+		min-height: 450px;
+	}
   }
