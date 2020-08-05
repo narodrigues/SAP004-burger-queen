@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './modalConfirm.css'
+import './modalConfirm.css';
 import Button from '../button/Button';
 
 export default function ModalConfirm() {
@@ -15,5 +15,5 @@ export default function ModalConfirm() {
         </Button>
       </div>
     </div>
-  )
+  );
 }

@@ -62,7 +62,7 @@ export default function Login() {
           <div className='div-buttons-login'>
             <Button id='btn-login' className='button' name='Entrar' handleClick={e => login(e, email, password)} />
             <span>Ainda não é registrado?</span>
-            <Button id='btn-register' className='button' name='Registrar-se' handleClick={(e) => changeShow(e, register)} />
+            <Button id='btn-register' className='button' name='Registrar-se' handleClick={e => changeShow(e, register)} />
           </div>
         </form>
       </div>
@@ -70,5 +70,5 @@ export default function Login() {
         <Register />
       </Modal>
     </section>
-  )
+  );
 }

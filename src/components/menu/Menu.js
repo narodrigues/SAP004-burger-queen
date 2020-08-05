@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import Img from '../imagem/Img';
 import Button from '../button/Button';
-import BurgerOptions from '../modalHamburger/BurgerOptions'
+import BurgerOptions from '../modalHamburger/BurgerOptions';
 import './menu.css';
 import firebase from '../../configure-firebase';
 import { Link } from 'react-router-dom';
@@ -18,7 +18,7 @@ const Menu = () => {
 
   useEffect(() => {
     allDay()
-  }, [])
+  }, []);
 
   const breakfast = () => {
     setCurrentMenu('breakfast')
@@ -46,18 +46,18 @@ const Menu = () => {
   }
 
   const getAdditional = orderBurger => {
-    let priceToNumber = Number(orderBurger.price)
+    let priceToNumber = Number(orderBurger.price);
     let finalName = orderBurger.name;
 
     if (orderBurger.cheese && orderBurger.egg) {
       priceToNumber += 2;
-      finalName += ` e adicionais de queijo e ovo`
+      finalName += ` e adicionais de queijo e ovo`;
     } else if (orderBurger.cheese) {
       priceToNumber += 1;
-      finalName += ` e adicional de queijo`
+      finalName += ` e adicional de queijo`;
     } else if (orderBurger.egg) {
       priceToNumber += 1;
-      finalName += ` e adicional de ovo`
+      finalName += ` e adicional de ovo`;
     }
 
     let finalOrder = orderBurger;
@@ -75,12 +75,12 @@ const Menu = () => {
 
   const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-  const getRequests = (item) => {
+  const getRequests = item => {
     setOrders([...orders, item]);
     countQuantity(item);
   }
 
-  const countQuantity = (item) => {
+  const countQuantity = item => {
     if (!orders.includes(item)) {
       item.count = 1;
       setOrders([...orders, item]);
@@ -90,11 +90,11 @@ const Menu = () => {
     }
   }
 
-  const reduceItem = (item) => {
+  const reduceItem = item => {
     if (orders.includes(item)) {
       item.count--;
       if (item.count === 0) {
-        orders.splice(orders.indexOf(item), 1)
+        orders.splice(orders.indexOf(item), 1);
         setOrders([...orders]);
       }
     }
@@ -106,17 +106,17 @@ const Menu = () => {
         return {
           name: e.name,
           count: e.count,
-          id: new Date().getTime(),
         }
       })
     }
-    localStorage.setItem('id', new Date().getTime())
+
+    localStorage.setItem('id', new Date().getTime());
 
     firebase
       .firestore()
       .collection('orders')
       .doc(`${new Date().getTime()}`)
-      .set(requests)
+      .set(requests);
   }
 
   return (

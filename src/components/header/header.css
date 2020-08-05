@@ -17,11 +17,6 @@ header {
 	header {
 		height: 40vh;
 	}
-
-	/* .logo-login { */
-		/* height: 395px; */
-		/* width: 415px;
-	} */
 }
 
 @media screen and (min-width: 850px){

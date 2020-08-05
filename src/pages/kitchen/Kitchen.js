@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './kitchen.css';
-import Button from '../../components/button/Button'
-import firebase from '../../configure-firebase'
-import Header from '../../components/header/Header'
-import Cork from '../../components/cork/Cork'
+import Button from '../../components/button/Button';
+import firebase from '../../configure-firebase';
+import Header from '../../components/header/Header';
+import Cork from '../../components/cork/Cork';
 
 export default function Kitchen() {
   const [pendingOrder, setPendingOrder] = useState([]);
@@ -12,7 +12,7 @@ export default function Kitchen() {
   const logout = () => {
     firebase
       .auth()
-      .signOut()
+      .signOut();
   }
 
   useEffect(() => {
@@ -28,9 +28,9 @@ export default function Kitchen() {
         setPendingOrder(getData.filter(doc => doc.status === 'Pendente'));
         setReadyOrder(getData.filter(doc => doc.status === 'Pronto'));
       });
-  }, [])
+  }, []);
 
-  const changeStatus = (item) => {
+  const changeStatus = item => {
     firebase
       .firestore()
       .collection('orders')
@@ -49,7 +49,7 @@ export default function Kitchen() {
       <section className='kitchen'>
         <Header className='header-hall' />
         <div className='exit-btn'>
-          <Button name='Sair' handleClick={(e) => logout(e)} />
+          <Button name='Sair' handleClick={e => logout(e)} />
         </div>
       </section>
 
@@ -84,5 +84,5 @@ export default function Kitchen() {
         }
       />
     </>
-  )
+  );
 }
