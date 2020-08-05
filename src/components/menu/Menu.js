@@ -130,9 +130,8 @@ const Menu = () => {
           <div className='bg-color'>
             {currentMenu === 'allDay' &&
               <div className='border-menu'>
+                <p className='menu-titles'>Hambúrgueres</p>
                 {menuAllDay && menuAllDay.burger.map(item => (
-                  <>
-                  <p className='menu-titles'></p>
                   <div className='divs-option-menu' key={item.name} onClick={() => getBurger(item)}>
                     <div className='only-option-menu' >
                       <Img src={item.img} alt={item.alt} />
@@ -140,11 +139,9 @@ const Menu = () => {
                       <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
-                  </>
                 ))}
+                <p className='menu-titles'>Acompanhamentos</p>
                 {menuAllDay && menuAllDay.startes.map(item => (
-                  <>
-                  <p className='menu-titles'></p>
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
                       <Img src={item.img} alt={item.alt} />
@@ -152,8 +149,8 @@ const Menu = () => {
                       <p>{brazilianCurrency(item.price)}</p>
                     </div>
                   </div>
-                  </>
                 ))}
+                <p className='menu-titles'>Bebidas</p>
                 {menuAllDay && menuAllDay.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
@@ -167,6 +164,7 @@ const Menu = () => {
             }
             {currentMenu === 'breakfast' &&
               <div className='border-menu'>
+                <p className='menu-titles'>Sanduíches</p>
                 {menuBreakfast && menuBreakfast.grilled.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
@@ -176,6 +174,7 @@ const Menu = () => {
                     </div>
                   </div>
                 ))}
+                <p className='menu-titles'>Bebidas</p>
                 {menuBreakfast && menuBreakfast.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
