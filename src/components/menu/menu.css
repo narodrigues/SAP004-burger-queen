@@ -181,7 +181,7 @@ a.btn-order {
 
 	.border-menu {
 		display: flex;
-		justify-content: space-around;
+		justify-content: center;
 		height: 85vh;
 	}
 
@@ -202,6 +202,14 @@ a.btn-order {
 		width: 30%;
 	}
 
+}
+
+@media screen and (min-width: 650px){
+	.border-menu {
+		display: flex;
+		justify-content: space-around;
+		height: 85vh;
+	}
 }
 
 /* * {
