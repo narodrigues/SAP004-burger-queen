@@ -25,7 +25,7 @@ export default function Requests() {
       });
   }, [])
 
-  const changeStatus = (item) => {
+  const changeStatus = item => {
     firebase
       .firestore()
       .collection('orders')
@@ -38,6 +38,14 @@ export default function Requests() {
     const filter = readyOrder.filter(orders => orders !== item);
     setCompletedOrder([...completedOrder, item]);
     setReadyOrder([...filter]);
+  }
+
+  const deleteOrder = id => {
+    firebase
+      .firestore()
+      .collection('orders')
+      .doc(id)
+      .delete();
   }
 
   return (
@@ -73,6 +81,9 @@ export default function Requests() {
               {item.order.map(pedido =>
                 <p className='p-orders'>•{pedido.count} x {pedido.name}</p>
               )}
+              <div>
+                <Button name='DELETAR' handleClick={() => deleteOrder(item.id)} />
+              </div>
             </div>
           ))
         }
