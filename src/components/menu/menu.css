@@ -180,6 +180,8 @@ a.btn-order {
 	}
 
 	.border-menu {
+		display: flex;
+		justify-content: space-around;
 		height: 85vh;
 	}
 
@@ -188,7 +190,7 @@ a.btn-order {
 	}
 
 	.only-option-menu {
-		width: 200px;
+		width: 185px;
 	}
 
 	.requests {
@@ -370,6 +372,7 @@ a.btn-order {
 	justify-content: center;
 } */
 
+
 @media screen and (min-width: 850px) {
 	.menu {
     top: 350px;
@@ -377,7 +380,7 @@ a.btn-order {
 
 	.buttons-options-menu button {
 		height: 50px;
-    width: 170px;
+    	width: 170px;
 	}
 
 	.requests.bg-color {
@@ -389,7 +392,7 @@ a.btn-order {
 	}
 
 	.only-option-menu { 
-		width: 245px;
+		width: 240px;
 	}
 
 	.menu img {
