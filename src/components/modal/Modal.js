@@ -1,8 +1,7 @@
 import React from 'react';
 import CloseModal from '../../components/modalCloseButton/ModalCloseButton';
-// import './modal.css'
 
-const Modal = (props) => {
+const Modal = props => {
   const showHideClassName = props.show ? "modal display-block" : "modal display-none";
 
   return (

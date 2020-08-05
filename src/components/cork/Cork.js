@@ -1,7 +1,7 @@
 import React from 'react';
-import './cork.css'
+import './cork.css';
 
-const Cork = (props) => (
+const Cork = props => (
   <section id={props.id} className='order-background'>
     <div className='border'>
       <div className='preparing-order'>
@@ -18,6 +18,6 @@ const Cork = (props) => (
       </div>
     </div>
   </section>
-)
+);
 
 export default Cork;

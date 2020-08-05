@@ -1,8 +1,8 @@
 import React from 'react';
-import './modalCloseButton.css'
+import './modalCloseButton.css';
 
-const CloseModal = (props) => (
+const CloseModal = props => (
   <button id={props.id} className='close-modal' onClick={props.onClick}>{props.name}</button>
-)
+);
 
 export default CloseModal;

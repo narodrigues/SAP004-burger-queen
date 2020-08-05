@@ -26,13 +26,13 @@ const ModalBurger = props => {
     payload.cheese = cheese;
     props.setBurger(payload);
 
-    resetModal()
+    resetModal();
   }
 
   return (
     <div className={showHideClassName}>
       <CloseModal name='X' onClick={() => {
-        resetModal()
+        resetModal();
         props.closeModal();
       }} />
       <section className='modal-container modal-main'>
@@ -70,6 +70,6 @@ const ModalBurger = props => {
       </section>
     </div>
   );
-};
+}
 
 export default ModalBurger;
