@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../components/header/Header';
 import Cork from '../../components/cork/Cork';
 import Button from '../../components/button/Button'
+import Img from '../../components/imagem/Img'
+import Hat from '../../assets/Mad-Hatter-Silhouette-1.png'
 import firebase from '../../configure-firebase';
 import { Link } from 'react-router-dom';
 import './requests.css';
@@ -45,9 +47,12 @@ export default function Requests() {
     <>
       <section className='page-requests'>
         <Header />
-        <Button>
-          <Link to="/hall" className='btn-order'>VOLTAR</Link>
-        </Button>
+        <div className='back-to-hat'>
+          <Img src={Hat} alt='chapéu' />
+          <Button>
+            <Link to="/hall" className='btn-order'>voltar ❯</Link>
+          </Button>
+        </div>
       </section>
 
       <Cork name='PRONTOS' secondName='ENTREGUES'
