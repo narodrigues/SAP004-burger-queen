@@ -1,6 +1,9 @@
 .page-requests {
+	align-items: center;
 	background: url('../../assets/background.jpg') fixed;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	background-size: cover;
 	height: 50vh;
 }
@@ -21,6 +24,13 @@
 
 .back-to-hat button {
 	background: black;
+}
+
+@media screen and (min-width: 600px) {
+	.page-requests {
+		display: flex;
+		flex-direction: row;
+	}
 }
 
 @media screen and (min-width: 700px){
