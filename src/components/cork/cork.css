@@ -20,10 +20,12 @@
 }
 
 .border{
+  align-items: center;
 	border: 3px ridge #2e2e2e;
 	border-radius: 20px;
 	bottom: 20px;
-	display: flex;
+  display: flex;
+  flex-direction: column;
 	left: 20px;
 	position: absolute;
 	right: 20px;
@@ -48,6 +50,10 @@
   .order-background {
     display: flex;
     top: 28vh;
+  }
+  
+  .border{
+    flex-direction: row;
   }
 
   .cork-titles {
