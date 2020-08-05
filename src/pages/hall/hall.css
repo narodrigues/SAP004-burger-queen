@@ -32,11 +32,11 @@ body {
 	flex-direction: row;
 	height: 60%;
 	justify-content: space-evenly;
-	margin: 0 30px;
+	margin: 20px 30px 0px;
 }
 
 .buttons-option button {
-	font-size: 16px;
+	font-size: 12px;
 }
 
 
@@ -52,6 +52,11 @@ body {
 
 	.hall .logo-login {
 		position: absolute;
+	}
+
+	
+	.buttons-option button {
+		font-size: 16px;
 	}
 }
 
