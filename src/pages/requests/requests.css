@@ -1,6 +1,9 @@
 .page-requests {
+	align-items: center;
 	background: url('../../assets/background.jpg') fixed;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	background-size: cover;
 	height: 50vh;
 }
@@ -9,6 +12,25 @@
 	background: none!important;
 	height: 30vh;
 	width: 100%;
+}
+
+.back-to-hat img {
+	width: 60px;
+	margin-right: -170px;
+	margin-top: 70px;
+	margin-bottom: 10px;
+	z-index: 5;
+}
+
+.back-to-hat button {
+	background: black;
+}
+
+@media screen and (min-width: 600px) {
+	.page-requests {
+		display: flex;
+		flex-direction: row;
+	}
 }
 
 @media screen and (min-width: 700px){
