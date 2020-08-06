@@ -22,6 +22,10 @@ body::-webkit-scrollbar-thumb {
 	height: 50vh;
 }
 
+.kitchen button {
+	margin: 0;
+}
+
 .kitchen header {
 	background: none!important;
 	height: 30vh;

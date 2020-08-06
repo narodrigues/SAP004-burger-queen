@@ -17,6 +17,10 @@ body {
 	width: 100%;
 }
 
+.hall button {
+	margin: 0;
+}
+
 .header-hall img {
 	width: 250px;
 }
