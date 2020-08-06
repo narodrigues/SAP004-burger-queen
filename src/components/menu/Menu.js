@@ -144,33 +144,39 @@ const Menu = () => {
           <div className='bg-color'>
             {currentMenu === 'allDay' &&
               <div className='border-menu'>
-                <div className='titles-container'>                
+                <div className='titles-container'>
                   <Img src={Burgers} alt='Hambúrgueres' />
                 </div>
                 {/* <p className='menu-titles burguers'>Hambúrgueres</p> */}
                 {menuAllDay && menuAllDay.burger.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => getBurger(item)}>
-                    <div className='only-option-menu' >
-                      <Img src={item.img} alt={item.alt} />
-                      <p>{item.name}</p>
-                      <p>{brazilianCurrency(item.price)}</p>
+                  <>
+                    <p className='menu-titles'></p>
+                    <div className='divs-option-menu' key={item.name} onClick={() => getBurger(item)}>
+                      <div className='only-option-menu' >
+                        <Img src={item.img} alt={item.alt} />
+                        <p>{item.name}</p>
+                        <p>{brazilianCurrency(item.price)}</p>
+                      </div>
                     </div>
-                  </div>
+                  </>
                 ))}
-                <div className='titles-container'>                
+                <div className='titles-container'>
                   <Img src={Starters} alt='Acompanhamentos' />
                 </div>
                 {/* <p className='menu-titles'>Acompanhamentos</p> */}
                 {menuAllDay && menuAllDay.startes.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
-                    <div className='only-option-menu'>
-                      <Img src={item.img} alt={item.alt} />
-                      <p>{item.name}</p>
-                      <p>{brazilianCurrency(item.price)}</p>
+                  <>
+                    <p className='menu-titles'></p>
+                    <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
+                      <div className='only-option-menu'>
+                        <Img src={item.img} alt={item.alt} />
+                        <p>{item.name}</p>
+                        <p>{brazilianCurrency(item.price)}</p>
+                      </div>
                     </div>
-                  </div>
+                  </>
                 ))}
-                <div className='titles-container'>                
+                <div className='titles-container'>
                   <Img src={Drinks} alt='Bebidas' />
                 </div>
                 {/* <p className='menu-titles'>Bebidas</p> */}
@@ -187,7 +193,7 @@ const Menu = () => {
             }
             {currentMenu === 'breakfast' &&
               <div className='border-menu'>
-                <div className='titles-container'>                
+                <div className='titles-container'>
                   <Img src={Grilled} alt='Sanduíches' />
                 </div>
                 {/* <p className='menu-titles'>Sanduíches</p> */}
@@ -200,7 +206,7 @@ const Menu = () => {
                     </div>
                   </div>
                 ))}
-                <div className='titles-container'>                
+                <div className='titles-container'>
                   <Img src={Drinks} alt='Bebidas' />
                 </div>
                 {/* <p className='menu-titles'>Bebidas</p> */}

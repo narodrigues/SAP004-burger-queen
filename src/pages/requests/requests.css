@@ -35,6 +35,7 @@
 
 @media screen and (min-width: 600px) {
 	.page-requests {
+		align-items: flex-start;
 		display: flex;
 		flex-direction: row;
 	}
