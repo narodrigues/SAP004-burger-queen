@@ -61,8 +61,8 @@ export default function Login() {
           )}
           <div className='div-buttons-login'>
             <Button id='btn-login' className='button' name='Entrar' handleClick={e => login(e, email, password)} />
-            <span>Ainda não é registrado?</span>
-            <Button id='btn-register' className='button' name='Registrar-se' handleClick={e => changeShow(e, register)} />
+            <span>Ainda não é registrado? <button className='register-link' onClick={e => changeShow(e, register)}>Registre-se</button></span>
+            {/* <Button id='btn-register' className='button' name='Registrar-se' handleClick={e => changeShow(e, register)} /> */}
           </div>
         </form>
       </div>

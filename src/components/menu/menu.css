@@ -106,12 +106,18 @@
 	text-align: center;
 }
 
-.requests button {
+.confirm-order {
 	background: #0b2b33;
 	bottom: 0;
 	margin: 0;
 	position: absolute;
 }
+/* .requests button {
+	background: #0b2b33;
+	bottom: 0;
+	margin: 0;
+	position: absolute;
+} */
 
 .divs-option-menu {
 	margin-bottom: 20px;
@@ -165,6 +171,7 @@
 	background: none;
 	border: none;
 	display: flex;
+	margin: 6px;
 }
 
 .icon {
