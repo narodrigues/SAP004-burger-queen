@@ -8,6 +8,7 @@
 	display: flex;
 	justify-content: space-around;
 	flex-direction: column;
+	margin-bottom: 25px;
 	position: absolute;
 	top: 360px;
 	width: 100vw;
@@ -24,7 +25,7 @@
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	margin-top: 30px;
+	/* margin-top: 30px; */
 }
 
 .buttons-options-menu {
@@ -94,6 +95,7 @@
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+	height: 62vh;
 	justify-content: space-between;
 	padding: 20px 10px 5px;
 	width: 100vw;
@@ -106,6 +108,12 @@
 
 .requests button {
 	background: #0b2b33;
+	bottom: 0;
+	position: absolute;
+}
+
+.divs-option-menu {
+	margin-bottom: 20px;
 }
 
 .orders {
@@ -129,6 +137,16 @@
 .orders .request-plus-minus p {
 	font-size: 16px;
 	text-align: start;
+}
+
+.titles-container {
+	margin: 20px;
+	text-align: center;
+	width: 100%;
+}
+
+.titles-container img {
+	height: auto !important;
 }
 
 .div-btn-icons {

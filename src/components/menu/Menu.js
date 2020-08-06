@@ -7,6 +7,10 @@ import BurgerOptions from '../modalHamburger/BurgerOptions';
 import './menu.css';
 import firebase from '../../configure-firebase';
 import { Link } from 'react-router-dom';
+import Burgers from '../../assets/burgers.png';
+import Drinks from '../../assets/bebidas.png';
+import Starters from '../../assets/acomp.png';
+import Grilled from '../../assets/sanduiche.png';
 
 const Menu = () => {
   const [menuAllDay, setMenuAllDay] = useState(null);
@@ -130,7 +134,10 @@ const Menu = () => {
           <div className='bg-color'>
             {currentMenu === 'allDay' &&
               <div className='border-menu'>
-                <p className='menu-titles'>Hambúrgueres</p>
+                <div className='titles-container'>                
+                  <Img src={Burgers} alt='Hambúrgueres' />
+                </div>
+                {/* <p className='menu-titles burguers'>Hambúrgueres</p> */}
                 {menuAllDay && menuAllDay.burger.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getBurger(item)}>
                     <div className='only-option-menu' >
@@ -140,7 +147,10 @@ const Menu = () => {
                     </div>
                   </div>
                 ))}
-                <p className='menu-titles'>Acompanhamentos</p>
+                <div className='titles-container'>                
+                  <Img src={Starters} alt='Acompanhamentos' />
+                </div>
+                {/* <p className='menu-titles'>Acompanhamentos</p> */}
                 {menuAllDay && menuAllDay.startes.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
@@ -150,7 +160,10 @@ const Menu = () => {
                     </div>
                   </div>
                 ))}
-                <p className='menu-titles'>Bebidas</p>
+                <div className='titles-container'>                
+                  <Img src={Drinks} alt='Bebidas' />
+                </div>
+                {/* <p className='menu-titles'>Bebidas</p> */}
                 {menuAllDay && menuAllDay.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
@@ -164,7 +177,10 @@ const Menu = () => {
             }
             {currentMenu === 'breakfast' &&
               <div className='border-menu'>
-                <p className='menu-titles'>Sanduíches</p>
+                <div className='titles-container'>                
+                  <Img src={Grilled} alt='Sanduíches' />
+                </div>
+                {/* <p className='menu-titles'>Sanduíches</p> */}
                 {menuBreakfast && menuBreakfast.grilled.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
@@ -174,7 +190,10 @@ const Menu = () => {
                     </div>
                   </div>
                 ))}
-                <p className='menu-titles'>Bebidas</p>
+                <div className='titles-container'>                
+                  <Img src={Drinks} alt='Bebidas' />
+                </div>
+                {/* <p className='menu-titles'>Bebidas</p> */}
                 {menuBreakfast && menuBreakfast.drinks.map(item => (
                   <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
                     <div className='only-option-menu'>
