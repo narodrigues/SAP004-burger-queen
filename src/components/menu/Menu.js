@@ -6,7 +6,7 @@ import Button from '../button/Button';
 import BurgerOptions from '../modalHamburger/BurgerOptions';
 import './menu.css';
 import firebase from '../../configure-firebase';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Burgers from '../../assets/burgers.png';
 import Drinks from '../../assets/bebidas.png';
 import Starters from '../../assets/acomp.png';
@@ -19,6 +19,7 @@ const Menu = () => {
   const [currentMenu, setCurrentMenu] = useState(null);
   const [orders, setOrders] = useState([]);
   const [burger, setBurger] = useState(null);
+  let history = useHistory();
 
   useEffect(() => {
     allDay()
@@ -60,19 +61,6 @@ const Menu = () => {
 
     priceToNumber += extras.length;
     finalName += extras.join(' e ');
-
-
-
-    // if (orderBurger.cheese && orderBurger.egg) {
-    //   priceToNumber += 2;
-    //   finalName += ` e adicionais de queijo e ovo`;
-    // } else if (orderBurger.cheese) {
-    //   priceToNumber += 1;
-    //   finalName += ` e adicional de queijo`;
-    // } else if (orderBurger.egg) {
-    //   priceToNumber += 1;
-    //   finalName += ` e adicional de ovo`;
-    // }
 
     let finalOrder = orderBurger;
     finalOrder = {
@@ -126,11 +114,15 @@ const Menu = () => {
 
     localStorage.setItem('id', new Date().getTime());
 
-    firebase
+    if(requests.order.length > 0){
+      firebase
       .firestore()
       .collection('orders')
       .doc(`${new Date().getTime()}`)
-      .set(requests);
+      .set(requests)
+
+      return history.push('/table');
+    }
   }
 
   return (
@@ -232,9 +224,9 @@ const Menu = () => {
         <div className='total'>
           <span>Total: {brazilianCurrency(totalPrice)}</span>
         </div>
-        <Button class='confirm-order'>
-          <Link to="/table" className='btn-order' onClick={ordersToCollection}>PEDIR</Link>
-        </Button>
+        <Button className='confirm-order' handleClick={ordersToCollection} name='PEDIR' />
+          {/* <Link to="/table" className='btn-order' onClick={ordersToCollection}>PEDIR</Link> */}
+        {/* </Button> */}
       </div>
       <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
     </section >
