@@ -109,6 +109,7 @@
 .requests button {
 	background: #0b2b33;
 	bottom: 0;
+	margin: 0;
 	position: absolute;
 }
 
