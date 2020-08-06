@@ -53,16 +53,26 @@ const Menu = () => {
     let priceToNumber = Number(orderBurger.price);
     let finalName = orderBurger.name;
 
-    if (orderBurger.cheese && orderBurger.egg) {
-      priceToNumber += 2;
-      finalName += ` e adicionais de queijo e ovo`;
-    } else if (orderBurger.cheese) {
-      priceToNumber += 1;
-      finalName += ` e adicional de queijo`;
-    } else if (orderBurger.egg) {
-      priceToNumber += 1;
-      finalName += ` e adicional de ovo`;
-    }
+    const extras = [];
+
+    orderBurger.cheese && extras.push('queijo');
+    orderBurger.egg && extras.push('ovo');
+
+    priceToNumber += extras.length;
+    finalName += extras.join(' e ');
+
+
+
+    // if (orderBurger.cheese && orderBurger.egg) {
+    //   priceToNumber += 2;
+    //   finalName += ` e adicionais de queijo e ovo`;
+    // } else if (orderBurger.cheese) {
+    //   priceToNumber += 1;
+    //   finalName += ` e adicional de queijo`;
+    // } else if (orderBurger.egg) {
+    //   priceToNumber += 1;
+    //   finalName += ` e adicional de ovo`;
+    // }
 
     let finalOrder = orderBurger;
     finalOrder = {
@@ -227,7 +237,7 @@ const Menu = () => {
         <div className='total'>
           <span>Total: {brazilianCurrency(totalPrice)}</span>
         </div>
-        <Button>
+        <Button class='confirm-order'>
           <Link to="/table" className='btn-order' onClick={ordersToCollection}>PEDIR</Link>
         </Button>
       </div>
