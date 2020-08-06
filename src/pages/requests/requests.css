@@ -14,11 +14,18 @@
 	width: 100%;
 }
 
+.back-to-hat {
+	position: absolute;
+	right: 40px;
+	top: 0;
+}
+
 .back-to-hat img {
 	width: 60px;
 	margin-right: -170px;
 	margin-top: 70px;
 	margin-bottom: 10px;
+	position: relative;
 	z-index: 5;
 }
 
