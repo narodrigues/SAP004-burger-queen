@@ -54,7 +54,7 @@ const ModalBurger = props => {
               </div>
             </fieldset>
             <fieldset>
-              <p>Adicionais (R$ 1,00):</p>
+              <p>Adicionais (R$ 1,00 cada):</p>
               <div className='add-item-burger'>
                 <label htmlFor='option-cheese'>Queijo</label>
                 <Input type='checkbox' className='radio-cheese' checked={(cheese === true)} name='option-burger' id='option-cheese' value='queijo' onChange={() => setCheese(!cheese)} />
