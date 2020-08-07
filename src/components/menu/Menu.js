@@ -114,12 +114,12 @@ const Menu = () => {
 
     localStorage.setItem('id', new Date().getTime());
 
-    if(requests.order.length > 0){
+    if (requests.order.length > 0) {
       firebase
-      .firestore()
-      .collection('orders')
-      .doc(`${new Date().getTime()}`)
-      .set(requests)
+        .firestore()
+        .collection('orders')
+        .doc(`${new Date().getTime()}`)
+        .set(requests)
 
       return history.push('/table');
     }
@@ -225,8 +225,6 @@ const Menu = () => {
           <span>Total: {brazilianCurrency(totalPrice)}</span>
         </div>
         <Button className='confirm-order' handleClick={ordersToCollection} name='PEDIR' />
-          {/* <Link to="/table" className='btn-order' onClick={ordersToCollection}>PEDIR</Link> */}
-        {/* </Button> */}
       </div>
       <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
     </section >
