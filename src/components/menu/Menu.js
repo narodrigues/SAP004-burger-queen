@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
@@ -20,14 +21,18 @@ const Menu = () => {
   const [currentMenu, setCurrentMenu] = useState(null);
   const [orders, setOrders] = useState([]);
   const [burger, setBurger] = useState(null);
+  const [btnColor, setBtnColor] = useState(false);
+  const [btnColor2, setBtnColor2] = useState(true);
   let history = useHistory();
 
   useEffect(() => {
-    allDay()
+    allDay();
   }, []);
 
   const breakfast = () => {
-    setCurrentMenu('breakfast')
+    setBtnColor(!btnColor);
+    setBtnColor2(!btnColor2);
+    setCurrentMenu('breakfast');
     firebase
       .firestore()
       .collection('breakfast')
@@ -37,7 +42,9 @@ const Menu = () => {
   }
 
   const allDay = () => {
-    setCurrentMenu('allDay')
+    setBtnColor(!btnColor);
+    setBtnColor2(!btnColor2);
+    setCurrentMenu('allDay');
     firebase
       .firestore()
       .collection('allday')
@@ -130,8 +137,8 @@ const Menu = () => {
     <section className='menu'>
       <div className='div-menu'>
         <div className='buttons-options-menu'>
-          <Button name='Matinal' className='option-menu-food' handleClick={breakfast} />
-          <Button name='Almoço/Janta' className='option-menu-food' handleClick={allDay} />
+          <Button name='Matinal' className={btnColor2 ? "button-true option-menu-food": "button-false option-menu-food"} handleClick={breakfast} />
+          <Button name='Almoço/Janta' className={btnColor ? "button-true option-menu-food": "button-false option-menu-food"} handleClick={allDay} />
         </div>
         <div className='menu-principal bg-color'>
           <div className='bg-color'>

@@ -3,6 +3,15 @@
 	letter-spacing: 2px;
 }
 
+.button-true {
+	background: #065F73 !important;
+}
+
+.button-false {
+	background: #313131 !important;
+	opacity: 0.9;
+}
+
 .menu {
 	color: white;
 	display: flex;
@@ -49,8 +58,6 @@
 	margin: 0 auto;
 }
 
-/* 	TESTE DE BORDA NO MENU	*/
-
 .bg-color:first-child {
 	border: 10px double white;
 	height: 68vh;
@@ -71,8 +78,6 @@
 	outline: 1px solid rgb(255, 255, 255);
 }
 
-/*	FIM DO TESTE	*/
-
 .menu-principal {
 	margin: 0;
 	/* overflow: auto; 					VOLTAR SE TIRAR A BORDA */
@@ -81,8 +86,8 @@
 }
 
 .requests-quantity img {
+	height: auto !important;
 	width: 100%;
-	height: auto;
 }
 
 .option-menu-food {
