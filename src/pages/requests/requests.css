@@ -36,6 +36,11 @@
 	width: 95px;
 }
 
+.status-completed {
+	background: #272727;
+	color: white;
+}
+
 @media screen and (min-width: 600px) {
 	.page-requests {
 		align-items: flex-start;
