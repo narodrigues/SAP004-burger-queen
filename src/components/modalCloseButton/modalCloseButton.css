@@ -1,0 +1,28 @@
+.close-modal {
+  align-items: center;
+  background: none;
+  border: none;
+  color: #3e3e3e;
+  cursor: pointer;
+  display: flex;
+  font-size: 17px;
+  height: 30px;
+  justify-content: center;
+  margin-right: -170px;
+  margin-top: -170px;
+  padding: 20px 0px;
+  position: absolute;
+  right: 50%;
+  text-shadow: 2px 2px 2px #00000070;
+  top: 50%;
+  width: 30px;
+  z-index: 5;
+}
+
+@media screen and (min-width: 500px) {
+  .close-modal {
+    font-size: 20px;
+    margin-right: -235px!important;
+    margin-top: -235px!important;
+  }
+}

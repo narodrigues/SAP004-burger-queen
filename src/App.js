@@ -3,7 +3,9 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './pages/login/Login';
 import Kitchen from './pages/kitchen/Kitchen';
 import Hall from './pages/hall/Hall';
-import firebase from './configure-firebase'
+import Table from './pages/table/Table';
+import Request from './pages/requests/Requests';
+import firebase from './configure-firebase';
 import './App.css';
 
 export default function App() {
@@ -18,12 +20,11 @@ export default function App() {
             .firestore()
             .collection('users')
             .where('userUid', '==', user.uid)
-            .get()
-            .then(querySnapshot => {
+            .onSnapshot(querySnapshot => {
               querySnapshot.forEach(doc => setUser(doc.data()))
             })
           : setUser();
-      })
+      });
   }, []);
 
   return (
@@ -32,9 +33,11 @@ export default function App() {
 
       <Switch>
         <Route exact path='/' component={Login} />
+        <Route path='/table' component={Table} />
         <Route path='/kitchen' component={Kitchen} />
         <Route path='/hall' component={Hall} />
+        <Route path='/requests' component={Request} />
       </Switch>
     </BrowserRouter>
-  )
+  );
 }

@@ -1,3 +1,134 @@
 body {
-    font-family: 'Comfortaa', cursive;
+	font-family: 'Comfortaa', cursive;
+}
+
+body::-webkit-scrollbar {
+	width: 1em;
+}
+	
+body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+	
+body::-webkit-scrollbar-thumb {
+	background-color: rgba(30, 80, 200, 0.25);
+	outline: 1px solid slategrey;
+}
+
+.kitchen {
+	background: url('../../assets/background.jpg') fixed;
+	display: flex;
+	background-size: cover;
+	height: 50vh;
+}
+
+.kitchen button {
+	margin: 0;
+}
+
+.kitchen header {
+	background: none!important;
+	height: 30vh;
+	width: 100%;
+}
+
+.preparing-order {
+	text-align: center;
+	width: 50vw;
+}
+
+.ready-order {
+	text-align: center;
+	width: 50vw;
+}
+
+.divs-orders {
+	background: white;
+	border-radius: 10px;
+	box-shadow: 10px 10px 10px #0000001f;
+	display: flex;
+	flex-direction: column;
+	font-size: 20px;
+	justify-content: space-between;
+	margin: 0 0 40px 40px;
+	padding: 15px;
+	width: 200px;
+}
+
+.divs-orders p {
+	margin-top: 5px;
+}
+
+.divs-orders::-webkit-scrollbar {
+	background-color: rgba(170, 160, 26, 0.466);
+	width: 5px;
+}
+
+.divs-orders button {
+	background: rgb(33, 112, 33);
+	height: 40px;
+	width: 100px;
+}
+
+.divs-orders span {
+	font-size: 15px;
+}
+
+.divs-orders .p-orders {
+	font-size: 15px;
+	margin-top: 5px;
+	text-align: start;
+}
+
+.divs-orders .p-orders:nth-child(1) {
+	font-size: 16px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.status-pending {
+	background: rgb(255, 196, 0);
+	border-radius: 5px;
+}
+
+.status-ready {
+	background: rgb(33, 112, 33);
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	margin: 10px 0px;
+	padding: 3px;
+}
+
+@media screen and (min-width: 700px){
+	.kitchen-hall img {
+		width: 250px;
+	}
+	
+	.kitchen .logo-login {
+		left: 30px;
+		position: absolute;
+		top: 20px;
+		width: 250px;
+	}
+	
+	.kitchen button {
+		font-size: 16px;
+	}
+	
+	.exit-btn {
+		display: flex;
+		flex-direction: column;
+		height: 60%;
+		justify-content: space-evenly;
+		margin: 0 30px;
+	}
+}
+
+@media screen and (min-width: 850px){
+	.kitchen .logo-login {
+		left: 40px;
+		top: 30px;
+
+	}
 }

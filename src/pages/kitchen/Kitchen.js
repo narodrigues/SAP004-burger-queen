@@ -1,19 +1,88 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import './kitchen.css';
-import Button from '../../components/button/Button'
-import firebase from '../../configure-firebase'
+import Button from '../../components/button/Button';
+import firebase from '../../configure-firebase';
+import Header from '../../components/header/Header';
+import Cork from '../../components/cork/Cork';
 
 export default function Kitchen() {
+  const [pendingOrder, setPendingOrder] = useState([]);
+  const [readyOrder, setReadyOrder] = useState([]);
+
   const logout = () => {
     firebase
       .auth()
-      .signOut()
+      .signOut();
+  }
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('orders')
+      .onSnapshot(querySnapshot => {
+        const getData = querySnapshot.docs.map(doc =>
+          ({
+            ...doc.data()
+          })
+        );
+        setPendingOrder(getData.filter(doc => doc.status === 'Pendente'));
+        setReadyOrder(getData.filter(doc => doc.status === 'Pronto'));
+      });
+  }, []);
+
+  const changeStatus = item => {
+    firebase
+      .firestore()
+      .collection('orders')
+      .doc(item.id)
+      .update({
+        status: "Pronto",
+      });
+
+    const filter = pendingOrder.filter(orders => orders !== item);
+    setReadyOrder([...readyOrder, item]);
+    setPendingOrder([...filter]);
   }
 
   return (
     <>
-      <h1>Cozinha</h1>
-      <Button name='Sair' handleClick={(e) => logout(e)} />
+      <section className='kitchen'>
+        <Header className='header-hall' />
+        <div className='exit-btn'>
+          <Button name='Sair' handleClick={e => logout(e)} />
+        </div>
+      </section>
+
+      <Cork name='PREPARANDO'
+        children={pendingOrder &&
+          pendingOrder.map(item => (
+            <div className='divs-orders' key={item.id}>
+              <p>Cliente: {item.client}</p>
+              <p>Mesa: {item.table}</p>
+              <p className='status-pending'>{item.status}</p>
+              {item.order.map(pedido =>
+                <p className='p-orders'>• {pedido.name}</p>
+              )}
+              <div>
+                <Button name='PRONTO' handleClick={() => changeStatus(item)} />
+              </div>
+            </div>
+          ))
+        }
+
+        secondChildren={readyOrder &&
+          readyOrder.map(item => (
+            <div className='divs-orders' key={item.id}>
+              <p>Mesa: {item.table}</p>
+              <p>Cliente: {item.client}</p>
+              <p className='status-ready'>{item.status}</p>
+              {item.order.map(pedido =>
+                <p className='p-orders'>•{pedido.count}x {pedido.name}</p>
+              )}
+            </div>
+          ))
+        }
+      />
     </>
-  )
+  );
 }

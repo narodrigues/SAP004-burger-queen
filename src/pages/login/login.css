@@ -1,21 +1,31 @@
+header {
+  background-size: cover;
+}
+
 .form-login {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 5vh;
+  padding: 15px;
+  text-align: center;
 }
 
 .form-login input {
   background: #d0d0d033;
   border: none;
   border-radius: 12px;
-  box-shadow: 15px 15px 21px 0px #e7c8ad78;
+  box-shadow: 15px 15px 21px 0px #886e5778;
   height: 55px;
   letter-spacing: 1px;
   margin: 10px;
   padding-left: 10px;
   width: 300px;
+}
+
+.form-login p {
+  color: red;
 }
 
 .div-buttons-login {
@@ -25,6 +35,24 @@
   margin-top: 20px;
 }
 
+/* .btn-register {
+  background: inherit;
+  border: inherit;
+  color: #0282b0;
+  cursor: pointer;
+  font-size: inherit;
+  margin-left: 10px;
+} */
+
+.register-link {
+  background: inherit;
+  border: inherit;
+  color: #0282b0;
+  cursor: pointer;
+  font-size: inherit;
+  margin-left: 10px;
+  margin-top: 20px;
+}
 
 @media screen and (min-width: 700px){
   .form-login {
@@ -42,11 +70,10 @@
 @media screen and (min-width: 850px){
   button {
     font-size: 16px;
-    height: 65px;
-    width: 170px;
   }
 
-  span {
+  .form-login span {
+    color: black;
     font-size: 20px;
     margin-top: 15px;
   }

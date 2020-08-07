@@ -1,16 +1,17 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import './hall.css';
-import Button from '../../components/button/Button'
-import Header from '../../components/header/Header'
-import Menu from '../../components/menu/Menu'
-import firebase from '../../configure-firebase'
+import Button from '../../components/button/Button';
+import Header from '../../components/header/Header';
+import Menu from '../../components/menu/Menu';
+import firebase from '../../configure-firebase';
 
 
 export default function Hall() {
   const logout = () => {
     firebase
       .auth()
-      .signOut()
+      .signOut();
   }
 
   return (
@@ -18,11 +19,13 @@ export default function Hall() {
       <section className='hall'>
         <Header className='header-hall' />
         <div className='buttons-option'>
-          <Button name='Pedidos Prontos' />
-          <Button name='Sair' handleClick={(e) => logout(e)} />
+          <Button>
+            <Link to="/requests" className='btn-order'>Pedidos prontos</Link>
+          </Button>
+          <Button name='Sair' handleClick={e => logout(e)} />
         </div>
       </section>
       <Menu />
     </>
-  )
+  );
 }

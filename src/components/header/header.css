@@ -1,10 +1,11 @@
 header {
 	align-items: center;
-	background: url('../../assets/background.jpg');
+	background-size: cover;
+	background: url('../../assets/background.jpg') fixed;
 	display: flex;
-	height: 45vh;
+	height: 50vh;
 	justify-content: center;
-	padding: 5px 0;
+	padding: 10px 0;
 	width: 100%;
 }
 
@@ -16,21 +17,20 @@ header {
 	header {
 		height: 40vh;
 	}
-
-	.logo-login {
-		height: 395px;
-		width: 415px;
-	}
 }
 
-@media screen and (min-width: 850x){
+@media screen and (min-width: 850px){
 	.logo-login {
-		width: 500px;
+		width: 400px;
 	}
 }
 
 @media screen and (min-width: 1300px){
+	header {
+		background-size: cover;
+	}
+
 	.logo-login {
-		width: 615px;
+		width: 515px;
 	}
 }
