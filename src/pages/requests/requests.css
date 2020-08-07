@@ -23,8 +23,8 @@
 }
 
 .back-to-hat img {
-	width: 60px;
-	margin-right: -170px;
+	width: 40px;
+	margin-right: -120px;
 	margin-top: 70px;
 	margin-bottom: 10px;
 	position: relative;
@@ -33,6 +33,7 @@
 
 .back-to-hat button {
 	background: black;
+	width: 95px;
 }
 
 @media screen and (min-width: 600px) {
@@ -44,6 +45,15 @@
 
 	.back-to-hat {
 		right: 40px;
+	}
+
+	.back-to-hat img {
+		margin-right: -170px;
+		width: 60px;
+	}
+
+	.back-to-hat button {
+		width: 145px;
 	}
 }
 
