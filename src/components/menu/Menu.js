@@ -11,6 +11,7 @@ import Burgers from '../../assets/burgers.png';
 import Drinks from '../../assets/bebidas.png';
 import Starters from '../../assets/acomp.png';
 import Grilled from '../../assets/sanduiche.png';
+import Orders from '../../assets/pedidos.png';
 
 const Menu = () => {
   const [menuAllDay, setMenuAllDay] = useState(null);
@@ -207,7 +208,7 @@ const Menu = () => {
       </div>
       <div className='requests bg-color'>
         <div className='requests-quantity'>
-          <p className='title-request'>PEDIDOS</p>
+          <Img src={Orders} alt='Pedidos' />
           <div className='orders'>
             {orders.map((item, index) => (
               <div className='request-plus-minus' key={item.name}>
@@ -225,8 +226,6 @@ const Menu = () => {
           <span>Total: {brazilianCurrency(totalPrice)}</span>
         </div>
         <Button className='confirm-order' handleClick={ordersToCollection} name='PEDIR' />
-          {/* <Link to="/table" className='btn-order' onClick={ordersToCollection}>PEDIR</Link> */}
-        {/* </Button> */}
       </div>
       <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
     </section >

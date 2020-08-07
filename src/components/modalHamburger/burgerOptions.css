@@ -18,7 +18,7 @@
 .modal-options {
 	align-items: center;
 	background: white;
-	border: 10px solid #065F73;
+	border: 10px double #065F73;
 	border-radius: 10px;
 	box-shadow: 0 0 0 10px white;
 	display: flex;
