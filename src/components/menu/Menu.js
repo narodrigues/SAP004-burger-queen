@@ -122,12 +122,12 @@ const Menu = () => {
 
     localStorage.setItem('id', new Date().getTime());
 
-    if(requests.order.length > 0){
+    if (requests.order.length > 0) {
       firebase
-      .firestore()
-      .collection('orders')
-      .doc(`${new Date().getTime()}`)
-      .set(requests)
+        .firestore()
+        .collection('orders')
+        .doc(`${new Date().getTime()}`)
+        .set(requests)
 
       return history.push('/table');
     }

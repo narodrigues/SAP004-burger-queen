@@ -1,28 +1,30 @@
 .page-requests {
-	align-items: center;
 	background: url('../../assets/background.jpg') fixed;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	background-size: cover;
 	height: 50vh;
 }
 
 .page-requests header {
 	background: none!important;
+	display: block;
 	height: 30vh;
 	width: 100%;
 }
 
+.page-requests .logo-login {
+	width: 215px;
+}
+
 .back-to-hat {
 	position: absolute;
-	right: 40px;
+	right: 1px;
 	top: 0;
 }
 
 .back-to-hat img {
-	width: 60px;
-	margin-right: -170px;
+	width: 40px;
+	margin-right: -120px;
 	margin-top: 70px;
 	margin-bottom: 10px;
 	position: relative;
@@ -31,6 +33,7 @@
 
 .back-to-hat button {
 	background: black;
+	width: 95px;
 }
 
 @media screen and (min-width: 600px) {
@@ -39,6 +42,19 @@
 		display: flex;
 		flex-direction: row;
 	}
+
+	.back-to-hat {
+		right: 40px;
+	}
+
+	.back-to-hat img {
+		margin-right: -170px;
+		width: 60px;
+	}
+
+	.back-to-hat button {
+		width: 145px;
+	}
 }
 
 @media screen and (min-width: 700px){
@@ -46,7 +62,7 @@
 		left: 30px;
 		position: absolute;
 		top: 20px;
-		width: 250px;
+		width: 240px;
 	}
 }
 

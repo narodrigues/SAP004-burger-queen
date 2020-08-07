@@ -1,17 +1,18 @@
 .cork-titles {
   color: #2e2e2e;
-  font-size: 15px;
+  font-size: 25px;
   font-weight: bold;
   margin: 20px;
+  text-align: center;
 }
 
 .order-background {
 	background: #ffe868;
 	border-radius: 20px;
 	box-shadow: 40px 38px 24px -10px #3b30273d;
-	height: 70vh;
+	height: 135vh;
 	justify-content: space-around;
-  margin: 55px auto;
+  margin: 80px auto 25px;
 	position: absolute;
   width: 80vw;
   top: 25vh;
@@ -49,7 +50,9 @@
 @media screen and (min-width: 700px){
   .order-background {
     display: flex;
-    top: 28vh;
+    height: 75vh;
+    margin: 55px auto 25px;
+    top: 38vh;
   }
   
   .border{
