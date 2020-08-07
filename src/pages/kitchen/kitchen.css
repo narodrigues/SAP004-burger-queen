@@ -42,6 +42,10 @@ body::-webkit-scrollbar-thumb {
 	width: 50vw;
 }
 
+.bolder {
+	font-weight: bold !important;
+}
+
 .divs-orders {
 	background: white;
 	border-radius: 10px;
@@ -49,14 +53,15 @@ body::-webkit-scrollbar-thumb {
 	display: flex;
 	flex-direction: column;
 	font-size: 20px;
-	justify-content: space-between;
-	margin: 0 0 40px 40px;
+	height: fit-content;
+	/* justify-content: space-between; */
+	margin: 0 20px 40px 20px;
 	padding: 15px;
 	width: 200px;
 }
 
 .divs-orders p {
-	margin-top: 5px;
+	margin-top: 10px;
 }
 
 .divs-orders::-webkit-scrollbar {
@@ -65,18 +70,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 .divs-orders button {
-	background: rgb(33, 112, 33);
-	height: 40px;
-	width: 100px;
+	background: #2f2f2f;
+	/* background: rgb(33, 112, 33); */
+	height: 45px;
+	/* width: 100px; */
 }
 
-.divs-orders span {
+/* .divs-orders span {
 	font-size: 15px;
-}
+} */
 
 .divs-orders .p-orders {
 	font-size: 15px;
-	margin-top: 5px;
+	/* margin-top: 5px; */
 	text-align: start;
 }
 
@@ -86,18 +92,20 @@ body::-webkit-scrollbar-thumb {
 	text-align: center;
 }
 
-.status-pending {
-	background: rgb(255, 196, 0);
+.general-status {
 	border-radius: 5px;
-}
-
-.status-ready {
-	background: rgb(33, 112, 33);
-	border-radius: 5px;
-	color: white;
 	font-weight: bold;
 	margin: 10px 0px;
 	padding: 3px;
+}
+
+.status-pending {
+	background: #ffc400;
+}
+
+.status-ready {
+	background: #217021;
+	color: white;
 }
 
 @media screen and (min-width: 700px){

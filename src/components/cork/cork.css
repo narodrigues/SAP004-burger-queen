@@ -52,7 +52,8 @@
     display: flex;
     height: 75vh;
     margin: 55px auto 25px;
-    top: 38vh;
+    top: 28vh;
+    /* top: 38vh; */
   }
   
   .border{

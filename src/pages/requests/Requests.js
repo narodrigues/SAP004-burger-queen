@@ -67,9 +67,9 @@ export default function Requests() {
         children={readyOrder &&
           readyOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p>Cliente: {item.client}</p>
-              <p>Mesa: {item.table}</p>
-              <p className='status-ready'>{item.status}</p>
+              <p><span className='bolder'>Cliente:</span> {item.client}</p>
+              <p><span className='bolder'>Mesa:</span> {item.table}</p>
+              <p className='general-status status-ready'>{item.status}</p>
               {item.order.map(pedido =>
                 <p className='p-orders'>• {pedido.name}</p>
               )}
@@ -83,10 +83,10 @@ export default function Requests() {
         secondChildren={completedOrder &&
           completedOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p>Cliente: {item.client}</p>
-              <p>Mesa: {item.table}</p>
-              <p>Tempo de preparo: {Math.floor(moment.duration(moment(item.finalTime).diff(item.initialTime)).asMinutes())} minuto(s) atrás</p>
-              <p className='status-completed'>{item.status}</p>
+              <p><span className='bolder'>Cliente:</span> {item.client}</p>
+              <p><span className='bolder'>Mesa:</span> {item.table}</p>
+              <p><span className='bolder'>Tempo de preparo:</span> {Math.floor(moment.duration(moment(item.finalTime).diff(item.initialTime)).asMinutes())} minuto(s) atrás</p>
+              <p className='general-status status-completed'>{item.status}</p>
               {item.order.map(pedido =>
                 <p className='p-orders'>•{pedido.count} x {pedido.name}</p>
               )}

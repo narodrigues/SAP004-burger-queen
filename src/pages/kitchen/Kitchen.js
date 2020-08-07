@@ -57,9 +57,9 @@ export default function Kitchen() {
         children={pendingOrder &&
           pendingOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p>Cliente: {item.client}</p>
-              <p>Mesa: {item.table}</p>
-              <p className='status-pending'>{item.status}</p>
+              <p><span className='bolder'>Cliente:</span> {item.client}</p>
+              <p><span className='bolder'>Mesa:</span> {item.table}</p>
+              <p className='general-status status-pending'>{item.status}</p>
               {item.order.map(pedido =>
                 <p className='p-orders'>• {pedido.name}</p>
               )}
@@ -73,9 +73,9 @@ export default function Kitchen() {
         secondChildren={readyOrder &&
           readyOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p>Mesa: {item.table}</p>
-              <p>Cliente: {item.client}</p>
-              <p className='status-ready'>{item.status}</p>
+              <p><span className='bolder'>Mesa:</span> {item.table}</p>
+              <p><span className='bolder'>Cliente:</span> {item.client}</p>
+              <p className='general-status status-ready'>{item.status}</p>
               {item.order.map(pedido =>
                 <p className='p-orders'>•{pedido.count}x {pedido.name}</p>
               )}
