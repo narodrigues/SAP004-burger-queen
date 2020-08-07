@@ -1,21 +1,24 @@
 .page-requests {
-	align-items: center;
 	background: url('../../assets/background.jpg') fixed;
 	display: flex;
-	flex-direction: column;
 	background-size: cover;
 	height: 50vh;
 }
 
 .page-requests header {
 	background: none!important;
+	display: block;
 	height: 30vh;
 	width: 100%;
 }
 
+.page-requests .logo-login {
+	width: 215px;
+}
+
 .back-to-hat {
 	position: absolute;
-	right: 40px;
+	right: 1px;
 	top: 0;
 }
 
@@ -37,6 +40,10 @@
 		align-items: flex-start;
 		display: flex;
 		flex-direction: row;
+	}
+
+	.back-to-hat {
+		right: 40px;
 	}
 }
 
