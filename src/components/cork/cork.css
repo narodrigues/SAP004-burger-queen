@@ -50,7 +50,7 @@
 @media screen and (min-width: 700px){
   .order-background {
     display: flex;
-    height: 70vh;
+    height: 75vh;
     margin: 55px auto 25px;
     top: 38vh;
   }
