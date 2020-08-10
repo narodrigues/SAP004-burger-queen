@@ -137,8 +137,8 @@ const Menu = () => {
     <section className='menu'>
       <div className='div-menu'>
         <div className='buttons-options-menu'>
-          <Button name='Matinal' className={btnColor2 ? "button-true option-menu-food": "button-false option-menu-food"} handleClick={breakfast} />
-          <Button name='Almoço/Janta' className={btnColor ? "button-true option-menu-food": "button-false option-menu-food"} handleClick={allDay} />
+          <Button name='Matinal' className={btnColor2 ? "button-true option-menu-food" : "button-false option-menu-food"} handleClick={breakfast} />
+          <Button name='Almoço/Janta' className={btnColor ? "button-true option-menu-food" : "button-false option-menu-food"} handleClick={allDay} />
         </div>
         <div className='menu-principal bg-color'>
           <div className='bg-color'>
