@@ -15,7 +15,8 @@
   margin: 80px auto 25px;
 	position: absolute;
   width: 80vw;
-  top: 25vh;
+  top: 300px;
+  /* top: 25vh; */
   left: 0;
   right: 0;
 }

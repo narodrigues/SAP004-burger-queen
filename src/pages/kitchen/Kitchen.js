@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
 import './kitchen.css';
 import Button from '../../components/button/Button';
+import Cork from '../../components/cork/Cork';
 import firebase from '../../configure-firebase';
 import Header from '../../components/header/Header';
-import Cork from '../../components/cork/Cork';
+import React, { useState, useEffect } from 'react';
 
 export default function Kitchen() {
   const [pendingOrder, setPendingOrder] = useState([]);
@@ -49,12 +49,12 @@ export default function Kitchen() {
       <section className='kitchen'>
         <Header className='header-hall' />
         <div className='exit-btn'>
-          <Button name='Sair' handleClick={e => logout(e)} />
+          <Button name='Sair' handleClick={logout} />
         </div>
       </section>
 
       <Cork name='PREPARANDO'
-        children={pendingOrder &&
+        children={ pendingOrder &&
           pendingOrder.map(item => (
             <div className='divs-orders' key={item.id}>
               <p><span className='bolder'>Cliente:</span> {item.client}</p>

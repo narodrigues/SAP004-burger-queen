@@ -48,7 +48,7 @@ export default function Login() {
 
   return (
     <section className='flex-row-desk'>
-      <Header />
+      <Header className='login'/>
       <div>
         <form className='form-login'>
           <Input type='email' placeholder='email@exemple.com' id='emal-login' onChange={e => setEmail(e.target.value)} />
