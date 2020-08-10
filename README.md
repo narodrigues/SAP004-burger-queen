@@ -45,6 +45,8 @@ Finalmente, a interface deve ser pensada específicamente para rodar em **tablet
 
 ## 3.1 Protótipação e Layout
 
+<img src='./src/assets/img-readme.png'>
+
 ## 3.2 Funcionalidades
 
 ## 4. Considerações técnicas
