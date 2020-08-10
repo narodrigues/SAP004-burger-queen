@@ -16,9 +16,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .kitchen {
+	align-items: center;
 	background: url('../../assets/background.jpg') fixed;
-	display: flex;
 	background-size: cover;
+	display: flex;
+	flex-direction: column;
 	height: 50vh;
 }
 
@@ -28,7 +30,8 @@ body::-webkit-scrollbar-thumb {
 
 .kitchen header {
 	background: none!important;
-	height: 30vh;
+  padding: 0;
+	/* height: 30vh; */
 	width: 100%;
 }
 
@@ -109,6 +112,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media screen and (min-width: 700px){
+	.kitchen {
+		flex-direction: row;
+	}
+
 	.kitchen-hall img {
 		width: 250px;
 	}
@@ -125,10 +132,10 @@ body::-webkit-scrollbar-thumb {
 	}
 	
 	.exit-btn {
-		display: flex;
-		flex-direction: column;
+		/* display: flex;
+		flex-direction: column; */
 		height: 60%;
-		justify-content: space-evenly;
+		/* justify-content: space-evenly; */
 		margin: 0 30px;
 	}
 }
@@ -137,6 +144,5 @@ body::-webkit-scrollbar-thumb {
 	.kitchen .logo-login {
 		left: 40px;
 		top: 30px;
-
 	}
 }
