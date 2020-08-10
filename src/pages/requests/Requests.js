@@ -71,7 +71,7 @@ export default function Requests() {
               <p><span className='bolder'>Mesa:</span> {item.table}</p>
               <p className='general-status status-ready'>{item.status}</p>
               {item.order.map(pedido =>
-                <p className='p-orders'>• {pedido.name}</p>
+                <p className='p-orders'>•{pedido.count}x {pedido.name}</p>
               )}
               <div>
                 <Button name='ENTREGUE' handleClick={() => changeStatus(item)} />

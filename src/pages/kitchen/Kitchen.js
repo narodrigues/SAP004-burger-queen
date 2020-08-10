@@ -44,10 +44,23 @@ export default function Kitchen() {
     setPendingOrder([...filter]);
   }
 
+  const printInfos = item => {
+    return (
+      <>
+      <p><span className='bolder'>Cliente:</span> {item.client}</p>
+      <p><span className='bolder'>Mesa:</span> {item.table}</p>
+      <p className={`general-status ${item.status.toLowerCase()}`}>{item.status}</p>
+        {item.order.map(pedido =>
+          <p className='p-orders'>•{pedido.count}x {pedido.name}</p>
+        )}
+      </>
+    )
+  }
+
   return (
     <>
       <section className='kitchen'>
-        <Header className='header-hall' />
+        <Header />
         <div className='exit-btn'>
           <Button name='Sair' handleClick={logout} />
         </div>
@@ -57,12 +70,7 @@ export default function Kitchen() {
         children={ pendingOrder &&
           pendingOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p><span className='bolder'>Cliente:</span> {item.client}</p>
-              <p><span className='bolder'>Mesa:</span> {item.table}</p>
-              <p className='general-status status-pending'>{item.status}</p>
-              {item.order.map(pedido =>
-                <p className='p-orders'>• {pedido.name}</p>
-              )}
+              {printInfos(item)}
               <div>
                 <Button name='PRONTO' handleClick={() => changeStatus(item)} />
               </div>
@@ -73,12 +81,7 @@ export default function Kitchen() {
         secondChildren={readyOrder &&
           readyOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p><span className='bolder'>Mesa:</span> {item.table}</p>
-              <p><span className='bolder'>Cliente:</span> {item.client}</p>
-              <p className='general-status status-ready'>{item.status}</p>
-              {item.order.map(pedido =>
-                <p className='p-orders'>•{pedido.count}x {pedido.name}</p>
-              )}
+              {printInfos(item)}
             </div>
           ))
         }
