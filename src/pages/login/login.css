@@ -78,7 +78,7 @@ header {
 }
 
 @media screen and (min-width: 1024px){
-  .login {
+  header {
     height: 100vh;
     width: 50vw;
   }
