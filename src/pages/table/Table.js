@@ -1,7 +1,7 @@
 import Input from '../../components/input/Input';
 import Button from '../../components/button/Button';
 import Modal from '../../components/modal/Modal';
-import ModalConfirm from '../../components/modalConfirmRequest/ModalConfirm';
+import ModalConfirm from '../modalConfirmRequest/ModalConfirm';
 import React, { useState } from "react";
 import Header from '../../components/header/Header';
 import { Link } from 'react-router-dom';

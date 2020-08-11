@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import Header from '../../components/header/Header';
-import Register from '../register/Register';
-import Button from '../../components/button/Button';
-import Modal from '../../components/modal/Modal';
-import Input from '../../components/input/Input';
-import firebase from '../../configure-firebase';
 import './login.css';
+import Button from '../../components/button/Button';
+import firebase from '../../configure-firebase';
+import Header from '../../components/header/Header';
+import Input from '../../components/input/Input';
+import Modal from '../../components/modal/Modal';
+import React, { useState } from "react";
+import Register from '../register/Register';
 
 export default function Login() {
-  const [register, setRegister] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [registerModal, setRegisterModal] = useState(false);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [showErrorEmailInvalid, setErrorEmailInvalid] = useState(false);
   const [showErrorPassword, setErrorPassword] = useState(false);
 
   const changeShow = (e, show) => {
     e.preventDefault();
-    setRegister(!show);
+    setRegisterModal(!show);
   }
 
   function validForm() {
@@ -61,11 +61,11 @@ export default function Login() {
           )}
           <div className='div-buttons-login'>
             <Button id='btn-login' className='button' name='Entrar' handleClick={e => login(e, email, password)} />
-            <span>Ainda não é registrado? <button className='register-link' onClick={e => changeShow(e, register)}>Registre-se</button></span>
+            <span>Ainda não é registrado? <button className='register-link' onClick={e => changeShow(e, registerModal)}>Registre-se</button></span>
           </div>
         </form>
       </div>
-      <Modal show={register} closeModal={e => changeShow(e, register)}>
+      <Modal show={registerModal} closeModal={e => changeShow(e, registerModal)}>
         <Register />
       </Modal>
     </section>
