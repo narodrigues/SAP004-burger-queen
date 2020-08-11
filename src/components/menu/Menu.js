@@ -30,14 +30,10 @@ const Menu = () => {
     menu('allDay');
   }, []);
 
-  const setChosenMenu = menu => {
+  const menu = chosenMenu => {
     setBtnColor(!btnColor);
     setBtnColor2(!btnColor2);
-    setCurrentMenu(menu);
-  }
-
-  const menu = chosenMenu => {
-    setChosenMenu(chosenMenu);
+    setCurrentMenu(chosenMenu);
 
     chosenMenu === 'breakfast' ? 
       firebase
