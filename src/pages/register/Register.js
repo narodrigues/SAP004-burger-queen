@@ -1,18 +1,18 @@
-import React, { useState } from "react";
 import './register.css';
 import Button from '../../components/button/Button';
-import Input from '../../components/input/Input';
 import firebase from '../../configure-firebase';
+import Input from '../../components/input/Input';
+import React, { useState } from "react";
 
 export default function Register() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [jobTitle, setJobTitle] = useState('');
-  const [showErroNameEmpty, setErrorNameEmpty] = useState(false);
-  const [showErroEmailInvalid, setErrorEmailInvalid] = useState(false);
-  const [showErroPassword, setErrorPassword] = useState(false);
-  const [showErroEmptyRadios, setErrorEmptyRadios] = useState(false);
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [jobTitle, setJobTitle] = useState();
+  const [showErrorNameEmpty, setErrorNameEmpty] = useState();
+  const [showErrorEmailInvalid, setErrorEmailInvalid] = useState();
+  const [showErrorPassword, setErrorPassword] = useState();
+  const [showErrorEmptyRadios, setErrorEmptyRadios] = useState();
 
   function validForm() {
     setErrorNameEmpty(false);
@@ -21,25 +21,26 @@ export default function Register() {
     setErrorEmptyRadios(false);
 
     let isValid = true;
-    if (!username) {
+    
+    !username &&
       setErrorNameEmpty(true);
       isValid = false;
-    }
-    if (!password) {
+    
+    !password &&
       setErrorPassword(true);
       isValid = false;
-    }
-    if (!jobTitle) {
-      setErrorEmptyRadios("escolha uma das opções");
+    
+    !jobTitle &&
+      setErrorEmptyRadios(true);
       isValid = false;
-    }
-    if (!email) {
+    
+    !email &&
       setErrorEmailInvalid("email obrigatório");
       isValid = false;
-    }
-    if (!(/\S+@\S+\.\S+/.test(email))) {
+    
+    !(/\S+@\S+\.\S+/.test(email)) &&
       setErrorEmailInvalid('Formato de e-mail inválido');
-    }
+    
     return isValid;
   }
 
@@ -48,7 +49,7 @@ export default function Register() {
 
     const isValid = validForm();
 
-    if (isValid) {
+    isValid &&
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
@@ -66,7 +67,6 @@ export default function Register() {
         .catch(err => {
           console.log(err);
         });
-    }
   }
 
   return (
@@ -74,15 +74,15 @@ export default function Register() {
       <form className=' modal-main overlay'>
         <div className='inputs-text'>
           <Input type='text' name='username' placeholder='nome' id='name-login' onChange={e => setUsername(e.target.value)} />
-          {showErroNameEmpty && (
+          {showErrorNameEmpty && (
             <p>Por favor, preencha seu nome.</p>
           )}
           <Input type='email' required name='email' placeholder='email@exemple.com' id='email-register' onChange={e => setEmail(e.target.value)} />
-          {showErroEmailInvalid && (
-            <p>{showErroEmailInvalid}</p>
+          {showErrorEmailInvalid && (
+            <p>{showErrorEmailInvalid}</p>
           )}
           <Input type='password' name='password' placeholder='senha' id='password-register' onChange={e => setPassword(e.target.value)} />
-          {showErroPassword && (
+          {showErrorPassword && (
             <p>Sua senha deve ter mais de 6 dígitos.</p>
           )}
         </div>
@@ -91,8 +91,8 @@ export default function Register() {
           <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='Kitchen' onChange={e => setJobTitle(e.target.value)} />
           <label htmlFor='hall'>SALÃO</label>
           <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='Hall' onChange={e => setJobTitle(e.target.value)} />
-          {showErroEmptyRadios && (
-            <p>{showErroEmptyRadios}</p>
+          {showErrorEmptyRadios && (
+            <p>Escolha uma das opções</p>
           )}
         </div>
       </form>

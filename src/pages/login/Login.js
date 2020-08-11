@@ -24,8 +24,10 @@ export default function Login() {
     setErrorPassword(false);
 
     let isValid = true;
+    
     if (!(/\S+@\S+\.\S+/.test(email))) {
       setErrorEmailInvalid(true);
+      isValid = false;
     }
     if (!password) {
       setErrorPassword(true);
@@ -52,13 +54,9 @@ export default function Login() {
       <div>
         <form className='form-login'>
           <Input type='email' placeholder='email@exemple.com' id='emal-login' onChange={e => setEmail(e.target.value)} />
-          {showErrorEmailInvalid && (
-            <p>Este e-mail parece não estar cadastrado. Tente novamente ou cadastre-se.</p>
-          )}
+          {showErrorEmailInvalid && <p>Este e-mail parece não estar cadastrado. Tente novamente ou cadastre-se.</p>}
           <Input type='password' placeholder='senha' id='password-login' onChange={e => setPassword(e.target.value)} />
-          {showErrorPassword && (
-            <p>Sua senha deve ter mais de 6 dígitos.</p>
-          )}
+          {showErrorPassword && <p>Sua senha deve ter mais de 6 dígitos.</p>}
           <div className='div-buttons-login'>
             <Button id='btn-login' className='button' name='Entrar' handleClick={e => login(e, email, password)} />
             <span>Ainda não é registrado? <button className='register-link' onClick={e => changeVisibility(e, modalVisibility)}>Registre-se</button></span>

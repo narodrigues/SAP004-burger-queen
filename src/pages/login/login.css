@@ -79,7 +79,7 @@ header {
 
 @media screen and (min-width: 1024px){
   header {
-    height: 100vh;
+    height: 100vh !important;
     width: 50vw;
   }
 

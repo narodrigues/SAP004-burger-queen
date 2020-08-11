@@ -70,7 +70,7 @@ const Menu = () => {
 
     priceToNumber += extras.length;
 
-    if(extras.length > 0) finalName += ` com ${extras.join(' e ')}`;
+    if (extras.length > 0) finalName += ` com ${extras.join(' e ')}`;
 
     finalOrder = {
       name: finalName,

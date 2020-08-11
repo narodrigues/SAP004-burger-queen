@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../../components/header/Header';
-import Cork from '../../components/cork/Cork';
-import Button from '../../components/button/Button'
-import Img from '../../components/imagem/Img'
-import Hat from '../../assets/Mad-Hatter-Silhouette-1.png'
-import firebase from '../../configure-firebase';
-import { Link } from 'react-router-dom';
 import './requests.css';
+import { Link } from 'react-router-dom';
+import Button from '../../components/button/Button'
+import Cork from '../../components/cork/Cork';
+import firebase from '../../configure-firebase';
+import Hat from '../../assets/Mad-Hatter-Silhouette-1.png'
+import Header from '../../components/header/Header';
+import Img from '../../components/imagem/Img'
 import moment from 'moment';
+import React, { useState, useEffect } from 'react';
 
 export default function Requests() {
   const [readyOrder, setReadyOrder] = useState([]);
@@ -51,6 +51,19 @@ export default function Requests() {
       .delete();
   }
 
+  const printOrders = item => {
+    return (
+      <>
+        <p><span className='bolder'>Cliente:</span> {item.client}</p>
+        <p><span className='bolder'>Mesa:</span> {item.table}</p>
+        <p className={`general-status ${item.status.toLowerCase()}`}>{item.status}</p>
+        {item.order.map(pedido =>
+          <p className='p-orders'>•{pedido.count} x {pedido.name}</p>
+        )}
+      </>
+    )
+  }
+
   return (
     <>
       <section className='page-requests'>
@@ -67,12 +80,7 @@ export default function Requests() {
         children={readyOrder &&
           readyOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p><span className='bolder'>Cliente:</span> {item.client}</p>
-              <p><span className='bolder'>Mesa:</span> {item.table}</p>
-              <p className='general-status pronto'>{item.status}</p>
-              {item.order.map(pedido =>
-                <p className='p-orders'>•{pedido.count}x {pedido.name}</p>
-              )}
+              {printOrders(item)}
               <div>
                 <Button name='ENTREGUE' handleClick={() => changeStatus(item)} />
               </div>
@@ -83,13 +91,8 @@ export default function Requests() {
         secondChildren={completedOrder &&
           completedOrder.map(item => (
             <div className='divs-orders' key={item.id}>
-              <p><span className='bolder'>Cliente:</span> {item.client}</p>
-              <p><span className='bolder'>Mesa:</span> {item.table}</p>
-              <p><span className='bolder'>Tempo de preparo:</span> {Math.floor(moment.duration(moment(item.finalTime).diff(item.initialTime)).asMinutes())} minuto(s) atrás</p>
-              <p className='general-status status-completed'>{item.status}</p>
-              {item.order.map(pedido =>
-                <p className='p-orders'>•{pedido.count} x {pedido.name}</p>
-              )}
+              {printOrders(item)}
+              <p><span className='bolder'>Tempo total:</span> {Math.floor(moment.duration(moment(item.finalTime).diff(item.initialTime)).asMinutes())} minuto(s)</p>
               <div>
                 <Button name='DELETAR' handleClick={() => deleteOrder(item.id)} />
               </div>
