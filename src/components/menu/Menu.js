@@ -1,18 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
-import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
-import Img from '../imagem/Img';
-import Button from '../button/Button';
-import BurgerOptions from '../modalHamburger/BurgerOptions';
 import './menu.css';
-import firebase from '../../configure-firebase';
+import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
+import BurgerOptions from '../modalHamburger/BurgerOptions';
 import Burgers from '../../assets/burgers.png';
+import Button from '../button/Button';
 import Drinks from '../../assets/bebidas.png';
-import Starters from '../../assets/acomp.png';
+import firebase from '../../configure-firebase';
 import Grilled from '../../assets/sanduiche.png';
+import Img from '../imagem/Img';
 import Orders from '../../assets/pedidos.png';
+import React, { useState, useEffect } from 'react';
+import Starters from '../../assets/acomp.png';
 
 const Menu = () => {
   const [menuAllDay, setMenuAllDay] = useState(null);
@@ -26,13 +26,17 @@ const Menu = () => {
   let history = useHistory();
 
   useEffect(() => {
-    allDay();
+    allDay('allDay');
   }, []);
 
-  const breakfast = () => {
+  const setChosenMenu = menu => {
     setBtnColor(!btnColor);
     setBtnColor2(!btnColor2);
-    setCurrentMenu('breakfast');
+    setCurrentMenu(menu);
+  }
+
+  const breakfast = chosenMenu => {
+    setChosenMenu(chosenMenu);
     firebase
       .firestore()
       .collection('breakfast')
@@ -41,10 +45,8 @@ const Menu = () => {
       });
   }
 
-  const allDay = () => {
-    setBtnColor(!btnColor);
-    setBtnColor2(!btnColor2);
-    setCurrentMenu('allDay');
+  const allDay = chosenMenu => {
+    setChosenMenu(chosenMenu);
     firebase
       .firestore()
       .collection('allday')
@@ -137,8 +139,8 @@ const Menu = () => {
     <section className='menu'>
       <div className='div-menu'>
         <div className='buttons-options-menu'>
-          <Button name='Matinal' className={btnColor2 ? "button-true option-menu-food" : "button-false option-menu-food"} handleClick={breakfast} />
-          <Button name='Almoço/Janta' className={btnColor ? "button-true option-menu-food" : "button-false option-menu-food"} handleClick={allDay} />
+          <Button name='Matinal' className={btnColor2 ? "button-true option-menu-food" : "button-false option-menu-food"} handleClick={() => breakfast('breakfast')} />
+          <Button name='Almoço/Janta' className={btnColor ? "button-true option-menu-food" : "button-false option-menu-food"} handleClick={() => allDay('allDay')} />
         </div>
         <div className='menu-principal bg-color'>
           <div className='bg-color'>

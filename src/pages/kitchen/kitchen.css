@@ -102,11 +102,11 @@ body::-webkit-scrollbar-thumb {
 	padding: 3px;
 }
 
-.status-pending {
+.pendente {
 	background: #ffc400;
 }
 
-.status-ready {
+.pronto {
 	background: #217021;
 	color: white;
 }
