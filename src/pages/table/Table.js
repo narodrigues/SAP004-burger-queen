@@ -12,13 +12,13 @@ export default function Table() {
   const [table, setTable] = useState('');
   const [showErrorNameEmpty, setErrorNameEmpty] = useState(false);
   const [showErrorTable, setErrorTable] = useState(false);
-  const [confirmTable, setConfirmTable] = useState(false);
+  const [modalVisibility, setModalVisibility] = useState(false);
 
   const orderId = localStorage.getItem('id');
 
-  const changeShow = (e, show) => {
+  const changeVisibility = (e, show) => {
     e.preventDefault();
-    setConfirmTable(!show);
+    setModalVisibility(!show);
   }
 
   const validForm = () => {
@@ -44,7 +44,7 @@ export default function Table() {
     const isValid = validForm();
 
     if (isValid) {
-      setConfirmTable(!show);
+      setModalVisibility(!show);
 
       firebase
         .firestore()
@@ -76,14 +76,14 @@ export default function Table() {
               <p>Por favor, escolha o número da mesa.</p>
             )}
             <div className='div-buttons-order'>
-              <Button id='btn-order' className='button' name='Fazer pedido' handleClick={e => sendOrder(e, confirmTable)} />
+              <Button id='btn-order' className='button' name='Fazer pedido' handleClick={e => sendOrder(e, modalVisibility)} />
               <Button id='btn-return' className='button'>
                 <Link to="/hall" className='btn-order'>VOLTAR</Link>
               </Button>
             </div>
           </form>
         </div>
-        <Modal show={confirmTable} closeModal={e => changeShow(e, confirmTable)} >
+        <Modal visibility={modalVisibility} closeModal={e => changeVisibility(e, modalVisibility)} >
           <ModalConfirm />
         </Modal>
       </section>

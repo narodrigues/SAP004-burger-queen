@@ -8,18 +8,18 @@ import React, { useState } from "react";
 import Register from '../register/Register';
 
 export default function Login() {
-  const [registerModal, setRegisterModal] = useState(false);
+  const [modalVisibility, setModalVisibility] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [showErrorEmailInvalid, setErrorEmailInvalid] = useState(false);
   const [showErrorPassword, setErrorPassword] = useState(false);
 
-  const changeShow = (e, show) => {
+  const changeVisibility = (e, show) => {
     e.preventDefault();
-    setRegisterModal(!show);
+    setModalVisibility(!show);
   }
 
-  function validForm() {
+  const validForm = () => {
     setErrorEmailInvalid(false);
     setErrorPassword(false);
 
@@ -61,11 +61,11 @@ export default function Login() {
           )}
           <div className='div-buttons-login'>
             <Button id='btn-login' className='button' name='Entrar' handleClick={e => login(e, email, password)} />
-            <span>Ainda não é registrado? <button className='register-link' onClick={e => changeShow(e, registerModal)}>Registre-se</button></span>
+            <span>Ainda não é registrado? <button className='register-link' onClick={e => changeVisibility(e, modalVisibility)}>Registre-se</button></span>
           </div>
         </form>
       </div>
-      <Modal show={registerModal} closeModal={e => changeShow(e, registerModal)}>
+      <Modal visibility={modalVisibility} closeModal={e => changeVisibility(e, modalVisibility)}>
         <Register />
       </Modal>
     </section>

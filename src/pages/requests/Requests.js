@@ -69,7 +69,7 @@ export default function Requests() {
             <div className='divs-orders' key={item.id}>
               <p><span className='bolder'>Cliente:</span> {item.client}</p>
               <p><span className='bolder'>Mesa:</span> {item.table}</p>
-              <p className='general-status status-ready'>{item.status}</p>
+              <p className='general-status pronto'>{item.status}</p>
               {item.order.map(pedido =>
                 <p className='p-orders'>•{pedido.count}x {pedido.name}</p>
               )}
