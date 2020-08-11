@@ -12,43 +12,50 @@
 
 ---
 
-
-radme
-- [ ] Documentação do processo de design.
-- [ ] Inclui informações para desenvolvedores (dependências, instalação, uso, testes...)
-
-
 ## 1.  Introdução
 O presente projeto proposto pela Laboratória foi realizado em duplas, com o objetivo de desenvolver um aplicativo web que forneça serviço à uma hamburgeria perminutindo vizualizar e manipular pedidos, fornecendo funcionalidades de acordo com as necessidades e histórias de usuário.
 
 ## 2. Wonderland Burger
-Estas são as informações que temos do cliente:
-
-> Somos **Burger Queen**, um fast food 24hrs.
->
-> A nossa proposta de serviço 24 horas foi muito bem recebida e, para continuar a
-> crescer, precisamos de um sistema que nos ajude a receber pedidos de nossos
-> clientes.
->
-> Nós temos 2 menus. Um muito simples para o café da manhã:
-
->
-> **Importante:** Os clientes podem escolher entre hambúrgueres de carne bovina,
-> frango ou vegetariano. Além disso, por um adicional de R\$ 1,00 , eles podem
-> adicionar queijo ou ovo.
->
-> Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
-> seu pedido várias vezes antes de finalizar.
+Wonderland Burger é um fast food 24hrs que possue um aplicativo que presta serviço para realizar pedidos e monitorar a cozinha no auxilio das comandas.
+Este possue dois menus, um para o café da manhã e outro apra o restante do dia.
 
 ## 3. Desevolvimento
-Finalmente, a interface deve ser pensada específicamente para rodar em **tablets**.
 
 ## 3.1 Protótipação e Layout
+A interface foi pensada específicamente para rodar em **tablets**, porém é adaptável para outros dispositivos, como celular e monitores.
 
-<img src='./src/assets/img-readme.png'>
+Com isso, fizemos a prototipação do layout e desenvolvemos nossa plataforma seguindo-o a risca.
+
+<img src='./src/assets/img-readme.png' alt='foto da prototipação'>
 
 ## 3.2 Funcionalidades
+As funcionalidades foram desenvolvidas a partir das histórias de usuários listadas abaixo:
+
+* 1 -  **Usuário deve ter seu perfil (login/senha) para acessar o sistema.**
+    * Como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho.
+
+* 2 -  **Garçom/Garçonete deve poder anotar o seu pedido.**
+    * Como garçom/garçonete quero poder anotar o meu pedido saber o valor de cada produto e poder enviar o pedido para a cozinha para ser preparado.
+
+* 3 -  **Chefe de cozinha deve ver os pedidos**
+    * Como chefe de cozinha preciso ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.
+
+* 4 -  **Garçom/Garçonete deve ver os pedidos prontos para servir**
+    * Como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
+
 
 ## 4. Considerações técnicas
+Para realizar o projeto, usamos as ferramentas e linguagens abaixo:
+ * React Hooks
+ * Adobe XD
+ * JavaScript
+ * CSS3
+ * HTML5
+ * Firebase
+ * VS Code
+ * EsLint
+ * Moment
 
 ## 5. Autores
+
+Esse projeto foi desenvolvido por [Marjorie Santos](https://github.com/MarjorieSantos) e [Natasha Costa](https://github.com/narodrigues)
