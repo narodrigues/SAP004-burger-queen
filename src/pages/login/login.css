@@ -1,6 +1,6 @@
-header {
+/* header {
   background-size: cover;
-}
+} */
 
 .form-login {
   align-items: center;
@@ -78,11 +78,6 @@ header {
 }
 
 @media screen and (min-width: 1024px){
-  header {
-    height: 100vh !important;
-    width: 50vw;
-  }
-
   .flex-row-desk {
     align-items: center;
     display: flex;

@@ -15,12 +15,12 @@ import React, { useState, useEffect } from 'react';
 import Starters from '../../assets/acomp.png';
 
 const Menu = () => {
-  const [menuAllDay, setMenuAllDay] = useState(null);
-  const [menuBreakfast, setMenuBreakfast] = useState(null);
+  const [menuAllDay, setMenuAllDay] = useState();
+  const [menuBreakfast, setMenuBreakfast] = useState();
   const [modalBoolean, setModalBoolean] = useState(false);
-  const [currentMenu, setCurrentMenu] = useState(null);
+  const [currentMenu, setCurrentMenu] = useState();
   const [orders, setOrders] = useState([]);
-  const [burger, setBurger] = useState(null);
+  const [burger, setBurger] = useState();
   const [btnColor, setBtnColor] = useState(false);
   const [btnColor2, setBtnColor2] = useState(true);
   const totalPrice = orders.reduce((total, acc) => total + (Number(acc.price) * acc.count), 0);
