@@ -24,7 +24,7 @@ const ModalBurger = props => {
     payload.name = `${payload.name} + hambúrguer sabor ${meat}`;
     payload.egg = egg;
     payload.cheese = cheese;
-    props.setBurger(payload);
+    props.updateBurger(payload);
 
     resetModal();
   }

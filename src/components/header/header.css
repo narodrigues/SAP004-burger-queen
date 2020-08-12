@@ -25,12 +25,16 @@ header {
 	}
 }
 
-@media screen and (min-width: 1300px){
-	header {
-		background-size: cover;
+@media screen and (min-width: 1024px){
+  header {
+    height: 100vh;
+    width: 50vw;
 	}
+}
 
+@media screen and (min-width: 1300px){
 	.logo-login {
 		width: 515px;
 	}
 }
+

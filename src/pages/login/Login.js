@@ -1,31 +1,33 @@
-import React, { useState } from "react";
-import Header from '../../components/header/Header';
-import Register from '../register/Register';
-import Button from '../../components/button/Button';
-import Modal from '../../components/modal/Modal';
-import Input from '../../components/input/Input';
-import firebase from '../../configure-firebase';
 import './login.css';
+import Button from '../../components/button/Button';
+import firebase from '../../configure-firebase';
+import Header from '../../components/header/Header';
+import Input from '../../components/input/Input';
+import Modal from '../../components/modal/Modal';
+import React, { useState } from "react";
+import Register from '../register/Register';
 
 export default function Login() {
-  const [register, setRegister] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [modalVisibility, setModalVisibility] = useState(false);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [showErrorEmailInvalid, setErrorEmailInvalid] = useState(false);
   const [showErrorPassword, setErrorPassword] = useState(false);
 
-  const changeShow = (e, show) => {
+  const changeVisibility = (e, show) => {
     e.preventDefault();
-    setRegister(!show);
+    setModalVisibility(!show);
   }
 
-  function validForm() {
+  const validForm = () => {
     setErrorEmailInvalid(false);
     setErrorPassword(false);
 
     let isValid = true;
+    
     if (!(/\S+@\S+\.\S+/.test(email))) {
       setErrorEmailInvalid(true);
+      isValid = false;
     }
     if (!password) {
       setErrorPassword(true);
@@ -52,20 +54,16 @@ export default function Login() {
       <div>
         <form className='form-login'>
           <Input type='email' placeholder='email@exemple.com' id='emal-login' onChange={e => setEmail(e.target.value)} />
-          {showErrorEmailInvalid && (
-            <p>Este e-mail parece não estar cadastrado. Tente novamente ou cadastre-se.</p>
-          )}
+          {showErrorEmailInvalid && <p>Este e-mail parece não estar cadastrado. Tente novamente ou cadastre-se.</p>}
           <Input type='password' placeholder='senha' id='password-login' onChange={e => setPassword(e.target.value)} />
-          {showErrorPassword && (
-            <p>Sua senha deve ter mais de 6 dígitos.</p>
-          )}
+          {showErrorPassword && <p>Sua senha deve ter mais de 6 dígitos.</p>}
           <div className='div-buttons-login'>
             <Button id='btn-login' className='button' name='Entrar' handleClick={e => login(e, email, password)} />
-            <span>Ainda não é registrado? <button className='register-link' onClick={e => changeShow(e, register)}>Registre-se</button></span>
+            <span>Ainda não é registrado? <button className='register-link' onClick={e => changeVisibility(e, modalVisibility)}>Registre-se</button></span>
           </div>
         </form>
       </div>
-      <Modal show={register} closeModal={e => changeShow(e, register)}>
+      <Modal visibility={modalVisibility} closeModal={e => changeVisibility(e, modalVisibility)}>
         <Register />
       </Modal>
     </section>

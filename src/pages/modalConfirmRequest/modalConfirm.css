@@ -18,7 +18,7 @@
 	width: 250px;
 }
 
-.close-modal-only.close-modal {
+/* .close-modal-only.close-modal {
 	background-color: white;
 	border: 5px solid #518f9d;
 	border-radius: 50%;
@@ -28,7 +28,7 @@
 	height: 65px;
 	text-shadow: 0px 0px 0px;
 	width: 65px;
-}
+} */
 
 .confirm-request p {
 	font-size: 45px;
@@ -51,4 +51,10 @@
 		min-width: 410px;
 		min-height: 410px;
 	}
-  }
+
+	.close-modal-only .close-modal {
+    font-size: 20px;
+    margin-right: -200px!important;
+    margin-top: -190px!important;
+	}
+}

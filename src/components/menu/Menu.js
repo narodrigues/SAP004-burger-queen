@@ -15,44 +15,39 @@ import React, { useState, useEffect } from 'react';
 import Starters from '../../assets/acomp.png';
 
 const Menu = () => {
-  const [menuAllDay, setMenuAllDay] = useState(null);
-  const [menuBreakfast, setMenuBreakfast] = useState(null);
+  const [menuAllDay, setMenuAllDay] = useState();
+  const [menuBreakfast, setMenuBreakfast] = useState();
   const [modalBoolean, setModalBoolean] = useState(false);
-  const [currentMenu, setCurrentMenu] = useState(null);
+  const [currentMenu, setCurrentMenu] = useState();
   const [orders, setOrders] = useState([]);
-  const [burger, setBurger] = useState(null);
+  const [burger, setBurger] = useState();
   const [btnColor, setBtnColor] = useState(false);
   const [btnColor2, setBtnColor2] = useState(true);
+  const totalPrice = orders.reduce((total, acc) => total + (Number(acc.price) * acc.count), 0);
   let history = useHistory();
-
+  
   useEffect(() => {
-    allDay('allDay');
+    menu('allDay');
   }, []);
 
-  const setChosenMenu = menu => {
+  const menu = chosenMenu => {
     setBtnColor(!btnColor);
     setBtnColor2(!btnColor2);
-    setCurrentMenu(menu);
-  }
+    setCurrentMenu(chosenMenu);
 
-  const breakfast = chosenMenu => {
-    setChosenMenu(chosenMenu);
-    firebase
-      .firestore()
-      .collection('breakfast')
-      .onSnapshot(querySnapshot => {
-        querySnapshot.forEach(doc => { setMenuBreakfast(doc.data()) });
-      });
-  }
-
-  const allDay = chosenMenu => {
-    setChosenMenu(chosenMenu);
-    firebase
-      .firestore()
-      .collection('allday')
-      .onSnapshot(querySnapshot => {
-        querySnapshot.forEach(doc => setMenuAllDay(doc.data()));
-      });
+    chosenMenu === 'breakfast' ? 
+      firebase
+        .firestore()
+        .collection('breakfast')
+        .onSnapshot(querySnapshot => {
+          querySnapshot.forEach(doc => setMenuBreakfast(doc.data()));
+        }) 
+    : firebase
+        .firestore()
+        .collection('allday')
+        .onSnapshot(querySnapshot => {
+          querySnapshot.forEach(doc => setMenuAllDay(doc.data()));
+        });
   }
 
   const getBurger = item => {
@@ -61,18 +56,18 @@ const Menu = () => {
   }
 
   const getAdditional = orderBurger => {
+    const extras = [];
     let priceToNumber = Number(orderBurger.price);
     let finalName = orderBurger.name;
-
-    const extras = [];
+    let finalOrder = orderBurger;
 
     orderBurger.cheese && extras.push('queijo');
     orderBurger.egg && extras.push('ovo');
 
     priceToNumber += extras.length;
-    finalName += extras.join(' e ');
 
-    let finalOrder = orderBurger;
+    if (extras.length > 0) finalName += ` com ${extras.join(' e ')}`;
+
     finalOrder = {
       name: finalName,
       price: priceToNumber,
@@ -82,10 +77,6 @@ const Menu = () => {
     countQuantity(finalOrder);
     setModalBoolean(false);
   }
-
-  const totalPrice = orders.reduce((total, acc) => total + (Number(acc.price) * acc.count), 0);
-
-  const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   const getRequests = item => {
     setOrders([...orders, item]);
@@ -103,13 +94,11 @@ const Menu = () => {
   }
 
   const reduceItem = item => {
-    if (orders.includes(item)) {
+    orders.includes(item) &&
       item.count--;
-      if (item.count === 0) {
+      item.count === 0 &&
         orders.splice(orders.indexOf(item), 1);
         setOrders([...orders]);
-      }
-    }
   }
 
   const ordersToCollection = () => {
@@ -124,7 +113,7 @@ const Menu = () => {
 
     localStorage.setItem('id', new Date().getTime());
 
-    if (requests.order.length > 0) {
+    requests.order.length > 0 &&
       firebase
         .firestore()
         .collection('orders')
@@ -132,15 +121,28 @@ const Menu = () => {
         .set(requests)
 
       return history.push('/table');
-    }
   }
 
+  const printMenu = (item, func) => {
+    return (
+      <div className='divs-option-menu' key={item.name} onClick={() => func(item)}>
+        <div className='only-option-menu' >
+          <Img src={item.img} alt={item.alt} />
+          <p>{item.name}</p>
+          <p>{brazilianCurrency(item.price)}</p>
+        </div>
+      </div>
+    )
+  }
+
+  const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  
   return (
     <section className='menu'>
       <div className='div-menu'>
         <div className='buttons-options-menu'>
-          <Button name='Matinal' className={btnColor2 ? "button-true option-menu-food" : "button-false option-menu-food"} handleClick={() => breakfast('breakfast')} />
-          <Button name='Almoço/Janta' className={btnColor ? "button-true option-menu-food" : "button-false option-menu-food"} handleClick={() => allDay('allDay')} />
+          <Button name='Matinal' value='breakfast' className={btnColor2 ? "button-true option-menu-food": "button-false option-menu-food"} handleClick={e => menu(e.target.value)} />
+          <Button name='Almoço/Janta' value='allDay' className={btnColor ? "button-true option-menu-food": "button-false option-menu-food"} handleClick={e => menu(e.target.value)} />
         </div>
         <div className='menu-principal bg-color'>
           <div className='bg-color'>
@@ -149,39 +151,15 @@ const Menu = () => {
                 <div className='titles-container'>
                   <Img src={Burgers} alt='Hambúrgueres' />
                 </div>
-                {menuAllDay && menuAllDay.burger.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => getBurger(item)}>
-                    <div className='only-option-menu' >
-                      <Img src={item.img} alt={item.alt} />
-                      <p>{item.name}</p>
-                      <p>{brazilianCurrency(item.price)}</p>
-                    </div>
-                  </div>
-                ))}
+                {menuAllDay && menuAllDay.burger.map(item => printMenu(item, getBurger))}
                 <div className='titles-container'>
                   <Img src={Starters} alt='Acompanhamentos' />
                 </div>
-                {menuAllDay && menuAllDay.startes.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
-                    <div className='only-option-menu'>
-                      <Img src={item.img} alt={item.alt} />
-                      <p>{item.name}</p>
-                      <p>{brazilianCurrency(item.price)}</p>
-                    </div>
-                  </div>
-                ))}
+                {menuAllDay && menuAllDay.startes.map(item => printMenu(item, getRequests))}
                 <div className='titles-container'>
                   <Img src={Drinks} alt='Bebidas' />
                 </div>
-                {menuAllDay && menuAllDay.drinks.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
-                    <div className='only-option-menu'>
-                      <Img src={item.img} alt={item.alt} />
-                      <p>{item.name}</p>
-                      <p>{brazilianCurrency(item.price)}</p>
-                    </div>
-                  </div>
-                ))}
+                {menuAllDay && menuAllDay.drinks.map(item => printMenu(item, getRequests))}
               </div>
             }
             {currentMenu === 'breakfast' &&
@@ -189,27 +167,11 @@ const Menu = () => {
                 <div className='titles-container'>
                   <Img src={Grilled} alt='Sanduíches' />
                 </div>
-                {menuBreakfast && menuBreakfast.grilled.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
-                    <div className='only-option-menu'>
-                      <Img src={item.img} alt={item.alt} />
-                      <p>{item.name}</p>
-                      <p>{brazilianCurrency(item.price)}</p>
-                    </div>
-                  </div>
-                ))}
+                {menuBreakfast && menuBreakfast.grilled.map(item => printMenu(item, getRequests))}
                 <div className='titles-container'>
                   <Img src={Drinks} alt='Bebidas' />
                 </div>
-                {menuBreakfast && menuBreakfast.drinks.map(item => (
-                  <div className='divs-option-menu' key={item.name} onClick={() => getRequests(item)}>
-                    <div className='only-option-menu'>
-                      <Img src={item.img} alt={item.alt} />
-                      <p>{item.name}</p>
-                      <p>{brazilianCurrency(item.price)}</p>
-                    </div>
-                  </div>
-                ))}
+                {menuBreakfast && menuBreakfast.drinks.map(item => printMenu(item, getRequests))}
               </div>
             }
           </div>
@@ -236,7 +198,7 @@ const Menu = () => {
         </div>
         <Button className='confirm-order' handleClick={ordersToCollection} name='PEDIR' />
       </div>
-      <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} setBurger={getAdditional} />
+      <BurgerOptions show={modalBoolean} closeModal={() => setModalBoolean(false)} currentBurger={burger} updateBurger={getAdditional} />
     </section >
   );
 };

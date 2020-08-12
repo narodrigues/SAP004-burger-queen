@@ -2,7 +2,7 @@ import React from 'react';
 import CloseModal from '../../components/modalCloseButton/ModalCloseButton';
 
 const Modal = props => {
-  const showHideClassName = props.show ? "modal display-block" : "modal display-none";
+  const showHideClassName = props.visibility ? "modal display-block" : "modal display-none";
 
   return (
     <div className={showHideClassName}>
