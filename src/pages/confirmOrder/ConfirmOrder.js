@@ -1,9 +1,9 @@
-import './modalConfirm.css';
+import './confirmOrder.css';
 import { Link } from 'react-router-dom';
 import Button from '../../components/button/Button';
 import React from 'react';
 
-export default function ModalConfirm() {
+export default function confirmOrder() {
   return (
     <div className='confirm-request'>
       <div>

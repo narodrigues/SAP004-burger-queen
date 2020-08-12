@@ -9,7 +9,7 @@ header {
 	width: 100%;
 }
 
-.logo-login {
+.logo {
 	width: 300px;
 }
 
@@ -20,7 +20,7 @@ header {
 }
 
 @media screen and (min-width: 850px){
-	.logo-login {
+	.logo {
 		width: 400px;
 	}
 }
@@ -33,7 +33,7 @@ header {
 }
 
 @media screen and (min-width: 1300px){
-	.logo-login {
+	.logo {
 		width: 515px;
 	}
 }

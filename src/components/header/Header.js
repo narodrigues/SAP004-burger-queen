@@ -5,7 +5,7 @@ import logo from '../../assets/logo-final.png';
 
 const Header = props => (
 	<header className={props.className}>
-		<Img src={logo} alt='logo' class='logo-login' />
+		<Img src={logo} alt='logo' className='logo' />
 	</header>
 );
 

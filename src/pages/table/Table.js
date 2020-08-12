@@ -4,7 +4,7 @@ import firebase from '../../configure-firebase';
 import Header from '../../components/header/Header';
 import Input from '../../components/input/Input';
 import Modal from '../../components/modal/Modal';
-import ModalConfirm from '../modalConfirmRequest/ModalConfirm';
+import ConfirmOrder from '../confirmOrder/ConfirmOrder';
 import React, { useState } from "react";
 
 export default function Table() {
@@ -81,7 +81,7 @@ export default function Table() {
           </form>
         </div>
         <Modal visibility={modalVisibility} closeModal={e => changeVisibility(e, modalVisibility)} >
-          <ModalConfirm />
+          <ConfirmOrder />
         </Modal>
       </section>
     </section >
