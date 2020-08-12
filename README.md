@@ -21,10 +21,16 @@ Este possue dois menus, um para o café da manhã e outro apra o restante do dia
 
 ## 3. Desevolvimento
 
+Procuramos prezar pela funcionalidade daplataforma e a medida que íamos cumprindo as histórias de usuário, passamos a estilizá-lo.
+
+Dividimos o projeto em pastas para melhor organização e componentizamos aqueles itens que seriam reutilizados futuramente. 
+
+Trabalhamos com o banco de dados do Firebase ([Cloud Firestore](https://firebase.google.com/docs/firestore)). 
+
 ## 3.1 Protótipação e Layout
 A interface foi pensada específicamente para rodar em **tablets**, porém é adaptável para outros dispositivos, como celular e monitores.
 
-Com isso, fizemos a prototipação do layout e desenvolvemos nossa plataforma seguindo-o a risca.
+Com isso, fizemos a prototipação do layout e desenvolvemos nossa plataforma seguindo-o à risca.
 
 <img src='./src/assets/img-readme.png' alt='foto da prototipação'>
 
