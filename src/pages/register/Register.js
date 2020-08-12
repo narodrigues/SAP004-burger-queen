@@ -22,25 +22,27 @@ export default function Register() {
 
     let isValid = true;
     
-    !username &&
+    if (!username) {
       setErrorNameEmpty(true);
       isValid = false;
-    
-    !password &&
+    }
+    if (!password) {
       setErrorPassword(true);
       isValid = false;
-    
-    !jobTitle &&
+    }
+    if (!jobTitle) {
       setErrorEmptyRadios(true);
       isValid = false;
-    
-    !email &&
+    }
+    if (!email) {
       setErrorEmailInvalid("email obrigatório");
       isValid = false;
-    
-    !(/\S+@\S+\.\S+/.test(email)) &&
+    }
+    if (!(/\S+@\S+\.\S+/.test(email))) {
       setErrorEmailInvalid('Formato de e-mail inválido');
-    
+      isValid = false;
+    }
+
     return isValid;
   }
 
@@ -74,26 +76,18 @@ export default function Register() {
       <form className=' modal-main overlay'>
         <div className='inputs-text'>
           <Input type='text' name='username' placeholder='nome' id='name-login' onChange={e => setUsername(e.target.value)} />
-          {showErrorNameEmpty && (
-            <p>Por favor, preencha seu nome.</p>
-          )}
+          {showErrorNameEmpty && <p>Por favor, preencha seu nome.</p>}
           <Input type='email' required name='email' placeholder='email@exemple.com' id='email-register' onChange={e => setEmail(e.target.value)} />
-          {showErrorEmailInvalid && (
-            <p>{showErrorEmailInvalid}</p>
-          )}
+          {showErrorEmailInvalid && <p>{showErrorEmailInvalid}</p>}
           <Input type='password' name='password' placeholder='senha' id='password-register' onChange={e => setPassword(e.target.value)} />
-          {showErrorPassword && (
-            <p>Sua senha deve ter mais de 6 dígitos.</p>
-          )}
+          {showErrorPassword && <p>Sua senha deve ter mais de 6 dígitos.</p>}
         </div>
         <div className='select-role'>
           <label htmlFor='kitchen'>COZINHA</label>
           <Input type='radio' className='radio-button' name='jobTitle' id='kitchen' value='Kitchen' onChange={e => setJobTitle(e.target.value)} />
           <label htmlFor='hall'>SALÃO</label>
           <Input type='radio' className='radio-button' name='jobTitle' id='hall' value='Hall' onChange={e => setJobTitle(e.target.value)} />
-          {showErrorEmptyRadios && (
-            <p>Escolha uma das opções</p>
-          )}
+          {showErrorEmptyRadios && <p>Escolha uma das opções</p>}
         </div>
       </form>
       <div className='btn-confirms'>

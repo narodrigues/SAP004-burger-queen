@@ -120,7 +120,7 @@ body::-webkit-scrollbar-thumb {
 		width: 250px;
 	}
 	
-	.kitchen .logo-login {
+	.kitchen .logo {
 		left: 30px;
 		position: absolute;
 		top: 20px;
@@ -141,7 +141,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media screen and (min-width: 850px){
-	.kitchen .logo-login {
+	.kitchen .logo {
 		left: 40px;
 		top: 30px;
 	}
