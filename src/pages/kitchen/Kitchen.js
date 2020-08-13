@@ -59,12 +59,10 @@ export default function Kitchen() {
 
   return (
     <>
-      <section className='kitchen'>
-        <Header />
-        <div className='exit-btn'>
-          <Button name='Sair' handleClick={logout} />
-        </div>
-      </section>
+      <Header className='header'/>
+      <div className='buttons-option'>
+        <Button name='Sair' handleClick={logout} />
+      </div>
 
       <Cork name='PREPARANDO'
         children={ pendingOrder &&

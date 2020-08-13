@@ -1,14 +1,10 @@
-* {
-	font-family: 'Comfortaa', cursive;
-}
-
 .standard-btn {
-	background: #065F73;
+	background: #313131;
 	border: none;
 	border-radius: 35px;
 	color: #FFF;
 	cursor: pointer;
-	font-family: 'Comfortaa', cursive;
+	font-size: 12px;
 	font-weight: bold;
 	height: 55px;
 	letter-spacing: 1px;
@@ -23,3 +19,9 @@
 	color: #FFF;
 	opacity: initial;
 } 
+
+@media screen and (min-width: 600px){
+	.standard-btn {
+		font-size: 16px;
+	}
+}

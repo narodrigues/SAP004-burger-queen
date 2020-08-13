@@ -1,4 +1,3 @@
-import './hall.css';
 import { Link } from 'react-router-dom';
 import Button from '../../components/button/Button';
 import firebase from '../../configure-firebase';
@@ -15,15 +14,13 @@ export default function Hall() {
 
   return (
     <>
-      <section className='hall'>
-        <Header className='header-hall' />
-        <div className='buttons-option'>
-          <Button>
-            <Link to="/requests" className='btn-order'>Pedidos prontos</Link>
-          </Button>
-          <Button name='Sair' handleClick={logout} />
-        </div>
-      </section>
+      <Header className='header' />
+      <div className='buttons-option'>
+        <Button>
+          <Link to='/requests'>Pedidos prontos</Link>
+        </Button>
+        <Button name='Sair' handleClick={logout} />
+      </div>
       <Menu />
     </>
   );

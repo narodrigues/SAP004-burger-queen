@@ -66,15 +66,13 @@ export default function Requests() {
 
   return (
     <>
-      <section className='page-requests'>
-        <Header />
-        <div className='back-to-hat'>
-          <Img src={Hat} alt='chapéu' />
-          <Button>
-            <Link to="/hall" className='btn-order'>voltar ❯</Link>
-          </Button>
-        </div>
-      </section>
+      <Header className='header'/>
+      <div className='back-to-hat buttons-option'>
+        <Img src={Hat} alt='chapéu' />
+        <Button>
+          <Link to='/hall'>voltar ❯</Link>
+        </Button>
+      </div>
 
       <Cork name='PRONTOS' secondName='ENTREGUES'
         children={readyOrder &&

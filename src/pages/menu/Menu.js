@@ -96,7 +96,7 @@ const Menu = () => {
   const reduceItem = item => {
     orders.includes(item) &&
       item.count--;
-    item.count === 0 &&
+    item.count <= 0 &&
       orders.splice(orders.indexOf(item), 1);
       setOrders([...orders]);
   }
@@ -110,10 +110,9 @@ const Menu = () => {
         }
       })
     }
-
     localStorage.setItem('id', new Date().getTime());
 
-    requests.order.length > 0 &&
+    if (requests.order.length > 0) {
       firebase
         .firestore()
         .collection('orders')
@@ -121,6 +120,7 @@ const Menu = () => {
         .set(requests)
 
       return history.push('/table');
+    }
   }
 
   const printMenu = (item, func) => {
@@ -141,8 +141,8 @@ const Menu = () => {
     <section className='menu'>
       <div className='div-menu'>
         <div className='buttons-options-menu'>
-          <Button name='Matinal' value='breakfast' className={btnColor2 ? "button-true option-menu-food": "button-false option-menu-food"} handleClick={e => menu(e.target.value)} />
-          <Button name='Almoço/Janta' value='allDay' className={btnColor ? "button-true option-menu-food": "button-false option-menu-food"} handleClick={e => menu(e.target.value)} />
+          <Button name='Matinal' value='breakfast' className={btnColor2 ? 'button-true option-menu-food': 'button-false option-menu-food'} handleClick={e => menu(e.target.value)} />
+          <Button name='Almoço/Janta' value='allDay' className={btnColor ? 'button-true option-menu-food': 'button-false option-menu-food'} handleClick={e => menu(e.target.value)} />
         </div>
         <div className='menu-principal bg-color'>
           <div className='bg-color'>

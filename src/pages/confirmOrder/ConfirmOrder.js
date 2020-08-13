@@ -11,7 +11,7 @@ export default function confirmOrder() {
       </div>
       <div className='btn-confirms'>
         <Button>
-          <Link to="/Hall" className='btn-order'>Próximo Pedido</Link>
+          <Link to='/Hall'>Próximo Pedido</Link>
         </Button>
       </div>
     </div>

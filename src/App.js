@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import Login from './pages/login/Login';
-import Kitchen from './pages/kitchen/Kitchen';
-import Hall from './pages/hall/Hall';
-import Table from './pages/table/Table';
-import Request from './pages/requests/Requests';
-import firebase from './configure-firebase';
 import './App.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import firebase from './configure-firebase';
+import Hall from './pages/hall/Hall';
+import Kitchen from './pages/kitchen/Kitchen';
+import Login from './pages/login/Login';
+import React, { useEffect, useState } from 'react';
+import Request from './pages/requests/Requests';
+import Table from './pages/table/Table';
 
 export default function App() {
   const [user, setUser] = useState();

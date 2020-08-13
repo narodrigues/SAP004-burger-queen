@@ -1,3 +1,76 @@
 * {
-    font-family: 'Comfortaa', cursive;
-  }
+  box-sizing: border-box;
+  font-family: 'Comfortaa', cursive;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+#root {
+  width: 100vw;
+}
+
+.header {
+	height: 45vh;
+	position: absolute;
+}
+
+.header .logo {
+	position: absolute;
+	top: 0;
+	width: 200px;
+}
+
+.buttons-option {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	position: relative;
+	top: 30vh;
+}
+
+.buttons-option button {
+	font-size: 12px;
+}
+
+.error-msg {
+	color: red;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+	.header {
+		width: 100vw;
+	}
+	
+	.header .logo {
+		left: 30px;
+		top: 30px;
+    width: 240px;
+	}
+
+	.buttons-option {
+		flex-direction: column;
+		position: absolute;
+		right: 30px;
+		top: 5vh !important;
+	}
+
+	.buttons-option button {
+		font-size: 15px;
+	}
+}
+
+@media screen and (min-width: 850px) {
+	.buttons-option {
+		top: 30px;
+	}
+}
+
+@media screen and (min-width: 850px) {
+	.header .logo {
+		width: 230px;
+	}
+}
