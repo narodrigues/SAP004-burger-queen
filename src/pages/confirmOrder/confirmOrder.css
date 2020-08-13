@@ -1,17 +1,8 @@
 .confirm-request {
-	background: white;
 	border: 6px solid #518f9d;
 	border-radius: 15px;
 	box-shadow: 10px 25px 60px 0px #3b302762;
-	margin: 0 auto;
-	left: 50%;
-	margin-left: -175px;
-	margin-top: -175px;
 	padding: 40px 0px;
-	position: absolute;
-	text-align: center;
-	top: 50%; 
-	width: 250px;
 }
 
 .confirm-request p {

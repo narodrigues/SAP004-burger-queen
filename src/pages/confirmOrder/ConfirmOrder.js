@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function confirmOrder() {
   return (
-    <div className='confirm-request'>
+    <div className='confirm-request modal-confi'>
       <div>
         <p>PEDIDO REGISTRADO</p>
       </div>

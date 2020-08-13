@@ -10,7 +10,7 @@
 
 fieldset {
 	border: none;
-	margin: 20px 0;
+	margin-bottom: 40px;
 }
 
 #root {
@@ -18,7 +18,7 @@ fieldset {
 }
 
 .header {
-	height: 45vh;
+	height: 300px;
 	position: absolute;
 }
 
@@ -33,7 +33,7 @@ fieldset {
 	flex-direction: row;
 	justify-content: space-evenly;
 	position: relative;
-	top: 30vh;
+	top: 200px;
 }
 
 .buttons-option button {
@@ -45,8 +45,32 @@ fieldset {
   font-weight: bold;
 }
 
+.modal-config {
+	background: white;
+	margin: 0 auto;
+	left: 50%;
+	margin-left: -175px;
+	margin-top: -200px;
+	padding: 40px 0px;
+	position: absolute;
+	text-align: center;
+	top: 50%; 
+	width: 350px;
+}
+
+@media screen and (max-width: 320px) {
+	.header {
+		height: 280px;
+	}
+
+	.buttons-option {
+		top: 195px;
+	}
+}
+
 @media screen and (min-width: 600px) {
 	.header {
+		height: 430px;
 		width: 100vw;
 	}
 	

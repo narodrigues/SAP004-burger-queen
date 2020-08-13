@@ -11,16 +11,6 @@ body::-webkit-scrollbar-thumb {
 	outline: 1px solid slategrey;
 }
 
-.preparing-order {
-	text-align: center;
-	width: 50vw;
-}
-
-.ready-order {
-	text-align: center;
-	width: 50vw;
-}
-
 .bolder {
 	font-weight: bold !important;
 }
@@ -33,13 +23,17 @@ body::-webkit-scrollbar-thumb {
 	flex-direction: column;
 	font-size: 20px;
 	height: fit-content;
-	margin: 0 20px 40px 20px;
+	margin: 0 14px 40px 14px;;
 	padding: 15px;
-	width: 200px;
+	width: 235px;
 }
 
 .divs-orders p {
 	margin-top: 10px;
+}
+
+.divs-orders .standard-btn {
+	margin: 15px 0;
 }
 
 .divs-orders::-webkit-scrollbar {
@@ -55,6 +49,7 @@ body::-webkit-scrollbar-thumb {
 .divs-orders .p-orders {
 	font-size: 15px;
 	text-align: start;
+	width: 50vw;
 }
 
 .divs-orders .p-orders:nth-child(1) {
@@ -77,4 +72,14 @@ body::-webkit-scrollbar-thumb {
 .pronto {
 	background: #217021;
 	color: white;
+}
+
+@media screen and (min-width: 600px){
+	.divs-orders {
+		width: 200px;
+	}
+
+	.divs-orders .p-orders {
+		width: auto;
+	}
 }

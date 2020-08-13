@@ -26,13 +26,13 @@
 	justify-content: center;
 	margin: 0 auto;
 	left: 50%;
-	margin-left: -175px;
-	margin-top: -175px;
+	margin-left: -160px;
+	margin-top: -250px;
 	padding: 40px 0px;
 	position: absolute;
 	text-align: center;
 	top: 50%; 
-	width: 350px;
+	width: 320px;
 	z-index: 4;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .modal-form {
-	width: 300px;
+	width: 270px;
 }
 
 .modal-options .modal-form p {
@@ -57,7 +57,6 @@
 	font-weight: bold;
 	font-size: 18px;
 }
-
 
 .modal-form label {
 	cursor: pointer;
@@ -73,11 +72,14 @@
 	text-transform: capitalize;
 }
 
-@media screen and (min-width: 00px) {
+@media screen and (min-width: 500px) {
+	.modal-form {
+		width: 300px;
+	}
+	
 	.modal-options {
-		margin-left: -250px!important;
+		margin-left: -215px;
 		margin-top: -250px!important;
-		min-width: 500px;
-		min-height: 450px;
+		width: 430px;
 	}
 }
