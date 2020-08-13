@@ -21,9 +21,9 @@ Este possue dois menus, um para o café da manhã e outro apra o restante do dia
 
 ## 3. Desevolvimento
 
-Procuramos prezar pela funcionalidade daplataforma e a medida que íamos cumprindo as histórias de usuário, passamos a estilizá-lo.
+Procuramos prezar pela funcionalidade da plataforma e a medida que íamos cumprindo as histórias de usuário, passamos a estilizá-lo.
 
-Dividimos o projeto em pastas para melhor organização e componentizamos aqueles itens que seriam reutilizados futuramente. 
+Dividimos o projeto em pastas para melhor organização e componentizamos aqueles itens que seriam reutilizados futuramente. Prezamos por entregar sempre o MVP durante as sprints, e assim que iam sendo dadas por completo, realizamos a reestruturação do código e manipulação do css.
 
 Trabalhamos com o banco de dados do Firebase ([Cloud Firestore](https://firebase.google.com/docs/firestore)) e para conseguirmos desenvolver, dividimos algumas tarefas simples e também trabalhamos em pair programming em alguns momentos.
 
@@ -51,7 +51,7 @@ As funcionalidades foram desenvolvidas a partir das histórias de usuários list
 
 
 ## 4. Considerações técnicas
-Para realizar o projeto, usamos as ferramentas e linguagens abaixo:
+Para realizar o projeto, usamos as ferramentas e linguagens listadas abaixo:
  * React Hooks
  * Adobe XD
  * JavaScript
