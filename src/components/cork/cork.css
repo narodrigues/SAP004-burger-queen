@@ -41,7 +41,7 @@
 .orders-wrap {
   display: flex;
   flex-wrap: wrap;
-  height: 54vh;
+  height: 51vh;
   justify-content: center;
   overflow-y: auto;
 }
@@ -57,12 +57,16 @@
   }
 }
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: 600px){
+  .orders-wrap {
+    height: 57vh;
+  }
+
   .order-background {
     display: flex;
     height: 75vh;
     margin: 55px auto 25px;
-    top: 23vh;
+    top: 250px;
   }
   
   .border{
