@@ -8,6 +8,11 @@
   text-decoration: none;
 }
 
+fieldset {
+	border: none;
+	margin: 20px 0;
+}
+
 #root {
   width: 100vw;
 }

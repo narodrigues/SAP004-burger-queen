@@ -13,6 +13,10 @@
 	width: 100vw;
 }
 
+.menu .close-modal {
+  position: fixed;
+}
+
 .bg-color {
 	background: #065F73;
 	border-radius: 10px;
