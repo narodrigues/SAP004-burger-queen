@@ -26,13 +26,14 @@
 	justify-content: center;
 	margin: 0 auto;
 	left: 50%;
-	margin-left: -175px;
-	margin-top: -175px;
+	margin-left: -160px;
+	margin-top: -250px;
 	padding: 40px 0px;
 	position: absolute;
 	text-align: center;
 	top: 50%; 
-	width: 350px;
+	width: 320px;
+	z-index: 4;
 }
 
 .modal-options fieldset {
@@ -40,19 +41,15 @@
 	flex-direction: column;
 }
 
-.modal-options fieldset:nth-child(2) {
-	margin-top: 30px;
-}
-
 .modal-options .modal-form div {
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
-	margin-top: 20px;
+	margin-top: 15px;
 }
 
 .modal-form {
-	width: 300px;
+	width: 270px;
 }
 
 .modal-options .modal-form p {
@@ -60,7 +57,6 @@
 	font-weight: bold;
 	font-size: 18px;
 }
-
 
 .modal-form label {
 	cursor: pointer;
@@ -72,26 +68,18 @@
 	margin: 0;
 }
 
-.modal-options button:nth-child(1) {
-	background: #020202;
-	border-radius: 50%;
-	font-size: 18px;
-	height: 50px;
-	position: absolute;
-	right: -50px;
-	top: -50px;
-	width: 50px;
-}
-
 .meat-option {
 	text-transform: capitalize;
 }
 
 @media screen and (min-width: 500px) {
+	.modal-form {
+		width: 300px;
+	}
+	
 	.modal-options {
-		margin-left: -250px!important;
+		margin-left: -215px;
 		margin-top: -250px!important;
-		min-width: 500px;
-		min-height: 450px;
+		width: 430px;
 	}
 }

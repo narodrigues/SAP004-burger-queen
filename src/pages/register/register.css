@@ -1,21 +1,11 @@
 .form-register {
   align-items: center;
-  background: white;
   border: 1px solid transparent;
   border-radius: 25px;
   box-shadow: 15px 15px 20px 0px #3b302762;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
-  left: 50%;
-  margin-left: -175px;
-  margin-top: -175px;
-  padding: 40px 0px;
-  position: absolute;
-  text-align: center;
-  top: 50%; 
-  width: 350px;
 }
 
 .form-register .inputs-text input {
@@ -58,7 +48,7 @@ input[type=radio] {
   margin: 20px 40px 20px 5px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   .form-register {
     margin-left: -250px!important;
     margin-top: -250px!important;

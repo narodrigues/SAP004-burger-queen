@@ -13,10 +13,9 @@
 	height: 135vh;
 	justify-content: space-around;
   margin: 80px auto 25px;
-	position: absolute;
-  width: 80vw;
-  top: 300px;
-  /* top: 25vh; */
+  position: absolute;
+  width: 85vw;
+  top: 250px;
   left: 0;
   right: 0;
 }
@@ -34,10 +33,15 @@
 	top: 20px;
 }
 
+.cork-orders {
+	text-align: center;
+	width: 60vw;
+}
+
 .orders-wrap {
   display: flex;
   flex-wrap: wrap;
-  height: 54vh;
+  height: 51vh;
   justify-content: center;
   overflow-y: auto;
 }
@@ -47,14 +51,22 @@
 	width: 5px;
 }
 
+@media screen and (max-width: 320px) {
+	.order-background {
+    top: 220px;
+  }
+}
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: 600px){
+  .orders-wrap {
+    height: 57vh;
+  }
+
   .order-background {
     display: flex;
     height: 75vh;
     margin: 55px auto 25px;
-    top: 23vh;
-    /* top: 38vh; */
+    top: 250px;
   }
   
   .border{
@@ -71,7 +83,13 @@
 
 @media screen and (min-width: 1024px){
   .order-background {
-    top: 30vh;
-    /* top: 38vh; */
+    top: 250px;
+    width: 990px;    
+  }
+}
+
+@media screen and (min-width: 1300px){
+  .order-background {
+    width: 75vw;    
   }
 }

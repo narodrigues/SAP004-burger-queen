@@ -9,8 +9,14 @@
 	flex-direction: column;
 	margin-bottom: 25px;
 	position: absolute;
-	top: 360px;
+	top: 330px;
 	width: 100vw;
+}
+
+.menu .close-modal {
+	margin-right: -150px;
+	margin-top: -240px;
+  position: fixed;
 }
 
 .bg-color {
@@ -211,10 +217,24 @@ a {
 	color: white;
 }
 
-@media screen and (min-width: 600px){
+@media screen and (max-width: 320px) {
+	.menu {
+		top: 300px;
+	}
+
+	.buttons-options-menu button {
+		margin: 0px 0px -1px 7px;
+	}
+}
+
+@media screen and (min-width: 500px){
 	.menu {
 		flex-direction: row;
 		top: 300px;
+	}
+
+	.menu .close-modal {
+		margin-right: -200px!important;
 	}
 
 	.menu-principal {

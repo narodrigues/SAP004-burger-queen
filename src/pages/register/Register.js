@@ -72,7 +72,7 @@ export default function Register() {
   }
 
   return (
-    <div className='form-register'>
+    <div className='form-register modal-config'>
       <form className=' modal-main overlay'>
         <div className='inputs-text'>
           <Input type='text' name='username' placeholder='nome' id='name-login' onChange={e => setUsername(e.target.value)} />
