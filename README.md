@@ -7,6 +7,7 @@
 - [3. Desevolvimento](#3-desenvolvimento)
 - [3.1 Protótipação e Layout](#3.1-Protótipação-e-Layout)
 - [3.2 Funcionalidades](#3.2-Funcionalidades)
+- [3.3 Scripts](#3.3-Scripts)
 - [4. Considerações técnicas](#4-considerações-técnicas)
 - [5. Autores](#5-autores)
 
@@ -49,18 +50,29 @@ As funcionalidades foram desenvolvidas a partir das histórias de usuários list
 * 4 -  **Garçom/Garçonete deve ver os pedidos prontos para servir**
     * Como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
 
+## 3.3 Scripts
+**Os passos necessários para executar o projeto em sua máquina são:**
+
+* Fazer um Fork e/ou clonar o respositório em sua máquina com o comando ``git clone`` (terminal) + o link do repositorio;
+
+* Instalar as dependências e versões executando o comando ``npm install``;
+
+* Após verificar se todas as dependências estão instaladas e os arquivos nos lugares corretos, digite ``npm start`` em seu terminal, assim abrindo uma aba no seu navegador contendo o conteúdo da plataforma.
+
+Caso não queria realizar esse procedimento, basta acessar a plataforma através do link: [Wonderland Burger](https://projeto-burger-queen.web.app/)
+
 
 ## 4. Considerações técnicas
 Para realizar o projeto, usamos as ferramentas e linguagens listadas abaixo:
- * React Hooks
- * Adobe XD
- * JavaScript
+ * [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html)
+ * JavaScript ES6
  * CSS3
  * HTML5
- * Firebase
+ * [Firebase](https://firebase.google.com/?hl=pt-br&gclid=CjwKCAjwydP5BRBREiwA-qrCGpsV3qyJ3VBVODmltHe5VV48ByzCX6US883DlHkqgHUSxbW3vBH77BoCfocQAvD_BwE)
  * VS Code
+ * [Adobe XD](https://www.adobe.com/br/products/xd.html)
  * EsLint
- * Moment
+ * [Moment JS](https://momentjs.com/)
 
 ## 5. Autores
 
