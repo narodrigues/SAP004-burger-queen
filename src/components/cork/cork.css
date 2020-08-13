@@ -53,7 +53,7 @@
     display: flex;
     height: 75vh;
     margin: 55px auto 25px;
-    top: 28vh;
+    top: 23vh;
     /* top: 38vh; */
   }
   
@@ -66,5 +66,12 @@
     font-size: 30px;
     font-weight: bold;
     margin: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .order-background {
+    top: 30vh;
+    /* top: 38vh; */
   }
 }

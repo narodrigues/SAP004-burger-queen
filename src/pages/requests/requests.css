@@ -1,39 +1,5 @@
-.page-requests {
-	background: url('../../assets/background.jpg') fixed;
-	display: flex;
-	background-size: cover;
-	height: 50vh;
-}
-
-.page-requests header {
-	background: none!important;
-	display: block;
-	height: 30vh;
-	width: 100%;
-}
-
-.page-requests .logo {
-	width: 215px;
-}
-
-.back-to-hat {
-	position: absolute;
-	right: 1px;
-	top: 0;
-}
-
 .back-to-hat img {
-	width: 40px;
-	margin-right: -120px;
-	margin-top: 70px;
-	margin-bottom: 10px;
-	position: relative;
-	z-index: 5;
-}
-
-.back-to-hat button {
-	background: black;
-	width: 95px;
+	display: none;
 }
 
 .entregue {
@@ -42,38 +8,12 @@
 }
 
 @media screen and (min-width: 600px) {
-	.page-requests {
-		align-items: flex-start;
-		display: flex;
-		flex-direction: row;
-	}
-
-	.back-to-hat {
-		right: 40px;
-	}
-
 	.back-to-hat img {
-		margin-right: -170px;
-		width: 60px;
-	}
-
-	.back-to-hat button {
-		width: 145px;
-	}
-}
-
-@media screen and (min-width: 700px){
-	.page-requests .logo {
-		left: 30px;
+		display: block;
 		position: absolute;
-		top: 20px;
-		width: 240px;
-	}
-}
-
-@media screen and (min-width: 850px){
-	.page-requests .logo {
-		left: 40px;
-		top: 30px;
+		right: 0;
+		top: -23px;
+		width: 60px;
+		z-index: 5;
 	}
 }

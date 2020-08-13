@@ -1,8 +1,3 @@
-.form-register p {
-  color: red;
-  font-weight: bold;
-}
-
 .form-register {
   align-items: center;
   background: white;
@@ -63,7 +58,7 @@ input[type=radio] {
   margin: 20px 40px 20px 5px;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
   .form-register {
     margin-left: -250px!important;
     margin-top: -250px!important;
@@ -72,8 +67,7 @@ input[type=radio] {
   }
 }
 
-
-@media screen and (min-width: 700px){
+@media screen and (min-width: 850px){
 	.form-register .inputs-text input  {
     font-size: 15px;
     margin: 15px;
