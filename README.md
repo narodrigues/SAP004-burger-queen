@@ -25,7 +25,7 @@ Procuramos prezar pela funcionalidade daplataforma e a medida que íamos cumprin
 
 Dividimos o projeto em pastas para melhor organização e componentizamos aqueles itens que seriam reutilizados futuramente. 
 
-Trabalhamos com o banco de dados do Firebase ([Cloud Firestore](https://firebase.google.com/docs/firestore)). 
+Trabalhamos com o banco de dados do Firebase ([Cloud Firestore](https://firebase.google.com/docs/firestore)) e para conseguirmos desenvolver, dividimos algumas tarefas simples e também trabalhamos em pair programming em alguns momentos.
 
 ## 3.1 Protótipação e Layout
 A interface foi pensada específicamente para rodar em **tablets**, porém é adaptável para outros dispositivos, como celular e monitores.
