@@ -134,7 +134,7 @@
 
 .confirm-order {
 	bottom: 0;
-	margin: 0;
+	margin: -20px 0;
 	position: absolute;
 }
 
@@ -241,6 +241,10 @@ a {
 		width: 60vw; 
 	}
 
+	.confirm-order {
+		margin: 0;
+	}
+
 	.border-menu {
 		display: flex;
 		justify-content: space-around;
@@ -257,9 +261,9 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
-	.menu {
+	/* .menu {
     top: 350px;
-	}
+	} */
 
 	.buttons-options-menu button {
 		font-size: 16px;
