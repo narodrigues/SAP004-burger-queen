@@ -13,24 +13,24 @@
 ---
 
 ## 1.  Introdução
-O presente projeto proposto pela Laboratória foi realizado em duplas, com o objetivo de desenvolver um aplicativo web que forneça serviço à uma hamburgeria perminutindo vizualizar e manipular pedidos, fornecendo funcionalidades de acordo com as necessidades e histórias de usuário.
+O presente projeto proposto pela Laboratória foi realizado em duplas, com o objetivo de desenvolver um aplicativo web que forneça serviço à uma hamburgeria permitindo vizualizar e manipular pedidos, fornecendo funcionalidades de acordo com as necessidades e histórias de usuário.
 
 ## 2. Wonderland Burger
 Wonderland Burger é um fast food 24hrs que possue um aplicativo que presta serviço para realizar pedidos e monitorar a cozinha no auxilio das comandas.
-Este possue dois menus, um para o café da manhã e outro apra o restante do dia.
+Este possue dois menus, um para o café da manhã e outro para o restante do dia.
 
-## 3. Desevolvimento
+## 3. Desenvolvimento
 
 Procuramos prezar pela funcionalidade da plataforma e a medida que íamos cumprindo as histórias de usuário, passamos a estilizá-lo.
 
 Dividimos o projeto em pastas para melhor organização e componentizamos aqueles itens que seriam reutilizados futuramente. Prezamos por entregar sempre o MVP durante as sprints, e assim que iam sendo dadas por completo, realizamos a reestruturação do código e manipulação do css.
 
-Trabalhamos com o banco de dados do Firebase ([Cloud Firestore](https://firebase.google.com/docs/firestore)) e para conseguirmos desenvolver, dividimos algumas tarefas simples e também trabalhamos em pair programming em alguns momentos.
+Trabalhamos com o banco de dados do Firebase ([Cloud Firestore](https://firebase.google.com/docs/firestore)) e para conseguirmos desenvolver, separamos algumas tarefas simples e também trabalhamos em pair programming em alguns momentos.
 
 ## 3.1 Protótipação e Layout
 A interface foi pensada específicamente para rodar em **tablets**, porém é adaptável para outros dispositivos, como celular e monitores.
 
-Com isso, fizemos a prototipação do layout e desenvolvemos nossa plataforma seguindo-o à risca.
+Com isso, fizemos a prototipação do layout e desenvolvemos nossa plataforma seguindo-o conforme dava.
 
 <img src='./src/assets/img-readme.png' alt='foto da prototipação'>
 
