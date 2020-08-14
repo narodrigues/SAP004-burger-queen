@@ -35,7 +35,7 @@
 
 .cork-orders {
 	text-align: center;
-	width: 60vw;
+	width: 70vw;
 }
 
 .orders-wrap {
@@ -54,6 +54,15 @@
 @media screen and (max-width: 320px) {
 	.order-background {
     top: 220px;
+    width: 92vw;
+  }
+
+  .orders-wrap {
+    height: 49.5vh;
+  }
+
+  .cork-orders {
+    width: 75vw;
   }
 }
 
