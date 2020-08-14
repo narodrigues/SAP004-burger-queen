@@ -27,7 +27,7 @@ Dividimos o projeto em pastas para melhor organização e componentizamos aquele
 
 Durante o desenvolvimento, trabalhamos de forma autônoma, pegando pequenas funcionalidades e trabalhando nestas, mas também trabalhamos em pair programming para alinhamento inicial da estruturação do projeto.
 
-## 3.1 Protótipação e Layout
+## 3.1 Prototipação e Layout
 A interface foi pensada especificamente para rodar em **tablets**, porém é responsiva para outros dispositivos, como celular e monitores.
 
 Fizemos a prototipação do layout utilizando o Adobe XD e assim a seguimos conforme desenvolvemos nossa plataforma, realizando ajustes e melhorias conforme as sprints.
