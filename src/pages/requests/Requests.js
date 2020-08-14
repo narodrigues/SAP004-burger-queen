@@ -75,7 +75,6 @@ export default function Requests() {
         </Button>
       </div>
 
-
       <Cork name='PRONTOS' secondName='ENTREGUES'
         children={readyOrder &&
           readyOrder.map(item => (
