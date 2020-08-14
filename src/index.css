@@ -13,6 +13,10 @@ fieldset {
 	margin-bottom: 40px;
 }
 
+svg {
+	color: #313131;
+}
+
 #root {
   width: 100vw;
 }
@@ -41,8 +45,9 @@ fieldset {
 }
 
 .error-msg {
-	color: red;
-  font-weight: bold;
+	color: red !important;
+	font-weight: bold;
+	margin-top: 15px;
 }
 
 .modal-config {
@@ -56,6 +61,20 @@ fieldset {
 	text-align: center;
 	top: 50%; 
 	width: 350px;
+}
+
+.table-number {
+	align-items: center;
+	background: #313131;
+	border-radius: 10px 10px 0 0;
+	color: white;
+	display: flex;
+	height: 50px;
+	justify-content: center;
+	left: -15px;
+	position: relative;
+	top: -15px;
+	width: 200px;
 }
 
 @media screen and (max-width: 320px) {

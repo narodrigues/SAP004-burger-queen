@@ -11,10 +11,6 @@ body::-webkit-scrollbar-thumb {
 	outline: 1px solid slategrey;
 }
 
-.bolder {
-	font-weight: bold !important;
-}
-
 .divs-orders {
 	background: white;
 	border-radius: 10px;
@@ -26,10 +22,6 @@ body::-webkit-scrollbar-thumb {
 	margin: 0 14px 40px 14px;;
 	padding: 15px;
 	width: 235px;
-}
-
-.divs-orders p {
-	margin-top: 10px;
 }
 
 .divs-orders .standard-btn {
@@ -47,15 +39,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 .divs-orders .p-orders {
+	border-bottom: 2px dashed #bdbdbd;
 	font-size: 15px;
+	padding: 8px 0px;
 	text-align: start;
 	width: 50vw;
 }
 
-.divs-orders .p-orders:nth-child(1) {
-	font-size: 16px;
-	margin-top: 5px;
-	text-align: center;
+.divs-orders p {
+	padding: 5px 0px;
+}
+
+.p-orders:last-child {
+	border: none;
 }
 
 .general-status {

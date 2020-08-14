@@ -105,6 +105,7 @@
 
 .only-option-menu {
 	cursor: pointer;
+	font-size: 18px;
 	margin: 5px 0px 15px 0px;
 	text-align: center;
 	width: 150px;
@@ -134,7 +135,7 @@
 
 .confirm-order {
 	bottom: 0;
-	margin: 0;
+	margin: -20px 0;
 	position: absolute;
 }
 
@@ -161,7 +162,7 @@
 }
 
 .orders .request-plus-minus p {
-	font-size: 16px;
+	font-size: 18px;
 	text-align: start;
 }
 
@@ -191,12 +192,14 @@
 	background: none;
 	border: none;
 	display: flex;
-	margin: 6px;
+	margin: 10px;
 }
 
 .icon {
 	color: white;
-	width: 20px;
+	cursor: pointer;
+	height: 25px;
+	width: 25px;
 }
 
 .total {
@@ -241,6 +244,10 @@ a {
 		width: 60vw; 
 	}
 
+	.confirm-order {
+		margin: 0;
+	}
+
 	.border-menu {
 		display: flex;
 		justify-content: space-around;
@@ -257,9 +264,9 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
-	.menu {
+	/* .menu {
     top: 350px;
-	}
+	} */
 
 	.buttons-options-menu button {
 		font-size: 16px;

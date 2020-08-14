@@ -58,6 +58,7 @@ export default function Login() {
           <Input type='password' placeholder='senha' id='password-login' onChange={e => setPassword(e.target.value)} />
           {showErrorPassword && <p className='error-msg'>Sua senha deve ter mais de 6 dígitos.</p>}
           <div className='div-buttons-login'>
+        
             <Button id='btn-login' className='button' name='Entrar' handleClick={e => login(e, email, password)} />
             <span>Ainda não é registrado? <button className='register-link' onClick={e => changeVisibility(e, modalVisibility)}>Registre-se</button></span>
           </div>
