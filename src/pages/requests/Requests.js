@@ -35,8 +35,8 @@ export default function Requests() {
       .collection('orders')
       .doc(item.id)
       .update({
-        status: "Entregue",
-        finalTime: new Date().toLocaleString(),
+        status: 'Entregue',
+        finalTime: new Date().toLocaleString("en-ZA"),
       });
 
     const filter = readyOrder.filter(orders => orders !== item);
@@ -74,6 +74,7 @@ export default function Requests() {
           <Link to='/hall'>voltar ❯</Link>
         </Button>
       </div>
+
 
       <Cork name='PRONTOS' secondName='ENTREGUES'
         children={readyOrder &&
