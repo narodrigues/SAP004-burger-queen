@@ -114,7 +114,7 @@
 .only-option-menu img {
 	border: transparent;
 	border-radius: 15px;
-	height: 100px;
+	height: 120px;
 	width: 100%;
 }
 
@@ -264,10 +264,6 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
-	/* .menu {
-    top: 350px;
-	} */
-
 	.buttons-options-menu button {
 		font-size: 16px;
 		height: 50px;
