@@ -67,7 +67,7 @@ export default function Requests() {
 
   return (
     <>
-      <Header className='header'/>
+      <Header className='header' />
       <div className='back-to-hat buttons-option'>
         <Img src={Hat} alt='chapéu' />
         <Button>
