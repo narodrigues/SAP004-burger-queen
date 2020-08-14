@@ -1,5 +1,6 @@
 import './requests.css';
 import { Link } from 'react-router-dom';
+import { FaUserAlt, FaStopwatch } from 'react-icons/fa';
 import Button from '../../components/button/Button'
 import Cork from '../../components/cork/Cork';
 import firebase from '../../configure-firebase';
@@ -54,8 +55,8 @@ export default function Requests() {
   const printOrders = item => {
     return (
       <>
-        <p><span className='bolder'>Cliente:</span> {item.client}</p>
-        <p><span className='bolder'>Mesa:</span> {item.table}</p>
+        <p className='table-number'>Mesa: {item.table}</p>
+        <p><FaUserAlt /> {item.client}</p>
         <p className={`general-status ${item.status.toLowerCase()}`}>{item.status}</p>
         {item.order.map(pedido =>
           <p className='p-orders'>•{pedido.count} x {pedido.name}</p>
@@ -90,7 +91,7 @@ export default function Requests() {
           completedOrder.map(item => (
             <div className='divs-orders' key={item.id}>
               {printOrders(item)}
-              <p><span className='bolder'>Tempo total:</span> {Math.floor(moment.duration(moment(item.finalTime).diff(item.initialTime)).asMinutes())} minuto(s)</p>
+              <p className='time'><FaStopwatch /> {Math.floor(moment.duration(moment(item.finalTime).diff(item.initialTime)).asMinutes())} min</p>
               <div>
                 <Button name='DELETAR' handleClick={() => deleteOrder(item.id)} />
               </div>
