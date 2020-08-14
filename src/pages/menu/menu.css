@@ -146,7 +146,7 @@
 .orders {
 	display: flex;
 	flex-direction: column;
-	height: 45vh;
+	height: 35vh;
 	overflow: auto;
 	padding: 20px;
 	white-space: pre-wrap;
@@ -246,6 +246,10 @@ a {
 
 	.confirm-order {
 		margin: 0;
+	}
+
+	.orders {
+		height: 39vh;
 	}
 
 	.border-menu {
