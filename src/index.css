@@ -74,7 +74,7 @@ svg {
 	left: -15px;
 	position: relative;
 	top: -15px;
-	width: 200px;
+	width: 235px;
 }
 
 @media screen and (max-width: 320px) {
@@ -108,6 +108,10 @@ svg {
 
 	.buttons-option button {
 		font-size: 15px;
+	}
+	
+	.table-number {
+		width: 200px;
 	}
 }
 
