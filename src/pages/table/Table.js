@@ -56,7 +56,7 @@ export default function Table() {
           table: table,
           status: "Pendente",
           id: orderId,
-          initialTime: new Date().toLocaleString(),
+          initialTime: new Date().toLocaleString("en-ZA"),
         });
     }
   }
