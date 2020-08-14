@@ -45,8 +45,9 @@ svg {
 }
 
 .error-msg {
-	color: red;
-  font-weight: bold;
+	color: red !important;
+	font-weight: bold;
+	margin-top: 15px;
 }
 
 .modal-config {
