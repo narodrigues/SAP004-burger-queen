@@ -185,7 +185,7 @@ const Menu = () => {
               <div className='request-plus-minus' key={item.name}>
                 <p key={index}>{item.name}</p>
                 <div className='div-btn-icons'>
-                  <button className='icon-btn'> <FaMinusCircle className='icon' onClick={() => reduceItem(item)} /></button>
+                  <button className='icon-btn'><FaMinusCircle className='icon' onClick={() => reduceItem(item)} /></button>
                   <span>{item.count}</span>
                   <button className='icon-btn' onClick={() => getRequests(item)}><FaPlusCircle className='icon' /></button>
                 </div>

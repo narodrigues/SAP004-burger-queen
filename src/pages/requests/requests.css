@@ -7,6 +7,10 @@
 	color: white;
 }
 
+.time {
+	margin-top: 8px;
+}
+
 @media screen and (min-width: 600px) {
 	.back-to-hat img {
 		display: block;

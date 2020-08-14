@@ -14,7 +14,7 @@ export default function Register() {
   const [showErrorPassword, setErrorPassword] = useState();
   const [showErrorEmptyRadios, setErrorEmptyRadios] = useState();
 
-  function validForm() {
+  const validForm = () => {
     setErrorNameEmpty(false);
     setErrorPassword(false);
     setErrorEmailInvalid(false);
