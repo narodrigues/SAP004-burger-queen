@@ -72,6 +72,7 @@
 }
 
 .menu-principal {
+	box-shadow: 20px 17px 20px #717171a6;
 	margin: 0;
 	width: 100vw; 
 	z-index: 1;
@@ -120,6 +121,7 @@
 
 .requests {
 	align-items: center;
+	box-shadow: 20px 17px 20px #717171a6;
 	display: flex;
 	flex-direction: column;
 	height: 62vh;

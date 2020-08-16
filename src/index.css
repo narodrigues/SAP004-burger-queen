@@ -29,7 +29,15 @@ svg {
 .header .logo {
 	position: absolute;
 	top: 0;
+	width: 180px;
+}
+
+.header-hall .header .logo {
 	width: 200px;
+}
+
+.header-hall .buttons-option {
+	top: 200px;
 }
 
 .buttons-option {
@@ -37,7 +45,7 @@ svg {
 	flex-direction: row;
 	justify-content: space-evenly;
 	position: relative;
-	top: 200px;
+	top: 170px;
 }
 
 .buttons-option button {
@@ -94,18 +102,26 @@ svg {
 	}
 	
 	.header .logo {
-		left: 30px;
+		left: 7%;
 		top: 30px;
-    	width: 240px;
+		width: 240px;
 	}
 
 	.buttons-option {
 		flex-direction: column;
 		position: absolute;
-		right: 30px;
+		right: 7%;
 		top: 5vh !important;
 	}
 
+	.header-hall .header .logo {
+		left: 1.5%;
+	}
+
+	.header-hall .buttons-option {
+		right: 1.5%;
+	}
+	
 	.buttons-option button {
 		font-size: 15px;
 	}
@@ -116,13 +132,31 @@ svg {
 }
 
 @media screen and (min-width: 850px) {
+	.header .logo {
+		width: 230px;
+	}
+
 	.buttons-option {
 		top: 30px;
 	}
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 1024px) {
 	.header .logo {
-		width: 230px;
+		left: 1.5%;
+	}
+
+	.buttons-option {
+		right: 1.5%;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.header .logo {
+		left: 12.5%;
+	}
+
+	.buttons-option {
+		right: 12.5%;
 	}
 }

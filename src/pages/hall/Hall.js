@@ -16,13 +16,15 @@ export default function Hall() {
 
   return (
     <>
-      <Header className='header' />
-      <div className='back-to-hat buttons-option'>
-        <Img src={Hat} alt='chapéu' />
-        <Button>
-          <Link to='/requests'>Pedidos prontos</Link>
-        </Button>
-        <Button name='Sair' handleClick={logout} />
+      <div className='header-hall'>
+        <Header className='header' />
+        <div className='back-to-hat buttons-option'>
+          <Img src={Hat} alt='chapéu' />
+          <Button>
+            <Link to='/requests'>Pedidos prontos</Link>
+          </Button>
+          <Button name='Sair' handleClick={logout} />
+        </div>
       </div>
       <Menu />
     </>

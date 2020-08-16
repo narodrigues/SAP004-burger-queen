@@ -9,10 +9,13 @@ import Header from '../../components/header/Header';
 import Img from '../../components/imagem/Img'
 import moment from 'moment';
 import React, { useState, useEffect } from 'react';
+import Search from '../../components/search/Search';
 
 export default function Requests() {
   const [readyOrder, setReadyOrder] = useState([]);
   const [completedOrder, setCompletedOrder] = useState([]);
+  const [searchResultsReady, setSearchResultsReady] = useState([]);
+  const [searchResultsCompleted, setSearchResultsCompleted] = useState([]);
 
   useEffect(() => {
     firebase
@@ -26,6 +29,8 @@ export default function Requests() {
         );
         setReadyOrder(getData.filter(doc => doc.status === 'Pronto'));
         setCompletedOrder(getData.filter(doc => doc.status === 'Entregue'));
+        setSearchResultsReady(getData.filter(doc => doc.status === 'Pronto'));
+        setSearchResultsCompleted(getData.filter(doc => doc.status === 'Entregue'));
       });
   }, [])
 
@@ -71,13 +76,15 @@ export default function Requests() {
       <div className='back-to-hat buttons-option'>
         <Img src={Hat} alt='chapéu' />
         <Button>
-          <Link to='/hall'>voltar ❯</Link>
+          <Link to='/hall'>❮ voltar</Link>
         </Button>
       </div>
 
+      <Search order1={readyOrder} order2={completedOrder} onChange1={setSearchResultsReady} onChange2={setSearchResultsCompleted}/>
+
       <Cork name='PRONTOS' secondName='ENTREGUES'
-        children={readyOrder &&
-          readyOrder.map(item => (
+        children={
+          searchResultsReady.map(item => (
             <div className='divs-orders' key={item.id}>
               {printOrders(item)}
               <div>
@@ -87,8 +94,8 @@ export default function Requests() {
           ))
         }
 
-        secondChildren={completedOrder &&
-          completedOrder.map(item => (
+        secondChildren={
+          searchResultsCompleted.map(item => (
             <div className='divs-orders' key={item.id}>
               {printOrders(item)}
               <p className='time'><FaStopwatch /> {Math.floor(moment.duration(moment(item.finalTime).diff(item.initialTime)).asMinutes())} min</p>

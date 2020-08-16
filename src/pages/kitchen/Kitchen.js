@@ -1,16 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './kitchen.css';
 import { FaUserAlt } from 'react-icons/fa';
 import Button from '../../components/button/Button';
 import Cork from '../../components/cork/Cork';
 import firebase from '../../configure-firebase';
-import Hat from '../../assets/Mad-Hatter-Silhouette-1.png'
+import Hat from '../../assets/Mad-Hatter-Silhouette-1.png';
 import Header from '../../components/header/Header';
-import Img from '../../components/imagem/Img'
+import Img from '../../components/imagem/Img';
 import React, { useState, useEffect } from 'react';
+import Search from '../../components/search/Search';
 
 export default function Kitchen() {
   const [pendingOrder, setPendingOrder] = useState([]);
   const [readyOrder, setReadyOrder] = useState([]);
+  const [searchResultsPending, setSearchResultsPending] = useState([]);
+  const [searchResultsReady, setSearchResultsReady] = useState([]);
 
   const logout = () => {
     firebase
@@ -30,6 +34,8 @@ export default function Kitchen() {
         );
         setPendingOrder(getData.filter(doc => doc.status === 'Pendente'));
         setReadyOrder(getData.filter(doc => doc.status === 'Pronto'));
+        setSearchResultsPending(getData.filter(doc => doc.status === 'Pendente'));
+        setSearchResultsReady(getData.filter(doc => doc.status === 'Pronto'));
       });
   }, []);
 
@@ -68,9 +74,11 @@ export default function Kitchen() {
         <Button name='Sair' handleClick={logout} />
       </div>
 
+      <Search order1={pendingOrder} order2={readyOrder} onChange1={setSearchResultsPending} onChange2={setSearchResultsReady}/>
+
       <Cork name='PREPARANDO'
-        children={ pendingOrder &&
-          pendingOrder.map(item => (
+        children={ 
+          searchResultsPending.map(item => (
             <div className='divs-orders' key={item.id}>
               {printInfos(item)}
               <div>
@@ -80,8 +88,8 @@ export default function Kitchen() {
           ))
         }
 
-        secondChildren={readyOrder &&
-          readyOrder.map(item => (
+        secondChildren={
+          searchResultsReady.map(item => (
             <div className='divs-orders' key={item.id}>
               {printInfos(item)}
             </div>

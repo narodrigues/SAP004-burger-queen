@@ -75,7 +75,7 @@ export default function Table() {
             <div className='div-buttons-order'>
               <Button id='btn-order' className='button' name='Fazer pedido' handleClick={e => sendOrder(e, modalVisibility)} />
               <Button id='btn-return' className='button'>
-                <Link to='/hall'>VOLTAR</Link>
+                <Link to='/hall'>❮ voltar</Link>
               </Button>
             </div>
           </form>
