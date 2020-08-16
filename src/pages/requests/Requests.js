@@ -80,7 +80,7 @@ export default function Requests() {
         </Button>
       </div>
 
-      <Search order1={readyOrder} order2={completedOrder} onChange1={setSearchResultsReady} onChange2={setSearchResultsCompleted}/>
+      <Search orderLeft={readyOrder} orderRight={completedOrder} onChangeLeftOrder={setSearchResultsReady} onChangeRightOrder={setSearchResultsCompleted}/>
 
       <Cork name='PRONTOS' secondName='ENTREGUES'
         children={

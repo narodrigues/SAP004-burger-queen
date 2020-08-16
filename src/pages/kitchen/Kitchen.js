@@ -74,7 +74,7 @@ export default function Kitchen() {
         <Button name='Sair' handleClick={logout} />
       </div>
 
-      <Search order1={pendingOrder} order2={readyOrder} onChange1={setSearchResultsPending} onChange2={setSearchResultsReady}/>
+      <Search orderLeft={pendingOrder} orderRight={readyOrder} onChangeLeftOrder={setSearchResultsPending} onChangeRightOrder={setSearchResultsReady}/>
 
       <Cork name='PREPARANDO'
         children={ 
