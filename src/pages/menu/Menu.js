@@ -25,7 +25,7 @@ const Menu = () => {
   const [btnColor2, setBtnColor2] = useState(true);
   const totalPrice = orders.reduce((total, acc) => total + (Number(acc.price) * acc.count), 0);
   let history = useHistory();
-  
+
   useEffect(() => {
     menu('allDay');
   }, []);
@@ -35,20 +35,21 @@ const Menu = () => {
     setBtnColor2(!btnColor2);
     setCurrentMenu(chosenMenu);
 
-    chosenMenu === 'breakfast' ? 
+    const getItensFromDatabase = (collectionDB, state) => {
       firebase
         .firestore()
-        .collection('breakfast')
+        .collection(collectionDB)
         .onSnapshot(querySnapshot => {
-          querySnapshot.forEach(doc => setMenuBreakfast(doc.data()));
-        }) 
-    : firebase
-        .firestore()
-        .collection('allday')
-        .onSnapshot(querySnapshot => {
-          querySnapshot.forEach(doc => setMenuAllDay(doc.data()));
-        });
+          querySnapshot.forEach(state);
+        })
+    }
+
+    chosenMenu === 'breakfast' ?
+      getItensFromDatabase('breakfast', doc => setMenuBreakfast(doc.data()))
+      : getItensFromDatabase('allday', doc => setMenuAllDay(doc.data()))
+
   }
+
 
   const getBurger = item => {
     setBurger(item);
@@ -98,7 +99,7 @@ const Menu = () => {
       item.count--;
     item.count <= 0 &&
       orders.splice(orders.indexOf(item), 1);
-      setOrders([...orders]);
+    setOrders([...orders]);
   }
 
   const ordersToCollection = () => {
@@ -136,13 +137,13 @@ const Menu = () => {
   }
 
   const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  
+
   return (
     <section className='menu'>
       <div className='div-menu'>
         <div className='buttons-options-menu'>
-          <Button name='Matinal' value='breakfast' className={btnColor2 ? 'button-true option-menu-food': 'button-false option-menu-food'} handleClick={e => menu(e.target.value)} />
-          <Button name='Almoço/Janta' value='allDay' className={btnColor ? 'button-true option-menu-food': 'button-false option-menu-food'} handleClick={e => menu(e.target.value)} />
+          <Button name='Matinal' value='breakfast' className={btnColor2 ? 'button-true option-menu-food' : 'button-false option-menu-food'} handleClick={e => menu(e.target.value)} />
+          <Button name='Almoço/Janta' value='allDay' className={btnColor ? 'button-true option-menu-food' : 'button-false option-menu-food'} handleClick={e => menu(e.target.value)} />
         </div>
         <div className='menu-principal bg-color'>
           <div className='bg-color'>
