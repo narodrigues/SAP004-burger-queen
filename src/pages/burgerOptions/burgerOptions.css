@@ -64,8 +64,8 @@
 	font-size: 17px;
 }
 
-.modal-form input[type=radio] {
-	margin: 0;
+.modal-form input[type=radio], input[type=checkbox] {
+	margin: 10px !important;
 }
 
 .meat-option {

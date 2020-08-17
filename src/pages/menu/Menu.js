@@ -21,32 +21,32 @@ const Menu = () => {
   const [currentMenu, setCurrentMenu] = useState();
   const [orders, setOrders] = useState([]);
   const [burger, setBurger] = useState();
-  const [btnColor, setBtnColor] = useState(false);
-  const [btnColor2, setBtnColor2] = useState(true);
+  const [allDayBtnColor, setAllDayBtnColor] = useState(false);
+  const [breakfastBtnColor, setBreakfastBtnColor] = useState(true);
   const totalPrice = orders.reduce((total, acc) => total + (Number(acc.price) * acc.count), 0);
   let history = useHistory();
-  
+
   useEffect(() => {
     menu('allDay');
   }, []);
 
+  const getItemsFromDatabase = (collectionDB, func) => {
+    firebase
+      .firestore()
+      .collection(collectionDB)
+      .onSnapshot(querySnapshot => {
+        querySnapshot.forEach(doc => func(doc.data()));
+      })
+  }
+
   const menu = chosenMenu => {
-    setBtnColor(!btnColor);
-    setBtnColor2(!btnColor2);
+    setAllDayBtnColor(!allDayBtnColor);
+    setBreakfastBtnColor(!breakfastBtnColor);
     setCurrentMenu(chosenMenu);
 
-    const getItemsFromDB = (collection, func) => {
-      firebase
-      .firestore()
-      .collection(collection)
-      .onSnapshot(querySnapshot => {
-        querySnapshot.forEach(func);
-      }) 
-    }
-
-    chosenMenu === 'breakfast' ? 
-      getItemsFromDB('breakfast', doc => setMenuBreakfast(doc.data()))
-    : getItemsFromDB('allday', doc => setMenuAllDay(doc.data()))
+    chosenMenu === 'breakfast' ?
+      getItemsFromDatabase('breakfast', setMenuBreakfast)
+    : getItemsFromDatabase('allday', setMenuAllDay);
   }
 
   const getBurger = item => {
@@ -97,7 +97,7 @@ const Menu = () => {
       item.count--;
     item.count <= 0 &&
       orders.splice(orders.indexOf(item), 1);
-      setOrders([...orders]);
+    setOrders([...orders]);
   }
 
   const ordersToCollection = () => {
@@ -135,13 +135,13 @@ const Menu = () => {
   }
 
   const brazilianCurrency = item => Number(item).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  
+
   return (
     <section className='menu'>
       <div className='div-menu'>
         <div className='buttons-options-menu'>
-          <Button name='Matinal' value='breakfast' className={btnColor2 ? 'button-true option-menu-food': 'button-false option-menu-food'} handleClick={e => menu(e.target.value)} />
-          <Button name='Almoço/Janta' value='allDay' className={btnColor ? 'button-true option-menu-food': 'button-false option-menu-food'} handleClick={e => menu(e.target.value)} />
+          <Button name='Matinal' value='breakfast' className={breakfastBtnColor ? 'button-true option-menu-food' : 'option-menu-food'} handleClick={e => menu(e.target.value)} />
+          <Button name='Almoço/Janta' value='allDay' className={allDayBtnColor ? 'button-true option-menu-food' : 'option-menu-food'} handleClick={e => menu(e.target.value)} />
         </div>
         <div className='menu-principal bg-color'>
           <div className='bg-color'>
@@ -186,7 +186,7 @@ const Menu = () => {
                 <div className='div-btn-icons'>
                   <button className='icon-btn'><FaMinusCircle className='icon' onClick={() => reduceItem(item)} /></button>
                   <span>{item.count}</span>
-                  <button className='icon-btn' onClick={() => getRequests(item)}><FaPlusCircle className='icon' /></button>
+                  <button className='icon-btn'><FaPlusCircle className='icon' onClick={() => getRequests(item)}/></button>
                 </div>
               </div>
             ))}

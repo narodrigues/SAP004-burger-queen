@@ -17,6 +17,11 @@ svg {
 	color: #313131;
 }
 
+input[type=radio], input[type=checkbox] {
+	height: 20px;
+	width: 20px;
+}
+
 #root {
   width: 100vw;
 }

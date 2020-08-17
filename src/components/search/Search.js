@@ -10,11 +10,11 @@ const Search = props => {
     const nameResultLeftOrder = props.orderLeft.filter(order => 
       order.client.toLowerCase().indexOf(searchTerm.toLowerCase()) === 0
     );
-    const tableResultLeftOrder = props.orderLeft.filter(order => 
-      order.table.toLowerCase().includes(searchTerm)
-    );
     const nameResultRightOrder = props.orderRight.filter(order => 
       order.client.toLowerCase().indexOf(searchTerm.toLowerCase()) === 0
+    );
+    const tableResultLeftOrder = props.orderLeft.filter(order => 
+      order.table.toLowerCase().includes(searchTerm)
     );
     const tableResultRightOrder = props.orderRight.filter(order => 
       order.table.toLowerCase().includes(searchTerm)
