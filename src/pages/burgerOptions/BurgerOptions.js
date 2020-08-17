@@ -15,7 +15,7 @@ const ModalBurger = props => {
     setCheese(false);
   }
 
-  function validForm() {
+  const validForm = () => {
     setErrorMeat(false);
 
     let isValid = true;

@@ -35,19 +35,18 @@ const Menu = () => {
     setBtnColor2(!btnColor2);
     setCurrentMenu(chosenMenu);
 
-    chosenMenu === 'breakfast' ? 
+    const getItemsFromDB = (collection, func) => {
       firebase
-        .firestore()
-        .collection('breakfast')
-        .onSnapshot(querySnapshot => {
-          querySnapshot.forEach(doc => setMenuBreakfast(doc.data()));
-        }) 
-    : firebase
-        .firestore()
-        .collection('allday')
-        .onSnapshot(querySnapshot => {
-          querySnapshot.forEach(doc => setMenuAllDay(doc.data()));
-        });
+      .firestore()
+      .collection(collection)
+      .onSnapshot(querySnapshot => {
+        querySnapshot.forEach(func);
+      }) 
+    }
+
+    chosenMenu === 'breakfast' ? 
+      getItemsFromDB('breakfast', doc => setMenuBreakfast(doc.data()))
+    : getItemsFromDB('allday', doc => setMenuAllDay(doc.data()))
   }
 
   const getBurger = item => {

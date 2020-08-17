@@ -4,7 +4,7 @@ import Input from '../input/Input';
 import React, { useState, useEffect } from 'react';
 
 const Search = props => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const nameResultLeftOrder = props.orderLeft.filter(order => 
