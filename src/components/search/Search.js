@@ -6,19 +6,23 @@ import React, { useState, useEffect } from 'react';
 const Search = props => {
   const [searchTerm, setSearchTerm] = useState('');
 
+  const filterArr = (arr, callback) => {
+    return arr.filter(callback);
+  }
+
+  const filterByName = (order, key) => {
+    return order[key].toLowerCase().indexOf(searchTerm.toLowerCase()) === 0;
+  }
+
+  const filterByTable = (order, key) => {
+    return order[key].toLowerCase().includes(searchTerm);
+  }
+
   useEffect(() => {
-    const nameResultLeftOrder = props.orderLeft.filter(order => 
-      order.client.toLowerCase().indexOf(searchTerm.toLowerCase()) === 0
-    );
-    const nameResultRightOrder = props.orderRight.filter(order => 
-      order.client.toLowerCase().indexOf(searchTerm.toLowerCase()) === 0
-    );
-    const tableResultLeftOrder = props.orderLeft.filter(order => 
-      order.table.toLowerCase().includes(searchTerm)
-    );
-    const tableResultRightOrder = props.orderRight.filter(order => 
-      order.table.toLowerCase().includes(searchTerm)
-    );
+    const nameResultLeftOrder = filterArr(props.orderLeft, order => filterByName(order, 'client'));
+    const nameResultRightOrder = filterArr(props.orderRight, order => filterByName(order, 'client'));
+    const tableResultLeftOrder = filterArr(props.orderLeft, order => filterByTable(order, 'table'));
+    const tableResultRightOrder = filterArr(props.orderRight, order => filterByTable(order, 'table'));
 
     nameResultLeftOrder.length !== 0 ? props.onChangeLeftOrder(nameResultLeftOrder) : props.onChangeLeftOrder(tableResultLeftOrder);
     nameResultRightOrder.length !== 0 ? props.onChangeRightOrder(nameResultRightOrder) : props.onChangeRightOrder(tableResultRightOrder);
